@@ -13,9 +13,9 @@ installation instructions
 technology stack
 ================
 
-> codeigniter 3.0 --
+* codeigniter 3.0
 
-> ion_auth 2.6
+* ion_auth 2.6
 
 
 
