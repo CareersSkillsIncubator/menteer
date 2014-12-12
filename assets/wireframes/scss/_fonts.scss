@@ -1,0 +1,94 @@
+@font-face {
+    font-family: 'avenir';
+    src: url('../fonts/avenir-roman-webfont.eot');
+    src: url('../fonts/avenir-roman-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/avenir-roman-webfont.woff2') format('woff2'),
+         url('../fonts/avenir-roman-webfont.woff') format('woff'),
+         url('../fonts/avenir-roman-webfont.ttf') format('truetype'),
+         url('../fonts/avenir-roman-webfont.svg#avenir_55roman') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'avenir';
+    src: url('../fonts/avenir-light-webfont.eot');
+    src: url('../fonts/avenir-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/avenir-light-webfont.woff2') format('woff2'),
+         url('../fonts/avenir-light-webfont.woff') format('woff'),
+         url('../fonts/avenir-light-webfont.ttf') format('truetype'),
+         url('../fonts/avenir-light-webfont.svg#avenir_35_lightregular') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'avenir';
+    src: url('../fonts/avenir-medium-webfont.eot');
+    src: url('../fonts/avenir-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/avenir-medium-webfont.woff2') format('woff2'),
+         url('../fonts/avenir-medium-webfont.woff') format('woff'),
+         url('../fonts/avenir-medium-webfont.ttf') format('truetype'),
+         url('../fonts/avenir-medium-webfont.svg#avenirregular') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'icomoon';
+    src:url('../fonts/icomoon.eot?-xv4m2w');
+    src:url('../fonts/icomoon.eot?#iefix-xv4m2w') format('embedded-opentype'),
+        url('../fonts/icomoon.woff?-xv4m2w') format('woff'),
+        url('../fonts/icomoon.ttf?-xv4m2w') format('truetype'),
+        url('../fonts/icomoon.svg?-xv4m2w#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow:before {
+    content: "\e60a";
+}
+.icon-arrow2:before {
+    content: "\e60b";
+}
+.icon-calendar:before {
+    content: "\e600";
+}
+.icon-facebook:before {
+    content: "\e601";
+}
+.icon-folder:before {
+    content: "\e602";
+}
+.icon-linkedin:before {
+    content: "\e603";
+}
+.icon-note:before {
+    content: "\e604";
+}
+.icon-settings:before {
+    content: "\e605";
+}
+.icon-twitter:before {
+    content: "\e606";
+}
+.icon-user:before {
+    content: "\e607";
+}
+.icon-user1:before {
+    content: "\e608";
+}
+.icon-check:before {
+    content: "\e609";
+}

@@ -53,7 +53,7 @@
             </div>
         </div>
     </div>
-    <div class="section win-height item item-color" id="menteers">
+    <div class="section win-height item item-color hide" id="menteers">
         <div class="container">
             <div class="row">
                 <span class="circle item"></span>
@@ -131,7 +131,9 @@
                     <section class="contact-box">
                         <h1>CONTACT</h1>
                         <div class="map-box">
-                            <a href="https://www.google.ca/maps/place/585+Dundas+St+E,+Toronto,+ON+M5A+2B7/@43.6600772,-79.3620626,17z/data=!4m7!1m4!3m3!1s0x89d4cb413e1c6fb1:0xb144ee9ef7704193!2s585+Dundas+St+E,+Toronto,+ON+M5A+2B7!3b1!3m1!1s0x89d4cb413e1c6fb1:0xb144ee9ef7704193"><img src="/assets/images/img-map.jpg" height="283" width="392" alt="Regent Park 585 Dundas St E Toronto, ON M5A 2B7 Canada"></a>
+
+                            <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ca/maps?q=585+Dundas+St+E,+Toronto,+ON+M5A+2B7&amp;ie=UTF8&amp;hq=&amp;hnear=585+Dundas+St+E,+Toronto,+Ontario+M5A+2B7&amp;ll=43.660077,-79.362063&amp;spn=0.00676,0.01074&amp;t=m&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://maps.google.ca/maps?q=585+Dundas+St+E,+Toronto,+ON+M5A+2B7&amp;ie=UTF8&amp;hq=&amp;hnear=585+Dundas+St+E,+Toronto,+Ontario+M5A+2B7&amp;ll=43.660077,-79.362063&amp;spn=0.00676,0.01074&amp;t=m&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left"></a></small>
+
                         </div>
                         <address>Regent Park 585 Dundas St E<br> Toronto, ON M5A 2B7 Canada</address>
                     </section>
