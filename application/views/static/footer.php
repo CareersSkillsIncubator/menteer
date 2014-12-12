@@ -21,5 +21,7 @@
 <script type="text/javascript">window.jQuery || document.write('<script src="/assets/js/jquery-1.11.1.min.js"><\/script>')</script>
 <script type="text/javascript" src="/assets/js/jquery.main.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/application.js"></script>
+
 </body>
 </html>

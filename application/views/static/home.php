@@ -105,23 +105,26 @@
                 <div class="col-sm-6">
                     <section class="contact-box">
                         <h1>LOG IN</h1>
-                        <form role="form" class="sign-form">
+
+                        <?php echo form_open("#",array('class'=>'sign-form','role'=>'form'));?>
+                            <div id="login-error-message" class="alert alert-danger hide">Username or Password Incorrect</div>
                             <div class="form-group">
-                                <label for="name">NAME</label>
-                                <input type="text" class="form-control" id="name">
+                                <label for="name">EMAIL</label>
+                                <input type="text" class="form-control" id="login-email">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password">
+                                <input type="password" class="form-control" id="login-password">
                             </div>
                             <div class="checkbox">
                                 <input type="checkbox" id="check-1"><label for="check-1">REMEMBER ME</label>
                             </div>
                             <div class="btn-holder">
-                                <button type="submit" class="btn btn-default">Submit</button>
+                                <button id="submit-login" type="submit" class="btn btn-default">Submit</button>
                                 <p class="help-block"><a href="#">Forgot Password?</a><br><a href="#">Sign Me Up?</a></p>
                             </div>
-                        </form>
+                        <?php echo form_close();?>
+
                     </section>
                 </div>
                 <div class="col-sm-6">
