@@ -57,7 +57,7 @@
 
     switch($_SERVER['HTTP_HOST']){
 
-        case "menteer.dev":
+        case "www.menteer.dev":
             define('ENVIRONMENT','development');
             break;
         default:

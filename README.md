@@ -21,4 +21,12 @@ technology stack / open source
 * ion_auth 2.6
 
 
+optional services used
+======================
+
+* sendgrid (email STMP)
+
+
+
+
 
