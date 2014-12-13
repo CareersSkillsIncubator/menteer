@@ -100,7 +100,7 @@
                                         <tr>
                                             <td width="30" height="30" align="right">
                                                 <div class="imgpop">
-                                                    <a target="_blank" href="https://www.facebook.com/#">
+                                                    <a target="_blank" href="https://www.facebook.com/CareerSkillsIncubator">
                                                         <img src="<?=base_url()?>assets/images/email/facebook.png" alt="" border="0" width="30" height="30" style="display:block; border:none; outline:none; text-decoration:none;">
                                                     </a>
                                                 </div>
@@ -108,7 +108,7 @@
                                             <td align="left" width="20" style="font-size:1px; line-height:1px;">&nbsp;</td>
                                             <td width="30" height="30" align="center">
                                                 <div class="imgpop">
-                                                    <a target="_blank" href="https://twitter.com/#">
+                                                    <a target="_blank" href="https://twitter.com/CSCIncubator">
                                                         <img src="<?=base_url()?>assets/images/email/twitter.png" alt="" border="0" width="30" height="30" style="display:block; border:none; outline:none; text-decoration:none;">
                                                     </a>
                                                 </div>
@@ -116,7 +116,7 @@
                                             <td align="left" width="20" style="font-size:1px; line-height:1px;">&nbsp;</td>
                                             <td width="30" height="30" align="center">
                                                 <div class="imgpop">
-                                                    <a target="_blank" href="https://www.linkedin.com/company/#">
+                                                    <a target="_blank" href="https://www.linkedin.com/vsearch/p?company=Career+Skills+Incubator&trk=prof-0-ovw-curr_pos">
                                                         <img src="<?=base_url()?>assets/images/email/linkedin.png" alt="" border="0" width="30" height="30" style="display:block; border:none; outline:none; text-decoration:none;">
                                                     </a>
                                                 </div>
@@ -296,7 +296,7 @@
                             <tbody>
                             <tr>
                                 <td align="center" valign="middle" style="line-height:15px; font-family: Helvetica, arial, sans-serif; font-size: 14px;color: #666666" st-content="postfooter">
-                                    &copy; <?=date('Y')?> <a href="<?=base_url()?>">Menteer.ca</a> | [Address Here] <br /> <a href="<?=base_url()?>unsubscribe" style="text-decoration: none; color: #b92c28">Unsubscribe</a> | <a href="<?=base_url()?>notifications" style="text-decoration: none; color: #b92c28">Manage Notifications</a> | <a href="<?=base_url()?>legal" style="text-decoration: none; color: #b92c28">Legal</a>
+                                    &copy; <?=date('Y')?> <a href="<?=base_url()?>">Menteer.ca</a> | Regent park 585 Dundas St E, Toronto ON M5A 2B7 Canada <br /> <a href="<?=base_url()?>" style="text-decoration: none; color: #b92c28">Unsubscribe</a> | <a href="<?=base_url()?>dashboard" style="text-decoration: none; color: #b92c28">Manage Notifications</a> | <a href="<?=base_url()?>" style="text-decoration: none; color: #b92c28">Legal</a>
                                 </td>
                             </tr>
                             <!-- Spacing -->

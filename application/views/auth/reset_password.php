@@ -1,11 +1,11 @@
-<section id="contact-main" class="contact-main section">
-    <div class="container text-center">
-    </div>
+<section id="contact-main" class="contact-main section visible-lg visible-md">
+    <div class="container text-center">&nbsp;</div>
 </section>
 <section class="container contact-form-section">
-    <h2 class="text-center">Choose a New Password</h2>
-    <p class="intro text-center">Nearly there, just enter your new password (twice, to be sure) and you'll be inside your dashboard again in seconds.</p>
-
+    <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3">
+        <h2 class="text-center">Choose a New Password</h2>
+        <p class="intro text-center">Nearly there, just enter your new password (twice, to be sure) and you'll be inside your dashboard again in seconds.</p>
+    </div>
     <div class="row text-center">
         <div class="contact-form col-md-6 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-0 col-xs-offset-0">
 
@@ -13,7 +13,7 @@
 
             <div id="reset-message-success" class="alert alert-success hide">Great! Your password has been changed.</div>
 
-            <?php echo form_open('#');?>
+            <?php echo form_open('#',array('class'=>'login-form sign-form2'));?>
                 <input type="hidden" name="code" value="<?=$code?>" />
                 <input type="hidden" name="user_id" value="<?=$this->encryption->encrypt($user_id['value'])?>" />
 

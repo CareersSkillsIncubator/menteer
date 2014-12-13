@@ -319,7 +319,7 @@ class Auth extends CI_Controller {
                     $this->data['page'] = 'reset';
                     $this->load->view('/static/header', $this->data);
                     $this->load->view('/auth/reset_password', $this->data);
-                    $this->load->view('/static/footer', $this->data);
+	                $this->load->view('/static/footer', $this->data);
                 }else{
                     $csrf_hash = $this->security->get_csrf_hash();
                     echo json_encode(array('vresult'=>'error','message'=>$this->data['message'],'csrf_hash'=>$csrf_hash));
@@ -358,7 +358,7 @@ class Auth extends CI_Controller {
 					{
 						//if the password was successfully changed
 		                $csrf_hash = $this->security->get_csrf_hash();
-                        echo json_encode(array('vresult'=>'success','message'=>'Great. Your password has been changed. Click <a data-toggle="modal" data-target="#login-modal" href="#">here</a> to login.','csrf_hash'=>$csrf_hash));
+                        echo json_encode(array('vresult'=>'success','message'=>'Great. Your password has been changed. Click <a data-toggle="modal" data-target="#login-modal" href="/#login">here</a> to login.','csrf_hash'=>$csrf_hash));
 
                     }
 					else

@@ -121,7 +121,7 @@
                             </div>
                             <div class="btn-holder">
                                 <button id="submit-login" type="submit" class="btn btn-default">Submit</button>
-                                <p class="help-block"><a href="#">Forgot Password?</a><br><a href="#">Sign Me Up?</a></p>
+                                <p class="help-block"><a href="#" data-toggle="modal" data-target="#forgot-modal">Forgot Password?</a><br><a href="#">Sign Me Up?</a></p>
                             </div>
                         <?php echo form_close();?>
 

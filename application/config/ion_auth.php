@@ -82,7 +82,7 @@ $config['salt_prefix']    = '$2y$';
  | appropriately. If this variable set to 0, there is no maximum.
  */
 $config['site_title']                 = "Menteer";       // Site Title, example.com
-$config['admin_email']                = "jason@udemo.ca"; // Admin Email, admin@example.com
+$config['admin_email']                = "hamiltonmascioli+menteer@gmail.com"; // Admin Email, admin@example.com
 $config['default_group']              = 'members';           // Default group, use name
 $config['admin_group']                = 'admin';             // Default administrators group, use name
 $config['identity']                   = 'email';             // A database column which is used to login with
