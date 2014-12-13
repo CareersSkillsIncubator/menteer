@@ -12,6 +12,12 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
         $this->data['page'] = 'home';
+
+        $this->data['remember_email'] = '';
+
+        if($this->input->cookie('rememberuseremail', TRUE))
+            $this->data['remember_email'] = $this->input->cookie('rememberuseremail', TRUE);
+
         $this->load->view('/static/header',$this->data);
 		$this->load->view('/static/home',$this->data);
         $this->load->view('/static/footer',$this->data);

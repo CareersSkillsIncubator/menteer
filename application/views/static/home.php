@@ -110,7 +110,7 @@
                             <div id="login-error-message" class="alert alert-danger hide">Username or Password Incorrect</div>
                             <div class="form-group">
                                 <label for="name">EMAIL</label>
-                                <input type="text" class="form-control" id="login-email">
+                                <input type="text" class="form-control" id="login-email" value="<?=$remember_email?>">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>

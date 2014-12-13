@@ -32,9 +32,12 @@ $( document ).ready(function() {
         var identity = $('#login-email').val();
         var password = $('#login-password').val();
 
+        var remember = $('#check-1').prop( "checked" );
+
         var form_data = {
             identity: identity,
             password: password,
+            remember: remember,
             csrf_tl_token: $("input[name=csrf_tl_token]").val(),
             is_ajax: '1'
         };

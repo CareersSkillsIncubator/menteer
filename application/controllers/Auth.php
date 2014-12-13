@@ -49,7 +49,7 @@ class Auth extends CI_Controller {
 	{
 
         if (!$this->input->is_ajax_request())
-            die();
+            redirect('/');
 
 		//validate form input
 		$this->form_validation->set_rules('identity', 'Identity', 'required');
@@ -63,10 +63,11 @@ class Auth extends CI_Controller {
 
 			if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
 			{
+
+
 				//if the login is successful
 				//redirect them back to the home page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-
                 echo json_encode(array('vresult'=>'success','message'=>$this->ion_auth->messages()));
 
  			}

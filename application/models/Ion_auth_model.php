@@ -1021,6 +1021,20 @@ class Ion_auth_model extends CI_Model
 
 				$this->clear_login_attempts($identity);
 
+				if($remember==1) {
+
+					$expire = (60 * 60 * 24 * 365 * 2);
+
+					// set cookie to remember login email
+					set_cookie(
+						array(
+							'name' => 'rememberuseremail',
+							'value' => $this->input->post('identity'),
+							'expire' => $expire
+						)
+					);
+				}
+
 				if ($remember && $this->config->item('remember_users', 'ion_auth'))
 				{
 					$this->remember_user($user->id);
