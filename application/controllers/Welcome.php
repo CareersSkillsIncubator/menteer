@@ -23,7 +23,7 @@ class Welcome extends CI_Controller {
         $this->load->view('/static/footer',$this->data);
     }
 
-
+    // debugging sample email only
     public function email()
     {
 

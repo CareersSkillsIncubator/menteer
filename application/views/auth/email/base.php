@@ -167,7 +167,7 @@
                                             <td width="169" height="45" align="center">
                                                 <div class="imgpop">
                                                     <a target="_blank" href="<?=base_url()?>">
-                                                        <img src="<?=base_url()?>assets/images/email/logo.jpg" alt="" border="0" width="245" height="44" style="display:block; border:none; outline:none; text-decoration:none;">
+                                                        <h1>Menteer</h1>
                                                     </a>
                                                 </div>
                                             </td>
@@ -208,7 +208,6 @@
                                 <!-- start of image -->
                                 <td align="center" st-image="banner-image">
                                     <div class="imgpop">
-                                        <a target="_blank" href="<?=base_url()?>"><img width="600" border="0" height="56" alt="" border="0" style="display:block; border:none; outline:none; text-decoration:none;" src="<?=base_url()?>assets/images/email/hero-banner2.jpg" class="banner"></a>
                                     </div>
                                 </td>
                             </tr>
