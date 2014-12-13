@@ -1081,6 +1081,9 @@ a:focus {
 	margin: 0 auto;
 	padding: 24px 0 28px;
 }
+.intake .form-block{
+	max-width: 650px;
+}
 
 .form-block h1 {
 	font-size: 25px;
@@ -1208,7 +1211,7 @@ a:focus {
 }
 
 .carousel .btn-next,
-.carousel .btn-prev {
+.carousel .btn-prev,.carousel .check-prev, .carousel .check-next {
 	position: absolute;
 	left: 0;
 	top: 50%;
@@ -1220,10 +1223,16 @@ a:focus {
 	transition: all .3s ease;
 }
 
-.carousel .btn-next {
+.carousel .btn-next, .carousel .check-next {
 	left: auto;
 	right: 0;
 	margin: -16px 0 0;
+}
+
+.form .carousel label{
+	font-size:14px;
+	padding: 0 0 5px 4px;
+	line-height: 18px;
 }
 
 @media only screen and (max-width: 991px) {
@@ -1705,3 +1714,4 @@ a:focus {
 	font-size: 14px;
 	color: #666666;
 }
+

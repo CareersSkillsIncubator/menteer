@@ -47,9 +47,7 @@
         </div><!--//modal-content-->
     </div><!--//modal-dialog-->
 </div><!--//modal-->
-
 </main>
-
 </div>
 
 
@@ -64,5 +62,4 @@
 <script src="/assets/js/application.js?v=<?=V?>"></script>
 
 </body>
-
 </html>

@@ -37,7 +37,7 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-define('V', '1');
+define('V', '2');
 
 /*
 |--------------------------------------------------------------------------
