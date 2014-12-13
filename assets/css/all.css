@@ -1558,8 +1558,8 @@ a:focus {
 
 .modal.modal-login .modal-dialog,
 .modal.modal-signup .modal-dialog {
-	width: 460px;
-	margin: 30px auto;
+	/*width: 460px;
+	margin: 30px auto;*/
 }
 .modal.modal-login .modal-header,
 .modal.modal-signup .modal-header {

@@ -15,11 +15,9 @@
     </div>
 </footer>
 </div>
-</main>
-</div>
 
 <!-- Forgot Password Modal -->
-<div class="modal modal-login" id="forgot-modal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+<div class="modal modal-login modal-lg" id="forgot-modal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -50,15 +48,21 @@
     </div><!--//modal-dialog-->
 </div><!--//modal-->
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</main>
+
+</div>
+
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">window.jQuery || document.write('<script src="/assets/js/jquery-1.11.1.min.js"><\/script>')</script>
 
 <?php if($this->uri->segment(1) != 'auth'){?>
-<script type="text/javascript" src="/assets/js/jquery.main.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.main.js?v=<?=V?>"></script>
 <?php } ?>
 
-<script src="/assets/js/bootstrap.min.js"></script>
-<script src="/assets/js/application.js"></script>
+<script src="/assets/js/bootstrap.min.js?v=<?=V?>"></script>
+<script src="/assets/js/application.js?v=<?=V?>"></script>
 
 </body>
+
 </html>

@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menteer</title>
-    <link rel="stylesheet" href="/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="/assets/css/all.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.css?<?=V?>">
+    <link rel="stylesheet" href="/assets/css/all.css?<?=V?>">
 </head>
 <body>
 <div id="wrapper">
