@@ -16,9 +16,21 @@ installation instructions
 technology stack / open source
 ==============================
 
-* codeigniter 3.0
+* codeIgniter 3.0 - PHP Framework
 
-* ion_auth 2.6
+* ion_auth 2.6 - Authentication Library
+
+* normalize.css v3.0.2 | MIT License | git.io/normalize
+
+* https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css
+
+* https://github.com/sliptree/bootstrap-tokenfield
+
+* Bootstrap v3.3.1 (http://getbootstrap.com)
+
+* jQuery 1.11.1 (jQuery UI, jQuery Carousel Plugin, SmoothScroll Module, JavaScript Custom Forms / Checkbox Module)
+
+* Hammerjs v2.0.4
 
 
 optional services used
