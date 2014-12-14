@@ -78,7 +78,7 @@
 
 
 
-                                                <input type="text" class="form-control" id="tokenfield<?=$key?>" value="" tabindex="-1" />
+                                                <input type="text" class="form-control" id="tokenfield<?=$key?>" value="" tabindex="-1" placeholder="Type something and hit enter" />
 
 
                                                 <?php
