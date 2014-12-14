@@ -7,13 +7,13 @@
                     <div class="col-sm-3">
                         <section class="box">
                             <h1>Are you a mentor?</h1>
-                            <a class="btn btn-default" href="/">be a menteer</a>
+                            <a class="btn btn-default" href="/intake">be a menteer</a>
                         </section>
                     </div>
                     <div class="col-sm-3 col-sm-offset-6">
                         <section class="box">
                             <h1>Are you a mentee?</h1>
-                            <a class="btn btn-default" href="/">be a menteer</a>
+                            <a class="btn btn-default" href="/intake">be a menteer</a>
                         </section>
                     </div>
                 </div>
@@ -121,7 +121,7 @@
                             </div>
                             <div class="btn-holder">
                                 <button id="submit-login" type="submit" class="btn btn-default">Submit</button>
-                                <p class="help-block"><a href="#" data-toggle="modal" data-target="#forgot-modal">Forgot Password?</a><br><a href="#">Sign Me Up?</a></p>
+                                <p class="help-block"><a href="#" data-toggle="modal" data-target="#forgot-modal">Forgot Password?</a><br><a href="/intake">Sign Me Up?</a></p>
                             </div>
                         <?php echo form_close();?>
 
