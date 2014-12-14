@@ -16,13 +16,6 @@
 </footer>
 </div>
 
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript">window.jQuery || document.write('<script src="/assets/js/jquery-1.11.1.min.js"><\/script>')</script>
-<script type="text/javascript" src="/assets/js/jquery.main.js?v=<?=V?>"></script>
-<script src="/assets/js/bootstrap.min.js?v=<?=V?>"></script>
-<script src="/assets/js/application.js?v=<?=V?>"></script>
-<script src="/assets/js/cycle.js"></script>
 
 </body>
 </html>
-

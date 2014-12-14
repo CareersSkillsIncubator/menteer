@@ -2,86 +2,119 @@
     <div class="container">
         <div class="form-block">
             <form role="form" class="form">
+
                 <div class="carousel">
                     <div class="mask">
-                        <div class="slideset">
-
-                                <div data-cycle-hash="q1" class="slide">
-                                    <h1>Question 1 of 10</h1>
+                        <div class="slideset"><?php
+                                $count = 1;
+                                foreach($questions as $key=>$data){?>
+                                <div data-cycle-hash="<?=$key?>" class="slide">
+                                    <h1>Question <?=$count?> of <?=$num_questions?></h1>
 
                                     <div class="form-box">
                                         <strong class="title"></strong>
-                                        <div class="holder">
-                                            <h4 style="font-weight: bold;">WHY MENTORSHIP? Check all that apply</h4>
+                                        <div class="holder" style="min-height:300px;">
+                                            <h4 style="font-weight: bold;"><?=$data['question']?></h4>
                                             <div class="form-group">
 
-                                                <div class="checkbox">
-                                                    <label style="padding-left:25px; text-indent: -25px;">
-                                                        <input type="checkbox" value="">
-                                                        Option one is this and that&mdash;be sure to include why it's great
-                                                    </label>
-                                                </div>
 
-                                                <div class="checkbox">
-                                                    <label style="padding-left:25px; text-indent: -25px;">
-                                                        <input type="checkbox" value="">
-                                                        Option one is this and that&mdash;be sure to include why it's great
-                                                    </label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label style="padding-left:25px; text-indent: -25px;">
-                                                        <input type="checkbox" value="">
-                                                        Option one is this and that&mdash;be sure to include why it's great
-                                                    </label>
-                                                </div>
+                                                <?php switch($data['type']) {
+
+                                                    case "checkbox":
+
+                                                        foreach($data['answer_data'] as $item){ ?>
+
+                                                            <div class="checkbox">
+                                                                <label>
+                                                                    <input type="checkbox" value="<?=$item['id']?>" tabindex="-1">
+                                                                    <?=$item['answer']?>
+                                                                </label>
+                                                            </div>
+
+                                                        <?php }
+
+                                                        break;
+
+                                                    case "radio":
+
+
+                                                        foreach($data['answer_data'] as $item){ ?>
+                                                            <div class="col-md-offset-1 col-lg-offset-1 col-sm-offset-1 col-xs-offset-1">
+                                                                <label class="radio-inline">
+                                                                    <input type="radio" name="radio<?=$key?>" value="<?=$item['id']?>" tabindex="-1"> <?=$item['answer']?>
+                                                                </label>
+                                                            </div>
+                                                            <div style="clear:both;"></div>
+
+                                                        <?php }
+
+
+                                                        break;
+
+                                                    case "yesno":?>
+
+                                                        <div class="col-md-offset-1 col-lg-offset-1 col-sm-offset-1 col-xs-offset-1">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="radio<?=$key?>" value="Yes" tabindex="-1"> Yes
+                                                            </label>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                        <div class="col-md-offset-1 col-lg-offset-1 col-sm-offset-1 col-xs-offset-1">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="radio<?=$key?>" value="No" tabindex="-1"> No
+                                                            </label>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+
+                                                        <?php break;
+
+                                                    case "open":?>
+
+                                                        <textarea name="open<?=$key?>" rows="10" class="form-control" tabindex="-1"></textarea>
+
+                                                        <?php break;
+
+                                                    case "list":?>
+
+
+
+                                                <input type="text" class="form-control" id="tokenfield<?=$key?>" value="" tabindex="-1" />
+
+
+                                                <?php
+
+                                                $array = explode(',',$data['answer_data'][0]['answer']);
+                                                $comma_separated = implode("','", $array);
+                                                $comma_separated = "'".$comma_separated."'";
+
+                                                ?>
+
+                                                    <script>
+                                                        $('#tokenfield<?=$key?>').tokenfield({
+                                                            autocomplete: {
+                                                                source: [<?=$comma_separated?>],
+                                                                delay: 100
+                                                            },
+                                                            showAutocompleteOnFocus: false
+                                                        })
+                                                    </script>
+
+
+
+                                                    <?php break;
+                                                    default:
+
+
+                                                } ?>
 
 
 
                                             </div>
-
                                         </div>
                                     </div>
-
                                 </div>
+                                <?php $count++; } ?>
 
-
-                                <div data-cycle-hash="q2" class="slide">
-                                    <h1>Question 2</h1>
-
-                                    <div class="form-box">
-                                        <strong class="title">Change password</strong>
-                                        <div class="holder">
-                                            <div class="form-group">
-                                                <label class="large" for="password2">Old Password</label>
-                                                <input type="password" class="form-control" id="password2">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="large" for="password3">New Password</label>
-                                                <input type="password" class="form-control" id="password3">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div data-cycle-hash="q3" class="slide">
-                                    <h1>Question 3</h1>
-
-                                    <div class="form-box">
-                                        <strong class="title">Change password</strong>
-                                        <div class="holder">
-                                            <div class="form-group">
-                                                <label class="large" for="password2">Old Password</label>
-                                                <input type="password" class="form-control" id="password2">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="large" for="password3">New Password</label>
-                                                <input type="password" class="form-control" id="password3">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
 
                         </div>
                     </div>

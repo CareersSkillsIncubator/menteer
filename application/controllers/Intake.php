@@ -6,18 +6,28 @@ class Intake extends CI_Controller {
     {
         parent::__construct();
 
+        $this->load->model('Questionnaire_model');
+
         $this->data = array();
+
     }
 
 	public function index()
 	{
-        $this->data['page'] = 'home';
+
+        $this->data['page'] = 'intake';
+
+        $this->data['questions'] = $this->Questionnaire_model->get();
+        $this->data['num_questions'] = count($this->data['questions']);
+
+        //echo "<pre>";
+        //print_r($this->data['questions']);
+        //echo "</pre>";
+
         $this->load->view('/intake/header',$this->data);
 		$this->load->view('/intake/intake',$this->data);
         $this->load->view('/intake/footer',$this->data);
     }
-
-
 
 
 }
