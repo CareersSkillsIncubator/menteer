@@ -119,30 +119,36 @@
 
                                     <div class="form-box">
                                         <strong class="title"></strong>
-                                        <div class="holder" style="min-height:500px;">
+                                        <div class="holder" style="min-height:550px;">
                                             <h4 style="font-weight: bold;">Just one more step...</h4>
 
                                             <div id="register-error-message" class="alert alert-danger hide">Something went wrong.</div>
 
                                             <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-8">
-
                                                 <label for="first_name" style="margin-top:5px; padding-top:5px;">FIRST NAME</label>
-                                                <input class="form-control" type="text" name="first_name" id="registration-fname" placeholder="">
+                                                <input class="form-control" type="text" name="first_name" id="registration-fname" placeholder="" tabindex="-1">
+                                            </div>
 
+                                            <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-8">
                                                 <label for="last_name" style="margin-top:5px; padding-top:5px;">LAST NAME</label>
-                                                <input class="form-control" type="text" name="last_name" id="registration-lname" placeholder="">
+                                                <input class="form-control" type="text" name="last_name" id="registration-lname" placeholder="" tabindex="-1">
+                                            </div>
 
+                                            <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-8">
                                                 <label for="email" style="margin-top:5px; padding-top:5px;">EMAIL</label>
-                                                <input class="form-control" type="text" name="email" id="registration-email" placeholder="">
-
+                                                <input class="form-control" type="text" name="email" id="registration-email" placeholder="" tabindex="-1">
+                                            </div>
+                                            <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-8">
                                                 <label style="margin-top:5px; padding-top:5px;" for="password">PASSWORD</label>
-                                                <input class="form-control" type="password" name="password" id="registration-password" placeholder="">
-
+                                                <input class="form-control" type="password" name="password" id="registration-password" placeholder="" tabindex="-1">
+                                            </div>
+                                            <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-8">
                                                 <label style="margin-top:5px; padding-top:5px;" for="password_confirm">PASSWORD CONFIRM</label>
-                                                <input class="form-control" type="password" name="password_confirm" id="registration-password-confirm" placeholder="">
+                                                <input class="form-control" type="password" name="password_confirm" id="registration-password-confirm" placeholder="" tabindex="-1">
+                                            </div>
 
+                                            <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-8">
                                                 <label>&nbsp;</label>
-
                                                 <button class="btn btn-success submit-registration">continue</button>
                                             </div>
                                         </div>

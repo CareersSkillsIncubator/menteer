@@ -870,6 +870,8 @@ class Ion_auth_model extends CI_Model
 	 **/
 	public function register($username, $password, $email, $additional_data = array(), $groups = array())
 	{
+		$normal_password = $password;
+
 		$this->trigger_events('pre_register');
 
 		$manual_activation = $this->config->item('manual_activation', 'ion_auth');
@@ -944,6 +946,9 @@ class Ion_auth_model extends CI_Model
 
 		$id = $this->db->insert_id();
 
+		//force login
+		$this->login($email,$normal_password,FALSE,TRUE); // skip activation code just this time
+
 		//add in groups array if it doesn't exits and stop adding into default group if default group ids are set
 		if( isset($default_group->id) && empty($groups) )
 		{
@@ -970,7 +975,7 @@ class Ion_auth_model extends CI_Model
 	 * @return bool
 	 * @author Mathew
 	 **/
-	public function login($identity, $password, $remember=FALSE)
+	public function login($identity, $password, $remember=FALSE, $skip=FALSE)
 	{
 		$this->trigger_events('pre_login');
 
@@ -1007,7 +1012,7 @@ class Ion_auth_model extends CI_Model
 
 			if ($password === TRUE)
 			{
-				if ($user->active == 0)
+				if ($user->active == 0 && $skip == FALSE)
 				{
 					$this->trigger_events('post_login_unsuccessful');
 					$this->set_error('login_unsuccessful_not_active');

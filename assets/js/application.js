@@ -54,6 +54,12 @@ $( document ).ready(function() {
                 if(msg != undefined) {
                     var $obj = jQuery.parseJSON(msg);
 
+                    $("input[name=first_name]").parent().removeClass('has-error');
+                    $("input[name=last_name]").parent().removeClass('has-error');
+                    $("input[name=email]").parent().removeClass('has-error');
+                    $("input[name=password]").parent().removeClass('has-error');
+                    $("input[name=password_confirm]").parent().removeClass('has-error');
+
                     switch($obj.vresult){
 
                         case "success":
@@ -64,11 +70,44 @@ $( document ).ready(function() {
 
                         default:
                             $("input[name=csrf_tl_token]").val($obj.csrf_hash);
-                            $("#register-error-message").html($obj.message);
-                            $("#register-error-message").removeClass('hide');
+
                             console.log($obj.full_message);
 
+                            // highlight fields that are incorrect
 
+                            if ($obj.full_message.indexOf('First Name') >= 0)
+                                $("input[name=first_name]").parent().addClass('has-error');
+
+                            if ($obj.full_message.indexOf('Last Name') >= 0)
+                                $("input[name=last_name]").parent().addClass('has-error');
+
+                            if ($obj.full_message.indexOf('Email') >= 0)
+                                $("input[name=email]").parent().addClass('has-error');
+
+                            if ($obj.full_message.indexOf('valid email address') >= 0) {
+                                $("input[name=email]").parent().addClass('has-error');
+                                $obj.message = 'Email address is not valid.';
+                            }
+
+                            if ($obj.full_message.indexOf('Password field') >= 0)
+                                $("input[name=password]").parent().addClass('has-error');
+
+                            if ($obj.full_message.indexOf('characters in length') >= 0) {
+                                $("input[name=password]").parent().addClass('has-error');
+                                $obj.message = 'Password must be at least 8 characters.';
+                            }
+
+                            if ($obj.full_message.indexOf('Password Confirmation') >= 0)
+                                $("input[name=password_confirm]").parent().addClass('has-error');
+
+                            if ($obj.full_message.indexOf('does not match the Password Confirmation') >= 0) {
+                                $("input[name=password]").parent().addClass('has-error');
+                                $("input[name=password_confirm]").parent().addClass('has-error');
+                                $obj.message = 'Password fields must match.';
+                            }
+
+                            $("#register-error-message").html($obj.message);
+                            $("#register-error-message").removeClass('hide');
 
                     }
 
@@ -118,7 +157,11 @@ $( document ).ready(function() {
                             break;
 
                         default:
+                            if($obj.message == '')
+                                $obj.message = "Username or Password Incorrect";
+
                             $("input[name=csrf_tl_token]").val($obj.csrf_hash);
+                            $("#login-error-message").html($obj.message);
                             $("#login-error-message").removeClass('hide');
 
 
