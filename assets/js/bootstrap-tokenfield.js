@@ -416,7 +416,9 @@
                         parseInt( $_menuElement.css('border-left-width'), 10 ) -
                         parseInt( $_menuElement.css('border-right-width'), 10 )
 
-                    $_menuElement.css( 'min-width', minWidth + 'px' )
+                    //$_menuElement.css( 'min-width', minWidth + 'px' )
+                    $_menuElement.css( 'min-width', '100px' )
+
                 })
                 .on('autocompleteselect', function (e, ui) {
                     if (_self.createToken( ui.item )) {
