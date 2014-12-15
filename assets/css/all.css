@@ -911,25 +911,49 @@ a:focus {
 	position: relative;
 	width: 100%;
 	overflow: hidden;
+}
+
+.block .frame a {
 	background: #61b1bb;
-	color: #fff;
 	padding: 18px 5px 17px;
+	color: #fff;
+	float: left;
+	width: 100%;
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
+}
+
+.block .frame a:hover {
+	background: rgba(61, 151, 170, .23);
+}
+
+.block .frame a:hover .icon {
+	font-size: 60px;
+	color: #3b4142;
+}
+
+.block .frame a:hover .title {
+	color: #374143;
 }
 
 .block .frame .title {
 	color: #fff;
 	max-width: 43%;
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
 }
 
 .block .frame .icon {
 	position: absolute;
-	width: 40px;
-	height: 40px;
-	margin: -24px 0 0 -27px;
 	left: 50%;
 	top: 50%;
 	font-size: 50px;
 	color: #000;
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
 }
 
 .block .title {
@@ -1196,18 +1220,13 @@ a:focus {
 }
 
 .carousel .slideset {
-	width: 100% !important;
-	white-space: nowrap;
-	letter-spacing: -4px;
+	width: 99999px;
 	float: left;
 }
 
 .carousel .slide {
-	white-space: normal;
-	letter-spacing: 0;
-	width: 100% !important;
-	display: inline-block;
-	vertical-align: top;
+	width: 100%;
+	float: left;
 }
 
 .carousel .btn-next,
@@ -1513,14 +1532,19 @@ a:focus {
 	}
 
 	.block .frame .icon {
-		position: relative;
-		display: inline-block;
-		vertical-align: top;
-		top: auto;
-		left: auto;
-		margin: 0 0 10px;
-		width: 50px;
-		height: 50px;
+		position: absolute;
+		top: 15px;
+		-webkit-transform: translateX(-50%) translateY(0);
+		-ms-transform: translateX(-50%) translateY(0);
+		transform: translateX(-50%) translateY(0);
+	}
+
+	.block .frame a {
+		padding: 80px 5px 17px;
+	}
+
+	.block .frame a:hover .icon {
+		top: 10px;
 	}
 
 	.items-list li {
