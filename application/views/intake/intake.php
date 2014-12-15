@@ -114,13 +114,16 @@
                                 </div>
                                 <?php $count++; } ?>
 
-                                <div data-cycle-hash="register" class="slide">
+                                <div data-cycle-hash="register" class="slide register_slide">
                                     <h1>Register</h1>
 
                                     <div class="form-box">
                                         <strong class="title"></strong>
-                                        <div class="holder" style="min-height:300px;">
+                                        <div class="holder" style="min-height:500px;">
                                             <h4 style="font-weight: bold;">Just one more step...</h4>
+
+                                            <div id="register-error-message" class="alert alert-danger hide">Something went wrong.</div>
+
                                             <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-8">
 
                                                 <label for="first_name" style="margin-top:5px; padding-top:5px;">FIRST NAME</label>

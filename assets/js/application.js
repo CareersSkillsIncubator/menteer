@@ -33,17 +33,20 @@ $( document ).ready(function() {
         var $frm_data = JSON.stringify($frm.serializeArray());
 
         console.log($frm_data);
-        return true;
-
 
         var form_data = {
             frm_data: $frm_data,
+            first_name: $("input[name=first_name]").val(),
+            last_name: $("input[name=last_name]").val(),
+            email: $("input[name=email]").val(),
+            password: $("input[name=password]").val(),
+            password_confirm: $("input[name=password_confirm]").val(),
             csrf_tl_token: $("input[name=csrf_tl_token]").val(),
             is_ajax: '1'
         };
 
         $.ajax( {
-            url: "/auth/login",
+            url: "/auth/create_user",
             type: 'POST',
             data: form_data,
             success: function(msg) {
@@ -55,13 +58,16 @@ $( document ).ready(function() {
 
                         case "success":
 
-                            $("#login-error-message").addClass('hide');
+                            $("#register-error-message").addClass('hide');
                             window.location.replace("/dashboard");
                             break;
 
                         default:
                             $("input[name=csrf_tl_token]").val($obj.csrf_hash);
-                            $("#login-error-message").removeClass('hide');
+                            $("#register-error-message").html($obj.message);
+                            $("#register-error-message").removeClass('hide');
+                            console.log($obj.full_message);
+
 
 
                     }

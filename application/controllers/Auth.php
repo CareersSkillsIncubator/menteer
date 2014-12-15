@@ -404,14 +404,14 @@ class Auth extends CI_Controller {
 		if ($activation)
 		{
 			//redirect them to the auth page
-			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect("auth", 'refresh');
+			//$this->session->set_flashdata('message', $this->ion_auth->messages());
+			redirect("/?activated=1#login", 'refresh');
 		}
 		else
 		{
 			//redirect them to the forgot password page
-			$this->session->set_flashdata('message', $this->ion_auth->errors());
-			redirect("auth/forgot_password", 'refresh');
+			//$this->session->set_flashdata('message', $this->ion_auth->errors());
+			redirect("/?activated=1#login", 'refresh');
 		}
 	}
 
@@ -503,8 +503,10 @@ class Auth extends CI_Controller {
 		{
 			//check to see if we are creating the user
 			//redirect them back to the admin page
-			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect("auth", 'refresh');
+			//$this->session->set_flashdata('message', $this->ion_auth->messages());
+			//redirect("auth", 'refresh');
+			$csrf_hash = $this->security->get_csrf_hash();
+			echo json_encode(array('vresult'=>'success','message'=>$this->ion_auth->messages(),'csrf_hash'=>$csrf_hash));
 		}
 		else
 		{
@@ -512,50 +514,8 @@ class Auth extends CI_Controller {
 			//set the flash data error message if there is one
 			$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
 
-			$this->data['first_name'] = array(
-				'name'  => 'first_name',
-				'id'    => 'first_name',
-				'type'  => 'text',
-				'value' => $this->form_validation->set_value('first_name'),
-			);
-			$this->data['last_name'] = array(
-				'name'  => 'last_name',
-				'id'    => 'last_name',
-				'type'  => 'text',
-				'value' => $this->form_validation->set_value('last_name'),
-			);
-			$this->data['email'] = array(
-				'name'  => 'email',
-				'id'    => 'email',
-				'type'  => 'text',
-				'value' => $this->form_validation->set_value('email'),
-			);
-			$this->data['company'] = array(
-				'name'  => 'company',
-				'id'    => 'company',
-				'type'  => 'text',
-				'value' => $this->form_validation->set_value('company'),
-			);
-			$this->data['phone'] = array(
-				'name'  => 'phone',
-				'id'    => 'phone',
-				'type'  => 'text',
-				'value' => $this->form_validation->set_value('phone'),
-			);
-			$this->data['password'] = array(
-				'name'  => 'password',
-				'id'    => 'password',
-				'type'  => 'password',
-				'value' => $this->form_validation->set_value('password'),
-			);
-			$this->data['password_confirm'] = array(
-				'name'  => 'password_confirm',
-				'id'    => 'password_confirm',
-				'type'  => 'password',
-				'value' => $this->form_validation->set_value('password_confirm'),
-			);
-
-			$this->_render_page('auth/create_user', $this->data);
+			$csrf_hash = $this->security->get_csrf_hash();
+			echo json_encode(array('vresult'=>'error','message'=>'Registration Error. Try again.','full_message'=>$this->data['message'],'csrf_hash'=>$csrf_hash));
 		}
 	}
 

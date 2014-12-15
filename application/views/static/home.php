@@ -108,6 +108,9 @@
 
                         <?php echo form_open("#",array('class'=>'sign-form','role'=>'form'));?>
                             <div id="login-error-message" class="alert alert-danger hide">Username or Password Incorrect</div>
+
+                            <div id="login-activate-message" class="alert alert-success <?=$this->input->get('activated') ? '' : 'hide';?>">Account Activated</div>
+
                             <div class="form-group">
                                 <label for="name">EMAIL</label>
                                 <input type="text" class="form-control" id="login-email" value="<?=$remember_email?>">
