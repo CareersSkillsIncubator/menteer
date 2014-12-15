@@ -1738,3 +1738,7 @@ a:focus {
 	font-size: 14px;
 	color: #666666;
 }
+
+.slide h4 {
+	line-height:24px;
+}
