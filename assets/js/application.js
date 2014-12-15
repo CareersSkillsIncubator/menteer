@@ -23,6 +23,58 @@ $( document ).ready(function() {
     });
 
 
+    /* ==== save questionnaire ====*/
+
+    $('.submit-registration').click(function(e) {
+
+        e.preventDefault();
+
+        var $frm = $('#question_form');
+        var $frm_data = JSON.stringify($frm.serializeArray());
+
+        console.log($frm_data);
+        return true;
+
+
+        var form_data = {
+            frm_data: $frm_data,
+            csrf_tl_token: $("input[name=csrf_tl_token]").val(),
+            is_ajax: '1'
+        };
+
+        $.ajax( {
+            url: "/auth/login",
+            type: 'POST',
+            data: form_data,
+            success: function(msg) {
+
+                if(msg != undefined) {
+                    var $obj = jQuery.parseJSON(msg);
+
+                    switch($obj.vresult){
+
+                        case "success":
+
+                            $("#login-error-message").addClass('hide');
+                            window.location.replace("/dashboard");
+                            break;
+
+                        default:
+                            $("input[name=csrf_tl_token]").val($obj.csrf_hash);
+                            $("#login-error-message").removeClass('hide');
+
+
+                    }
+
+                }
+
+            }
+
+        });
+
+    });
+
+
     /* ==== login ====*/
 
     $('#submit-login').click(function(e) {

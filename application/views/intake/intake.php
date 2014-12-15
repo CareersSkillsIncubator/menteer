@@ -1,8 +1,7 @@
 <main id="main" role="main" class="intake">
     <div class="container">
         <div class="form-block">
-            <form role="form" class="form">
-
+            <?php echo form_open("#",array('class'=>'form','role'=>'form','id'=>'question_form'));?>
                 <div class="carousel">
                     <div class="mask">
                         <div class="slideset"><?php
@@ -26,7 +25,7 @@
 
                                                             <div class="checkbox">
                                                                 <label>
-                                                                    <input type="checkbox" value="<?=$item['id']?>" tabindex="-1">
+                                                                    <input type="checkbox" name="<?=$key?>" value="<?=$item['id']?>" tabindex="-1">
                                                                     <?=$item['answer']?>
                                                                 </label>
                                                             </div>
@@ -41,7 +40,7 @@
                                                         foreach($data['answer_data'] as $item){ ?>
                                                             <div class="col-md-offset-1 col-lg-offset-1 col-sm-offset-1 col-xs-offset-1">
                                                                 <label class="radio-inline">
-                                                                    <input type="radio" name="radio<?=$key?>" value="<?=$item['id']?>" tabindex="-1"> <?=$item['answer']?>
+                                                                    <input type="radio" name="<?=$key?>" value="<?=$item['id']?>" tabindex="-1"> <?=$item['answer']?>
                                                                 </label>
                                                             </div>
                                                             <div style="clear:both;"></div>
@@ -55,13 +54,13 @@
 
                                                         <div class="col-md-offset-1 col-lg-offset-1 col-sm-offset-1 col-xs-offset-1">
                                                             <label class="radio-inline">
-                                                                <input type="radio" name="radio<?=$key?>" value="Yes" tabindex="-1"> Yes
+                                                                <input type="radio" name="<?=$key?>" value="Yes" tabindex="-1"> Yes
                                                             </label>
                                                         </div>
                                                         <div style="clear:both;"></div>
                                                         <div class="col-md-offset-1 col-lg-offset-1 col-sm-offset-1 col-xs-offset-1">
                                                             <label class="radio-inline">
-                                                                <input type="radio" name="radio<?=$key?>" value="No" tabindex="-1"> No
+                                                                <input type="radio" name="<?=$key?>" value="No" tabindex="-1"> No
                                                             </label>
                                                         </div>
                                                         <div style="clear:both;"></div>
@@ -70,7 +69,7 @@
 
                                                     case "open":?>
 
-                                                        <textarea name="open<?=$key?>" rows="10" class="form-control" tabindex="-1"></textarea>
+                                                        <textarea name="<?=$key?>" rows="10" class="form-control" tabindex="-1"></textarea>
 
                                                         <?php break;
 
@@ -78,7 +77,7 @@
 
 
 
-                                                <input type="text" class="form-control" id="tokenfield<?=$key?>" value="" tabindex="-1" placeholder="Type something and hit enter" />
+                                                <input type="text" name="<?=$key?>" class="form-control" id="tokenfield<?=$key?>" value="" tabindex="-1" placeholder="Type something and hit enter" />
 
 
                                                 <?php
@@ -115,6 +114,37 @@
                                 </div>
                                 <?php $count++; } ?>
 
+                                <div data-cycle-hash="register" class="slide">
+                                    <h1>Register</h1>
+
+                                    <div class="form-box">
+                                        <strong class="title"></strong>
+                                        <div class="holder" style="min-height:300px;">
+                                            <h4 style="font-weight: bold;">Just one more step...</h4>
+                                            <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-8">
+
+                                                <label for="first_name" style="margin-top:5px; padding-top:5px;">FIRST NAME</label>
+                                                <input class="form-control" type="text" name="first_name" id="registration-fname" placeholder="">
+
+                                                <label for="last_name" style="margin-top:5px; padding-top:5px;">LAST NAME</label>
+                                                <input class="form-control" type="text" name="last_name" id="registration-lname" placeholder="">
+
+                                                <label for="email" style="margin-top:5px; padding-top:5px;">EMAIL</label>
+                                                <input class="form-control" type="text" name="email" id="registration-email" placeholder="">
+
+                                                <label style="margin-top:5px; padding-top:5px;" for="password">PASSWORD</label>
+                                                <input class="form-control" type="password" name="password" id="registration-password" placeholder="">
+
+                                                <label style="margin-top:5px; padding-top:5px;" for="password_confirm">PASSWORD CONFIRM</label>
+                                                <input class="form-control" type="password" name="password_confirm" id="registration-password-confirm" placeholder="">
+
+                                                <label>&nbsp;</label>
+
+                                                <button class="btn btn-success submit-registration">continue</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                         </div>
                     </div>
@@ -124,7 +154,7 @@
                 <div class="btn-holder hide">
                     <button class="btn btn-success">save</button>
                 </div>
-            </form>
+            <?php echo form_close();?>
         </div>
     </div>
 </main>
