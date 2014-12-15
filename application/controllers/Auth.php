@@ -495,6 +495,7 @@ class Auth extends CI_Controller {
 			$additional_data = array(
 				'first_name' => $this->input->post('first_name'),
 				'last_name'  => $this->input->post('last_name'),
+				'frm_data' => $this->input->post('frm_data'), // just in case something happens we have their info
 				//'company'    => $this->input->post('company'),
 				//'phone'      => $this->input->post('phone'),
 			);
@@ -505,6 +506,7 @@ class Auth extends CI_Controller {
 			//redirect them back to the admin page
 			//$this->session->set_flashdata('message', $this->ion_auth->messages());
 			//redirect("auth", 'refresh');
+
 			$csrf_hash = $this->security->get_csrf_hash();
 			echo json_encode(array('vresult'=>'success','message'=>$this->ion_auth->messages(),'csrf_hash'=>$csrf_hash));
 		}

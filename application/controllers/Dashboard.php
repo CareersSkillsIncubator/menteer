@@ -1,40 +1,5 @@
 <?php
-/**
- * CodeIgniter
- *
- * An open source application development framework for PHP 5.2.4 or newer
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (http://ellislab.com/)
- * @copyright	Copyright (c) 2014, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	http://codeigniter.com
- * @since	Version 1.0.0
- * @filesource
- */
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller {
@@ -47,6 +12,16 @@ class Dashboard extends CI_Controller {
         if(!$this->ion_auth->logged_in())
             redirect('/','refresh');
 
+
+        $this->load->model('Application_model');
+
+        $this->user = $this->Application_model->get(array('table'=>'users','id'=>$this->session->userdata('user_id')));
+
+        // check for setup
+        if($this->user['is_setup'] == 0) {
+            $this->_setup();
+        }
+
         $this->data = array();
     }
 
@@ -56,7 +31,97 @@ class Dashboard extends CI_Controller {
     }
 
 
+    /**
+     * User Setup - Run Once Only!
+     */
+    protected function _setup() {
 
+        // we must have data
+        if($this->user['frm_data'] == '') {
+            return false;
+        }
 
+        //update user table first to ensure we don't run this again
+        $update_user = array(
+            'id' => $this->session->userdata('user_id'),
+            'data' => array('is_setup' => 1),
+            'table' => 'users'
+        );
+
+        $this->Application_model->update($update_user);
+
+        $frm_data_arr = json_decode($this->user['frm_data']);
+
+        $batch = array();
+
+        foreach($frm_data_arr as $data) {
+
+            // only use questionnaire fields
+            if(intval($data->name) > 0) {
+
+                // get questionnaire info
+                $question_arr = $this->Application_model->get(array('table'=>'questionnaire','id'=>$data->name));
+
+                switch($question_arr['type']){
+                    case 'list':
+                    case 'yesno':
+
+                        // break up list and prep
+                        $list_arr = explode(',',$data->value);
+
+                        foreach($list_arr as $item){
+
+                            $list = array(
+                                'user_id' => $this->session->userdata('user_id'),
+                                'questionnaire_id' => $data->name,
+                                'questionnaire_answer_text' => strtolower(trim($item)),
+                                'questionnaire_answer_id' => 0
+                            );
+                            $batch[] = $list;
+
+                        }
+
+                        break;
+
+                    case 'open':
+
+                        $list = array(
+                            'user_id' => $this->session->userdata('user_id'),
+                            'questionnaire_id' => $data->name,
+                            'questionnaire_answer_text' => strtolower(trim($data->value)),
+                            'questionnaire_answer_id' => 0
+                        );
+                        $batch[] = $list;
+
+                        break;
+                    default:
+
+                        $list = array(
+                            'user_id' => $this->session->userdata('user_id'),
+                            'questionnaire_id' => $data->name,
+                            'questionnaire_answer_text' => '',
+                            'questionnaire_answer_id' => $data->value
+                        );
+                        $batch[] = $list;
+                }
+            }
+        }
+
+        $save_data = array(
+            'data' => $batch,
+            'table' => 'users_answers'
+        );
+
+        $this->Application_model->save_batch($save_data);
+
+        //clean the user table of this information for security
+        $update_user = array(
+            'id' => $this->session->userdata('user_id'),
+            'data' => array('frm_data' => ''),
+            'table' => 'users'
+        );
+        $this->Application_model->update($update_user);
+
+    }
 
 }

@@ -117,10 +117,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="login-password" tabindex="-1">
+                                <input type="password" class="form-control" id="login-password" tabindex="1">
                             </div>
                             <div class="checkbox">
-                                <input type="checkbox" id="check-1" tabindex="-1"><label for="check-1">REMEMBER ME</label>
+                                <input type="checkbox" id="check-1" tabindex="2"><label for="check-1">REMEMBER ME</label>
                             </div>
                             <div class="btn-holder">
                                 <button id="submit-login" type="submit" class="btn btn-default">Submit</button>
