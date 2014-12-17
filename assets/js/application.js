@@ -88,6 +88,10 @@ $( document ).ready(function() {
                                 $("input[name=email]").parent().addClass('has-error');
                                 $obj.message = 'Email address is not valid.';
                             }
+                            if ($obj.full_message.indexOf('Email Address field must contain a unique value') >= 0) {
+                                $("input[name=email]").parent().addClass('has-error');
+                                $obj.message = 'Email address already taken.';
+                            }
 
                             if ($obj.full_message.indexOf('Password field') >= 0)
                                 $("input[name=password]").parent().addClass('has-error');
