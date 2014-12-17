@@ -1742,3 +1742,7 @@ a:focus {
 .slide h4 {
 	line-height:24px;
 }
+
+.checkbox {
+	padding-left:30px;
+}

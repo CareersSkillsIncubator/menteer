@@ -1229,7 +1229,7 @@ function initAnchors() {
 
 	jcf.addModule({
 		name: 'Checkbox',
-		selector: 'input[type="checkbox"]',
+		selector: 'input[type="checkboxa"]',
 		options: {
 			wrapNative: true,
 			checkedClass: 'jcf-checked',

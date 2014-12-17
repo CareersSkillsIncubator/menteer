@@ -119,7 +119,7 @@
 
                                     <div class="form-box">
                                         <strong class="title"></strong>
-                                        <div class="holder" style="min-height:550px;">
+                                        <div class="holder" style="min-height:620px;">
                                             <h4 style="font-weight: bold;">Just one more step...</h4>
 
                                             <div id="register-error-message" class="alert alert-danger hide">Something went wrong.</div>
