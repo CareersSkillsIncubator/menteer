@@ -76,7 +76,7 @@ function initAnchors() {
 			autoRotation: false,
 			pauseOnHover: isTouchDevice ? false : true,
 			maskAutoSize: false,
-			switchTime: 400,
+			switchTime: 4000,
 			animSpeed: 600,
 			event:'click',
 			swipeThreshold: 145,
