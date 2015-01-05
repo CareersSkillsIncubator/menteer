@@ -12,6 +12,17 @@ installation instructions
 6. modify /application/config/ion_auth.php file as needed for the authentication library
 7. default user is "test@menteer.ca" and password is "password".
 
+features
+=========
+
+* mobile friendly and responsive
+
+* database driven (extendable)
+
+* drop and go code-base (minimal setup required)
+
+* PHP 5.4+ and MySQL 5.1 required
+
 
 technology stack / open source
 ==============================
@@ -36,7 +47,7 @@ technology stack / open source
 optional services used
 ======================
 
-* sendgrid (email STMP)
+* sendgrid (email STMP) - for sending email
 
 
 road map
