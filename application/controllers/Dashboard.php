@@ -27,7 +27,18 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
-        echo 'you are inside the dashboard now - <a href="/auth/logout">Logout</a>';
+        // check if user agree's to terms, if not filled display modal window until they click agree
+
+        //echo $this->user['agree'];
+        //echo 'you are inside the dashboard now - <a href="/auth/logout">Logout</a>';
+
+        $this->data['page'] = 'dash';
+        $this->data['user'] = $this->user;
+
+        $this->load->view('/dash/header',$this->data);
+        $this->load->view('/dash/index',$this->data);
+        $this->load->view('/dash/footer',$this->data);
+
     }
 
 

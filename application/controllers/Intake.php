@@ -20,10 +20,6 @@ class Intake extends CI_Controller {
         $this->data['questions'] = $this->Questionnaire_model->get();
         $this->data['num_questions'] = count($this->data['questions']);
 
-        //echo "<pre>";
-        //print_r($this->data['questions']);
-        //echo "</pre>";
-
         $this->load->view('/intake/header',$this->data);
 		$this->load->view('/intake/intake',$this->data);
         $this->load->view('/intake/footer',$this->data);
