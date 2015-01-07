@@ -39,6 +39,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 define('V', '10');
 
+// setup for this questionnaire
+define('TYPE_QUESTION_ID',16);
+define('MENTOR_ID',37);
+define('MENTEE_ID',38);
+
+
 /*
 |--------------------------------------------------------------------------
 | File and Directory Modes

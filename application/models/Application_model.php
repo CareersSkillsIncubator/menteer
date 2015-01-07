@@ -18,10 +18,15 @@ class Application_model extends CI_Model
         $limit			= isset($params['limit']) ? $params['limit'] : false;
         $order			= isset($params['order']) ? $params['order'] : false;
         $id				= isset($params['id']) ? $params['id'] : false;
+        $user_id			= isset($params['user_id']) ? $params['user_id'] : false;
+        $questionnaire_id	= isset($params['questionnaire_id']) ? $params['questionnaire_id'] : false;
 
         $sql			= "SELECT * FROM ".$params['table']." WHERE id != '' ";
 
         $sql			.= $id ?  " AND id = '".$id."' " : " ";
+        $sql			.= $user_id ?  " AND user_id = '".$user_id."' " : " ";
+        $sql			.= $questionnaire_id ?  " AND questionnaire_id = '".$questionnaire_id."' " : " ";
+
         $sql			.= $order ? " ORDER BY ".$order." " : " ";
         $sql			.= $limit ? " LIMIT ".$limit." " : " ";
 
@@ -30,7 +35,7 @@ class Application_model extends CI_Model
         if ($this->db->affected_rows() == 0)
             return false;
 
-        return $id ? $data[0] : $this->_index($data);
+        return $id || $user_id ? $data[0] : $this->_index($data);
     }
 
     function save_batch($params = array()) {

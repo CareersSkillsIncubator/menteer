@@ -22,15 +22,25 @@ class Dashboard extends CI_Controller {
             $this->_setup();
         }
 
+        // is this user a mentor or menteer or both
+        $val = $this->Application_model->get(array('table'=>'users_answers','user_id'=>$this->session->userdata('user_id'),'questionnaire_id'=>TYPE_QUESTION_ID,));
+
+        switch($val['questionnaire_answer_id']) {
+            case MENTOR_ID:
+                $this->session->set_userdata('user_kind','mentor');
+                break;
+            case MENTEE_ID:
+                $this->session->set_userdata('user_kind','mentee');
+                break;
+            default:
+                $this->session->set_userdata('user_kind','both');
+        }
+
         $this->data = array();
     }
 
 	public function index()
 	{
-        // check if user agree's to terms, if not filled display modal window until they click agree
-
-        //echo $this->user['agree'];
-        //echo 'you are inside the dashboard now - <a href="/auth/logout">Logout</a>';
 
         $this->data['page'] = 'dash';
         $this->data['user'] = $this->user;
@@ -41,6 +51,19 @@ class Dashboard extends CI_Controller {
 
     }
 
+    // initial registration agreement of terms disclaimer user must accept or logout of system.
+    // will be prompted each time they login until they accept the site agreement
+    public function accept()
+    {
+
+        $update['id'] = $this->session->userdata('user_id');
+        $update['data']['agree'] = '1';
+        $update['table'] = 'users';
+        $this->Application_model->update($update);
+
+        redirect('/dashboard','refresh');
+
+    }
 
     /**
      * User Setup - Run Once Only!

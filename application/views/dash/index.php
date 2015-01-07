@@ -55,4 +55,43 @@
             </ul>
         </div>
     </div>
+
+    <!-- Agreement Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close hide" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h2 class="modal-title" id="myModalLabel">You're almost there!</h2>
+                </div>
+                <div class="modal-body">
+                    As a <?=$this->session->userdata('user_kind')?> I agree to:<br /><br />
+                    -Demonstrate respect and appreciation to all parties involved<br /><br />
+                    -Protect the privacy of my <?=$this->session->userdata('user_kind')?> and only share what they have explicitly provided me permission to share with others<br /><br />
+                    -Practice safety and common sense, such as only meeting in public spaces, and read more safety tips here<br /><br />
+                    -Attempt to resolve issues with my <?=$this->session->userdata('user_kind')?>, but when assistance is needed to reach out to the awesome volunteers at <a href="mailto:mentorship@careerskillsincubator.com">mentorship@careerskillsincubator.com</a> for support<br /><br />
+                    -Review the resources provided here on tips for a productive <?=$this->session->userdata('user_kind')?> relationship<br /><br />
+                    -Challenge myself and others to have a fun and productive experience!<br /><br />
+
+                    <p>Click "Accept" to proceed.</p>
+
+                </div>
+                <div class="modal-footer">
+                    <a href="/logout" class="btn btn-default">Logout</a>
+                    <a href="/accept" class="btn btn-primary">Accept</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php if($user['agree']== 0) { //user must agree before continuing?>
+    <script>
+        $('#myModal').modal({
+            keyboard: false,
+            backdrop: 'static'
+        })
+    </script>
+<?php } ?>
+
 </main>
+
