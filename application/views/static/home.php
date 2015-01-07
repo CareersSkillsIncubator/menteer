@@ -31,7 +31,6 @@
                         <p>Menteer believes in the lasting impact that both mentorship relationships and peer to peer learning can play in our journey of finding the right careers.</p>
                         <p>Whether you are a few years into a career, many years out of a career, seeking a new career or just getting started, we value setting aside time to share and learn from one another.</p>
                         <p>Menteer is your platform to create, develop and track the progress of your unique mentorship relationships.</p>
-                        <p>Everyone's a menteer to somebody!</p>
                         <p>This app was made possibly with generous support from <a href="http://cira.ca/">CIRA</a></p>
                     </div>
                 </div>
@@ -46,7 +45,7 @@
                 <div class="col-sm-7">
                     <div class="text-block left">
                         <h1>STORY</h1>
-                        <p>Career Skills Incubator (CSCI) is a non-profit organization and started when a bunch of recent graduates were frustrated to see qualified friends unable to find fulfilling work. Our rapidly changing world has created many challenges, but just as many opportunities. One thing that hasn't changed is a need for people to grow and feel fulfilled in what they are doing both personally and professionally.</p>
+                        <p>Career Skills Incubator (CSCI) is a non-profit organization and started when a bunch of recent graduates frustrated to see qualified friends unable to find fulfilling work. Our rapidly changing world has created many challenges, but just as many opportunities. One thing that hasn't changed is a need for people to grow and feel fulfilled in what they are doing both personally and professionally.</p>
                         <p>CSCI aims to create a positive, productive space for people to develop skills and meaningful relationships through mentorship, idea incubation, workshops, and custom volunteer positions. Learn more about <a href="http://www.careerskillsincubator.com/">CSCI</a></p>
                     </div>
                 </div>
