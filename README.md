@@ -49,6 +49,10 @@ optional services used
 
 * sendgrid (email STMP) - for sending email
 
+* uservoice - for feedback and user tracking
+
+* google analytics
+
 
 road map
 ========
