@@ -31,7 +31,7 @@
                         <p>Menteer believes in the lasting impact that both mentorship relationships and peer to peer learning can play in our journey of finding the right careers.</p>
                         <p>Whether you are a few years into a career, many years out of a career, seeking a new career or just getting started, we value setting aside time to share and learn from one another.</p>
                         <p>Menteer is your platform to create, develop and track the progress of your unique mentorship relationships.</p>
-                        <p>This app was made possibly with generous support from <a href="http://cira.ca/">CIRA</a></p>
+                        <p>This app was made possibly with generous support from &nbsp;<a href="http://cira.ca/"><img src="/assets/images/calogo.jpg" width="150px"  /></a></p>
                     </div>
                 </div>
             </div>
