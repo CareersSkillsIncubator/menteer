@@ -36,21 +36,24 @@ class Dashboard extends CI_Controller {
                 $this->session->set_userdata('user_kind','both');
         }
 
-        // check if we need to show the user matches before we begin
-        // check for matches available otherwise go to dashboard
+        if($this->user['agree']== 1) {
+            // check if we need to show the user matches before we begin
+            // check for matches available otherwise go to dashboard
 
-        if($this->input->get('skip')==1)
-            $this->session->set_userdata('skip_matches',true);
+            if ($this->input->get('skip') == 1) {
+                $this->session->set_userdata('skip_matches', true);
+            }
 
-        if($this->user['is_matched'] == 0 && $this->session->userdata('skip_matches') == false) {
-            $this->load->library('matcher');
-            $matches = $this->matcher->get_matches($this->session->userdata('user_id'));
+            if ($this->user['is_matched'] == 0 && $this->session->userdata('skip_matches') == false) {
+                $this->load->library('matcher');
+                $matches = $this->matcher->get_matches($this->session->userdata('user_id'));
 
-            if(is_array($matches) && count($matches) > 0) {
-                $this->session->set_userdata('matches', $matches);
-                redirect('/chooser');
-            }else{
-                $this->session->set_userdata('skip_matches',true);
+                if (is_array($matches) && count($matches) > 0) {
+                    $this->session->set_userdata('matches', $matches);
+                    redirect('/chooser');
+                } else {
+                    $this->session->set_userdata('skip_matches', true);
+                }
             }
         }
 
@@ -172,7 +175,7 @@ class Dashboard extends CI_Controller {
         //clean the user table of this information for security
         $update_user = array(
             'id' => $this->session->userdata('user_id'),
-            'data' => array('frm_data' => '','menteer_type' => $val),
+            'data' => array('frm_data' => '','menteer_type' => $val['questionnaire_answer_id']),
             'table' => 'users'
         );
         $this->Application_model->update($update_user);
