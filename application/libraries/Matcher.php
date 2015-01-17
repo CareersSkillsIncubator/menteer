@@ -65,7 +65,7 @@ class Matcher
     }
 
     // return matches
-    public function get_matches($user_id, $num_matches = 3)
+    public function get_matches($user_id, $num_matches = MAX_MATCHES)
     {
         if (intval($user_id) <= 0)
             return false;

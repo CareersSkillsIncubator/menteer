@@ -44,6 +44,7 @@ define('TYPE_QUESTION_ID',16);
 define('MENTOR_ID',37);
 define('MENTEE_ID',38);
 define('EITHER',41);
+define('MAX_MATCHES',20);
 
 
 /*

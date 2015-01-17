@@ -44,7 +44,7 @@ class Dashboard extends CI_Controller {
 
         if($this->user['is_matched'] == 0 && $this->session->userdata('skip_matches') == false) {
             $this->load->library('matcher');
-            $matches = $this->matcher->get_matches($this->session->userdata('user_id'),3);
+            $matches = $this->matcher->get_matches($this->session->userdata('user_id'));
 
             if(is_array($matches) && count($matches) > 0) {
                 $this->session->set_userdata('matches', $matches);
