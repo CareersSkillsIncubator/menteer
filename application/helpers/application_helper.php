@@ -110,3 +110,9 @@ function decrypt_url($string) {
     }
     return $result;
 }
+
+function printer($array) {
+    echo "<pre>";
+    print_r($array);
+    echo "</pre>";
+}

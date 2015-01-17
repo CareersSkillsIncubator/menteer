@@ -10,7 +10,8 @@ installation instructions
 4. modify /application/config/database_clean.php and email_clean.php by removing "_clean" from filename
 5. configure database.php to point to your database after importing the menteer.sql file into your database
 6. modify /application/config/ion_auth.php file as needed for the authentication library
-7. default user is "test@menteer.ca" and password is "password".
+7. configure index.php to use your local environment if thats the case
+8. default user is "test@menteer.ca" and password is "password".
 
 features
 =========

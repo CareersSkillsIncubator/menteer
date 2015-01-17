@@ -21,6 +21,7 @@
 </footer>
 </div>
 
+<?php if(ENVIRONMENT=='production') { ?>
 <script>
     // Include the UserVoice JavaScript SDK (only needed once on a page)
     UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/E5q5tXLOK68HdKWuF1QYrg.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
@@ -42,7 +43,7 @@
     UserVoice.push(['identify', {
         email:      '<?=$user['email']?>', // User’s email address
         name:       '<?=$user['first_name']." ".$user['last_name']?>', // User’s real name
-        //created_at: 1364406966, // Unix timestamp for the date the user signed up
+        created_at: <?=$user['created_on']?>, // Unix timestamp for the date the user signed up
         id:         <?=$user['id']?>, // Optional: Unique id of the user (if set, this should not change)
         type:       '<?=$this->session->userdata('user_kind')?>' // Optional: segment your users by type
         //account: {
@@ -64,6 +65,7 @@
     // Autoprompt for Satisfaction and SmartVote (only displayed under certain conditions)
     UserVoice.push(['autoprompt', {}]);
 </script>
+<?php } ?>
 
 </body>
 </html>

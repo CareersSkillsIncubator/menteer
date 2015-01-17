@@ -16,6 +16,7 @@
 </footer>
 </div>
 
+<?php if(ENVIRONMENT=='production') { ?>
 <script>
     // Include the UserVoice JavaScript SDK (only needed once on a page)
     UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/E5q5tXLOK68HdKWuF1QYrg.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
@@ -59,6 +60,7 @@
     // Autoprompt for Satisfaction and SmartVote (only displayed under certain conditions)
     UserVoice.push(['autoprompt', {}]);
 </script>
+<?php } ?>
 
 </body>
 </html>

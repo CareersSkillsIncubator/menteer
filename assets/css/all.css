@@ -1747,6 +1747,12 @@ a:focus {
 	padding-left:30px;
 }
 
+.normal-font {
+	font-size:.9em;
+}
+.fright {
+	float:right;
+}
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 	select:focus,
 	textarea:focus,

@@ -36,6 +36,24 @@ class Dashboard extends CI_Controller {
                 $this->session->set_userdata('user_kind','both');
         }
 
+        // check if we need to show the user matches before we begin
+        // check for matches available otherwise go to dashboard
+
+        if($this->input->get('skip')==1)
+            $this->session->set_userdata('skip_matches',true);
+
+        if($this->user['is_matched'] == 0 && $this->session->userdata('skip_matches') == false) {
+            $this->load->library('matcher');
+            $matches = $this->matcher->get_matches($this->session->userdata('user_id'),3);
+
+            if(is_array($matches) && count($matches) > 0) {
+                $this->session->set_userdata('matches', $matches);
+                redirect('/chooser');
+            }else{
+                $this->session->set_userdata('skip_matches',true);
+            }
+        }
+
         $this->data = array();
     }
 
@@ -148,10 +166,13 @@ class Dashboard extends CI_Controller {
 
         $this->Application_model->save_batch($save_data);
 
+        // is this user a mentor or menteer or both
+        $val = $this->Application_model->get(array('table'=>'users_answers','user_id'=>$this->session->userdata('user_id'),'questionnaire_id'=>TYPE_QUESTION_ID,));
+
         //clean the user table of this information for security
         $update_user = array(
             'id' => $this->session->userdata('user_id'),
-            'data' => array('frm_data' => ''),
+            'data' => array('frm_data' => '','menteer_type' => $val),
             'table' => 'users'
         );
         $this->Application_model->update($update_user);
