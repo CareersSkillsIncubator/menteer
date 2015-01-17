@@ -133,6 +133,7 @@
 
                                 </div>
                             </div>
+                            <small class="fright"><?php echo $mentor['match_score']; ?></small>
                         </div>
 
                         <?php } ?>
