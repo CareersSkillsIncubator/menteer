@@ -2,6 +2,18 @@
     <div class="container">
         <div class="block">
             <header class="heading">
+
+                <?=$this->session->flashdata('message');?>
+
+                <?php if($user['is_matched']==0 && $user['menteer_type']=='38'){ ?>
+                <div class="alert alert-warning">Click <a href="/chooser?enabled=1">here</a> to view possible mentors.</div>
+                <?php } ?>
+
+                <?php if($user['is_matched']!=0 && $user['menteer_type']=='37' && $user['match_status']=='pending'){ ?>
+                    <div class="alert alert-info">You have been selected as a Mentor. Click <a href="/chooser/profile">here</a> to view the Mentee profile and decide whether to accept or decline.</div>
+                <?php } ?>
+
+
                 <div class="holder">
                     <strong class="title">HELLO <br><?=$user['first_name']?>!</strong>
                     <div class="user-box">

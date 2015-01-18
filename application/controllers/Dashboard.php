@@ -172,6 +172,10 @@ class Dashboard extends CI_Controller {
         // is this user a mentor or menteer or both
         $val = $this->Application_model->get(array('table'=>'users_answers','user_id'=>$this->session->userdata('user_id'),'questionnaire_id'=>TYPE_QUESTION_ID,));
 
+        // temporarily @todo make changes to allow users to be both
+        if ($val['questionnaire_answer_id']== 41)
+            $val['questionnaire_answer_id'] = 37;
+
         //clean the user table of this information for security
         $update_user = array(
             'id' => $this->session->userdata('user_id'),

@@ -27,7 +27,11 @@ class Welcome extends CI_Controller {
     public function email()
     {
 
-        $this->load->view('/auth/email/base');
+        $data = array();
+        $data['first_name'] = "Jason";
+        $data['last_name'] = "Tester";
+
+        $this->load->view('/chooser/email/match_request',$data);
 
     }
 

@@ -4,6 +4,9 @@
         <div class="form-block">
 
             <h1>Choose a Mentor</h1>
+
+            <?=$this->session->flashdata('message');?>
+
             <?php echo form_open("#",array('class'=>'form','role'=>'form','id'=>'question_form'));?>
             <div class="carousel">
                 <div class="mask">
@@ -19,7 +22,7 @@
                                 <div class="holder" style="min-height:620px;">
 
 
-                                    <a href="#" class="btn btn-success fright">SELECT</a>
+                                    <a href="/chooser/select/<?=encrypt_url($mentor['user']['id'])?>" class="btn btn-success fright">SELECT</a>
 
                                     <h4 style="font-weight: bold;"><?=$mentor['user']['first_name']?> <?=$mentor['user']['last_name']?></h4>
 
