@@ -184,6 +184,21 @@ class Dashboard extends CI_Controller {
         );
         $this->Application_model->update($update_user);
 
+        // send the mentor an email
+        if($val['questionnaire_answer_id'] == 37) {
+            $data = array();
+
+            $message = $this->load->view('/dash/email/welcome_mentor', $data, true);
+            $this->email->clear();
+            $this->email->from($this->config->item('admin_email', 'ion_auth'), $this->config->item('site_title', 'ion_auth'));
+            $this->email->to($this->user['email']);
+            $this->email->subject('Welcome to Menteer.ca');
+            $this->email->message($message);
+
+            $result = $this->email->send(); // @todo handle false send result
+        }
+
+
     }
 
 }
