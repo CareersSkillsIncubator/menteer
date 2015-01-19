@@ -35,6 +35,15 @@ class Welcome extends CI_Controller {
 
     }
 
+    public function privacy()
+    {
+        $this->data['page'] = 'privacy';
+
+        $this->load->view('/static/header',$this->data);
+        $this->load->view('/static/privacy',$this->data);
+        $this->load->view('/static/footer',$this->data);
+    }
+
 }
 
 /* End of file welcome.php */

@@ -26,10 +26,10 @@
                         <div class="collapse navbar-collapse <?=$this->uri->segment(1) == 'auth' ? 'hide' : '';?>" id="navbar-collapse">
                             <ul class="nav navbar-nav navbar-right list-inline <?=$this->uri->segment(1) == 'auth' ? 'hide' : '';?>">
 
-                                <li class="active"><a href="#about">ABOUT</a></li>
-                                <li><a href="#story">STORY</a></li>
-                                <li class="hide"><a href="#menteers">MENTEERS</a></li>
-                                <li><a href="#login">LOG IN</a></li>
+                                <li class="active"><a href="/#about">ABOUT</a></li>
+                                <li><a href="/#story">STORY</a></li>
+                                <li class="hide"><a href="/#menteers">MENTEERS</a></li>
+                                <li><a href="/#login">LOG IN</a></li>
                             </ul>
                         </div>
                     </nav>

@@ -296,7 +296,7 @@
                             <tbody>
                             <tr>
                                 <td align="center" valign="middle" style="line-height:15px; font-family: Helvetica, arial, sans-serif; font-size: 14px;color: #666666" st-content="postfooter">
-                                    &copy; <?=date('Y')?> <a href="<?=base_url()?>">Menteer.ca</a> | Regent park 585 Dundas St E, Toronto ON M5A 2B7 Canada <br /> <a href="<?=base_url()?>" style="text-decoration: none; color: #b92c28">Unsubscribe</a> | <a href="<?=base_url()?>dashboard" style="text-decoration: none; color: #b92c28">Manage Notifications</a> | <a href="<?=base_url()?>" style="text-decoration: none; color: #b92c28">Legal</a>
+                                    &copy; <?=date('Y')?> <a href="<?=base_url()?>">Menteer.ca</a> | Regent park 585 Dundas St E, Toronto ON M5A 2B7 Canada <br /> <a href="<?=base_url()?>dashboard" style="text-decoration: none; color: #b92c28">Manage Notifications</a> | <a href="<?=base_url()?>privacy" style="text-decoration: none; color: #b92c28">Privacy</a>
                                 </td>
                             </tr>
                             <!-- Spacing -->
