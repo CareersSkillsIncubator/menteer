@@ -26,7 +26,7 @@
                                         <a href="/chooser/accept" class="btn btn-success fright">ACCEPT</a>
 
 
-                                        <h4 style="font-weight: bold;"><?=$mentor['user']['first_name']?> <?=$mentor['user']['last_name']?></h4>
+                                        <h4 style="font-weight: bold;"><?=$mentor['user']['first_name']?></h4>
 
                                         <hr />
 

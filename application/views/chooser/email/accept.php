@@ -200,7 +200,7 @@
                                         <!-- content -->
                                         <tr>
                                             <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; color: #666666; text-align:center; line-height: 30px;" st-content="fulltext-content">
-                                                <p><?=$first_name?> <?=$last_name?> has accepted your request to be your mentor.</p>
+                                                <p><?=$first_name?> has accepted your request to be your mentor.</p>
 
                                                 <p>Click <a href="<?=base_url()?>dashboard">here</a> to log into your Menteer dashboard to begin scheduling and contacting your mentor.</p>
 

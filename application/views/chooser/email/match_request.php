@@ -200,7 +200,7 @@
                                         <!-- content -->
                                         <tr>
                                             <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; color: #666666; text-align:center; line-height: 30px;" st-content="fulltext-content">
-                                                <p><?=$first_name?> <?=$last_name?> has requested to have you as their mentor.</p>
+                                                <p><?=$first_name?> has requested to have you as their mentor.</p>
 
                                                 <p>Click <a href="<?=base_url()?>dashboard">here</a> to accept or decline their request.</p>
 

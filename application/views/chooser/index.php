@@ -24,7 +24,7 @@
 
                                     <a href="/chooser/select/<?=encrypt_url($mentor['user']['id'])?>" class="btn btn-success fright">SELECT</a>
 
-                                    <h4 style="font-weight: bold;"><?=$mentor['user']['first_name']?> <?=$mentor['user']['last_name']?></h4>
+                                    <h4 style="font-weight: bold;"><?=$mentor['user']['first_name']?></h4>
 
                                     <hr />
 

@@ -77,12 +77,12 @@
                     <h2 class="modal-title" id="myModalLabel">You're almost there!</h2>
                 </div>
                 <div class="modal-body">
-                    As a <?=$this->session->userdata('user_kind')?> I agree to:<br /><br />
+                    As a menteer I agree to:<br /><br />
                     -Demonstrate respect and appreciation to all parties involved<br /><br />
-                    -Protect the privacy of my <?=$this->session->userdata('user_kind')?> and only share what they have explicitly provided me permission to share with others<br /><br />
+                    -Protect the privacy of my menteer and only share what they have explicitly provided me permission to share with others<br /><br />
                     -Practice safety and common sense, such as only meeting in public spaces, and read more safety tips here<br /><br />
-                    -Attempt to resolve issues with my <?=$this->session->userdata('user_kind')?>, but when assistance is needed to reach out to the awesome volunteers at <a href="mailto:mentorship@careerskillsincubator.com">mentorship@careerskillsincubator.com</a> for support<br /><br />
-                    -Review the resources provided here on tips for a productive <?=$this->session->userdata('user_kind')?> relationship<br /><br />
+                    -Attempt to resolve issues with my menteer, but when assistance is needed to reach out to the awesome volunteers at <a href="mailto:mentorship@careerskillsincubator.com">mentorship@careerskillsincubator.com</a> for support<br /><br />
+                    -Review the resources provided here on tips for a productive menteer relationship<br /><br />
                     -Challenge myself and others to have a fun and productive experience!<br /><br />
 
                     <p>Click "Accept" to proceed.</p>
