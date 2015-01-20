@@ -14,7 +14,7 @@ class Dashboard extends CI_Controller {
 
 
         $this->load->model('Application_model');
-
+        $this->load->helper('form');
         $this->user = $this->Application_model->get(array('table'=>'users','id'=>$this->session->userdata('user_id')));
 
         // check for setup
@@ -70,6 +70,95 @@ class Dashboard extends CI_Controller {
         $this->load->view('/dash/header',$this->data);
         $this->load->view('/dash/index',$this->data);
         $this->load->view('/dash/footer',$this->data);
+
+    }
+
+    public function settings()
+    {
+
+        $this->data['page'] = 'settings';
+        $this->data['user'] = $this->user;
+
+        // get privacy settings
+
+        $my_privacy = explode(',',$this->user['privacy_settings']);
+
+        $this->data['settings'] = $my_privacy;
+
+        $this->load->view('/dash/header',$this->data);
+        $this->load->view('/dash/settings',$this->data);
+        $this->load->view('/dash/footer',$this->data);
+
+    }
+
+    public function settings_save()
+    {
+
+        // check if privacy settings changed
+
+        $s1 = 0;
+        $s2 = 0;
+        $s3 = 0;
+
+        if ($this->input->post('share_email'))
+            $s1 = 1;
+
+        if ($this->input->post('share_phone'))
+            $s2 = 1;
+
+        if ($this->input->post('share_location'))
+            $s3 = 1;
+
+        $update['id'] = $this->session->userdata('user_id');
+        $update['data']['privacy_settings'] = $s1.",".$s2.",".$s3;
+        $update['table'] = 'users';
+        $this->Application_model->update($update);
+
+
+        //check if password being changed
+
+        if($this->input->post('oldpassword') != '') {
+
+            // validate old password
+
+            if ($this->ion_auth->login_check($this->session->userdata('email'), $this->input->post('oldpassword'))){
+
+                // correct password so lets change it
+
+                if(strlen($this->input->post('newpassword')) >= $this->config->item('min_password_length','ion_auth') && $this->input->post('newpassword') <= $this->config->item('max_password_length','ion_auth')) {
+
+                    $this->ion_auth->change_password(
+                        $this->session->userdata('email'),
+                        $this->input->post('oldpassword'),
+                        $this->input->post('newpassword')
+                    );
+
+                    $this->session->set_flashdata(
+                        'message',
+                        '<div class="alert alert-success">Settings Updated.</div>'
+                    );
+
+                    redirect('/dashboard', 'refresh');
+                }else{
+
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger">Password must be between 8 and 20 characters in length.</div>');
+                    redirect('/dashboard/settings','refresh');
+                }
+
+            }else{
+
+                $this->session->set_flashdata('message', '<div class="alert alert-danger">Incorrect Password.</div>');
+                redirect('/dashboard/settings','refresh');
+
+            }
+
+        }
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success">Settings Updated.</div>'
+        );
+        redirect('/dashboard','refresh');
+
 
     }
 

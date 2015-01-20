@@ -40,25 +40,25 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" data-toggle="modal" data-target="#myModalComingSoon">
                         <span class="icon icon-calendar"></span>
                         <span class="text">Events</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/dashboard/settings">
                         <span class="icon icon-settings"></span>
                         <span class="text">Settings</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" data-toggle="modal" data-target="#myModalComingSoon">
                         <span class="icon icon-note"></span>
                         <span class="text">Tasks</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" data-toggle="modal" data-target="#myModalComingSoon">
                         <span class="icon icon-folder"></span>
                         <span class="text">Resources</span>
                     </a>
@@ -69,6 +69,27 @@
                     </a>
                 </li>
             </ul>
+        </div>
+    </div>
+
+    <!-- Coming Soon -->
+    <div class="modal fade" id="myModalComingSoon" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h2 class="modal-title" id="myModalLabel">New Feature</h2>
+                </div>
+                <div class="modal-body">
+                    Coming Soon<br /><br />
+
+
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-default close" data-dismiss="modal" aria-label="Close">Close</a>
+
+                </div>
+            </div>
         </div>
     </div>
 

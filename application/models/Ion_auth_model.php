@@ -969,6 +969,31 @@ class Ion_auth_model extends CI_Model
 		return (isset($id)) ? $id : FALSE;
 	}
 
+
+	public function login_check($identity, $password, $remember=FALSE, $skip=FALSE)
+	{
+
+		$query = $this->db->select($this->identity_column . ', username, email, id, password, active, last_login')
+			->where($this->identity_column, $identity)
+			->limit(1)
+			->order_by('id', 'desc')
+			->get($this->tables['users']);
+
+		if ($query->num_rows() === 1) {
+
+			$user = $query->row();
+
+			$password = $this->hash_password_db($user->id, $password);
+
+			if ($password === true) {
+				return true;
+			} else {
+				return false;
+			}
+		}else
+			return false;
+	}
+
 	/**
 	 * login
 	 *
