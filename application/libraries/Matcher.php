@@ -81,16 +81,21 @@ class Matcher
             $data = array('get_mentors'=>true,'table'=>'users','select'=>'id');
             $mentors = $this->Matcher_model->get($data);
 
-            // start the matching process and sort mentors based on questionnaire
-            foreach ($mentors as $key=>$value) {
+            if(is_array($mentors)) {
+                // start the matching process and sort mentors based on questionnaire
+                foreach ($mentors as $key => $value) {
 
-                // get active mentor answers
-                $mentor_answers[$key] = $this->Matcher_model->get(array('table'=>'users_answers','user_id'=>$key));
+                    // get active mentor answers
+                    $mentor_answers[$key] = $this->Matcher_model->get(
+                        array('table' => 'users_answers', 'user_id' => $key)
+                    );
 
+                }
+
+                return $this->_matchulator($mentee_answers, $mentor_answers, $num_matches); // array of matches
+            }else{
+                return false;
             }
-
-            return $this->_matchulator($mentee_answers,$mentor_answers, $num_matches); // array of matches
-
         }else{
             return false;
         }

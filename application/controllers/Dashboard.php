@@ -52,6 +52,7 @@ class Dashboard extends CI_Controller {
                     $this->session->set_userdata('matches', $matches);
                     redirect('/chooser');
                 } else {
+                    $this->session->set_userdata('matches', $matches);
                     $this->session->set_userdata('skip_matches', true);
                 }
             }

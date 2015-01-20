@@ -5,8 +5,12 @@
 
                 <?=$this->session->flashdata('message');?>
 
-                <?php if($user['is_matched']==0 && $user['menteer_type']=='38'){ ?>
+                <?php if($user['is_matched']==0 && $user['menteer_type']=='38' && is_array($this->session->userdata('matches'))){ ?>
                 <div class="alert alert-warning">Click <a href="/chooser?enabled=1">here</a> to view possible mentors.</div>
+                <?php } ?>
+
+                <?php if($user['is_matched']==0 && $user['menteer_type']=='38' && !is_array($this->session->userdata('matches'))){ ?>
+                    <div class="alert alert-warning">We currently don't have any Mentor profiles available at this time. Try again tomorrow.</div>
                 <?php } ?>
 
                 <?php if($user['is_matched']!=0 && $user['menteer_type']=='37' && $user['match_status']=='pending'){ ?>
