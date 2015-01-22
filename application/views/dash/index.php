@@ -35,7 +35,17 @@
                     </div>
                 </div>
                 <div class="frame">
-                    <a href="#">
+
+                    <?php
+                    if($user['match_status']=='active' && $user['is_matched'] > 0) {
+                    ?>
+                    <a href="/dashboard/match">
+                    <?php }else{ ?>
+
+                        <a href="#" data-toggle="modal" data-target="#myModalNotMatched">
+
+                    <?php }?>
+
                         <span class="icon icon-user1"></span>
                         <strong class="title">MENTEER <br>DASHBOARD</strong>
                     </a>
@@ -101,6 +111,29 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Not Matched -->
+    <div class="modal fade" id="myModalNotMatched" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h2 class="modal-title" id="myModalLabel">Notice</h2>
+                </div>
+                <div class="modal-body">
+                    You currently do not have a match.<br /><br />
+
+
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-default close" data-dismiss="modal" aria-label="Close">Close</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Agreement Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

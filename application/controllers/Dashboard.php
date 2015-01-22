@@ -151,6 +151,28 @@ class Dashboard extends CI_Controller {
 
     }
 
+    public function match()
+    {
+
+
+
+        $this->data['page'] = 'profile';
+        $match_id = $this->user['is_matched'];
+
+        $this->data['match'] = $this->Application_model->get(array('table'=>'users','id'=>$match_id));
+
+        if($this->user['is_matched'] > 0) {
+
+            $this->load->view('/dash/header', $this->data);
+            $this->load->view('/dash/match', $this->data);
+            $this->load->view('/dash/footer', $this->data);
+
+        }else{
+            redirect('/dashboard','refresh');
+        }
+
+    }
+
     public function settings()
     {
 
