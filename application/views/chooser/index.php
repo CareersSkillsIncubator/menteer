@@ -22,13 +22,31 @@
                                 <div class="holder" style="min-height:620px;">
 
 
+                                    <?php
+                                    //determine picture filename
+
+                                    $pic_src = "/assets/images/img5.png";
+
+                                    if($mentor['user']['picture'])
+                                        $pic_src = "/uploads/".$mentor['user']['picture'];
+
+                                    ?>
+
+                                        <div class="img-box">
+                                            <img style="float:left; padding-right:10px;" class="col-xs-3"
+                                                 src="<?=$pic_src?>"
+                                                 alt="<?= $mentor['user']['first_name'] ?>">
+                                        </div>
+
                                     <a href="/chooser/select/<?=encrypt_url($mentor['user']['id'])?>" class="btn btn-success fright">SELECT</a>
 
                                     <h4 style="font-weight: bold;"><?=$mentor['user']['first_name']?></h4>
 
-                                    <hr />
+                                    <p><?= $mentor['user']['menteer_type'] == 37 ? 'Mentor' : ''; ?><?= $mentor['user']['menteer_type'] == 38 ? 'Mentee' : ''; ?><?= $mentor['user']['menteer_type'] == 41 ? 'Mentee/Mentor' : ''; ?></p>
 
-                                    <h2>Questionnaire Answers</h2>
+                                    <hr />
+                                    <div style="clear:both;"></div>
+                                    <h2 style="text-align:center;">Questionnaire Answers</h2>
 
                                     <hr />
 
