@@ -11,6 +11,7 @@ installation instructions
 5. configure database.php to point to your database after importing the menteer.sql file into your database
 6. modify /application/config/ion_auth.php file as needed for the authentication library
 7. configure index.php to use your local environment if thats the case
+8. chmod 777 /uploads folder and set "php_value upload_max_filesize 20M" & "php_value post_max_size 21M" in your htaccess
 8. default user is "test@menteer.ca" and password is "password".
 
 features

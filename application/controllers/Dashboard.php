@@ -73,6 +73,84 @@ class Dashboard extends CI_Controller {
 
     }
 
+
+    public function myprofile()
+    {
+
+        $this->data['page'] = 'profile';
+        $this->data['me'] = $this->user;
+
+        $this->load->view('/dash/header', $this->data);
+        $this->load->view('/dash/myprofile', $this->data);
+        $this->load->view('/dash/footer', $this->data);
+    }
+
+    public function save_profile()
+    {
+
+        $this->load->library('upload');
+
+        // save profile data
+        $update['id'] = $this->session->userdata('user_id');
+        $update['data']['location'] = $this->input->post('location');
+        $update['data']['phone'] = $this->input->post('phone');
+        $update['data']['career_status'] = $this->input->post('career_status');
+        $update['data']['career_goals'] = $this->input->post('career_goals');
+        $update['data']['education'] = $this->input->post('education');
+        $update['data']['experience'] = $this->input->post('experience');
+        $update['data']['skills'] = $this->input->post('skills');
+        $update['data']['passion'] = $this->input->post('passion');
+        $update['table'] = 'users';
+        $this->Application_model->update($update);
+
+        // lets save and upload their picture if available
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+        $config['max_size']             = 50000;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 768;
+        $config['file_ext_tolower']     = TRUE;
+        $config['min_width']            = 80;
+        $config['encrypt_name']         = TRUE;
+
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+
+        $upload_errors = '';
+
+        if ( ! $this->upload->do_upload() && $this->input->post('userfile'))
+        {
+
+            $upload_errors = $this->upload->display_errors();
+
+        }
+        else
+        {
+            //$upload_data = array('upload_data' => $this->upload->data());
+
+            $upload['id'] = $this->session->userdata('user_id');
+            $upload['data']['picture'] = $this->upload->data('file_name');
+            $upload['table'] = 'users';
+            $this->Application_model->update($upload);
+
+        }
+
+
+        if($upload_errors) {
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-danger">'.$upload_errors.'</div>'
+            );
+        }else {
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-success">Profile Saved.</div>'
+            );
+        }
+        redirect('/dashboard/myprofile','refresh');
+
+    }
+
     public function settings()
     {
 

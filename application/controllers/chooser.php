@@ -71,9 +71,7 @@ class Chooser extends CI_Controller {
 
         if($this->user['menteer_type']==37 && $this->user['is_matched'] > 0 && $this->user['match_status']=='pending') {
 
-
             // get mentee
-
             $mentee_id = $this->user['is_matched'];
             $mentee['profile']['user'] = $this->Application_model->get(array('table' => 'users', 'id' => $mentee_id));
             $mentee['profile']['answers'] = $this->_extract_data(

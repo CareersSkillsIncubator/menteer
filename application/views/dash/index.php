@@ -17,11 +17,20 @@
                     <div class="alert alert-info">You have been selected as a Mentor. Click <a href="/chooser/profile">here</a> to view the Mentee profile and decide whether to accept or decline.</div>
                 <?php } ?>
 
+                <?php
+                //determine picture filename
+
+                $pic_src = "/assets/images/img5.png";
+
+                if($user['picture'])
+                    $pic_src = "/uploads/".$user['picture'];
+
+                ?>
 
                 <div class="holder">
                     <strong class="title">HELLO <br><?=$user['first_name']?>!</strong>
                     <div class="user-box">
-                        <div class="img-box"><a href="#"><img src="/assets/images/img5.png" height="45" width="45" alt="image description"></a></div>
+                        <div class="img-box"><a href="/dashboard/myprofile"><img src="<?=$pic_src?>" height="45" width="45" alt="<?=$user['first_name']?> <?=$user['last_name']?>"></a></div>
                         <strong class="name"><?=$user['first_name']?><span><?=$user['last_name']?></span></strong>
                     </div>
                 </div>
@@ -34,7 +43,7 @@
             </header>
             <ul class="items-list">
                 <li>
-                    <a href="#">
+                    <a href="/dashboard/myprofile">
                         <span class="icon icon-user"></span>
                         <span class="text">Profile</span>
                     </a>
@@ -58,7 +67,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" data-toggle="modal" data-target="#myModalComingSoon">
+                    <a href="http://www.careerskillsincubator.com/" target="_blank">
                         <span class="icon icon-folder"></span>
                         <span class="text">Resources</span>
                     </a>
