@@ -26,7 +26,7 @@
                                 $status = "waiting on confirmation";
                             }
 
-                            if ($me['is_matched'] > 0 && $me['match_statuys'] == 'active') {
+                            if ($me['is_matched'] > 0 && $me['match_status'] == 'active') {
                                 $status = "matched";
                             }
 
