@@ -1761,3 +1761,7 @@ a:focus {
 		background: #eee;
 	}
 }
+
+.delete-account {
+	text-align: center;
+}

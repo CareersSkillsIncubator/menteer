@@ -23,7 +23,7 @@ class Matcher_model extends CI_Model
         $get_mentors    = isset($params['get_mentors']) ? true : false;
         $select         = isset($params['select']) ? $params['select'] : '*';
 
-        $sql			= "SELECT ".$select." FROM ".$params['table']." WHERE id != '' ";
+        $sql			= "SELECT ".$select." FROM ".$params['table']." WHERE enabled = 1 ";
 
         $sql            .= $get_mentors ? " AND menteer_type != " . MENTEE_ID . " AND is_matched = 0" : " ";
         $sql			.= $id ?  " AND id = '".$id."' " : " ";

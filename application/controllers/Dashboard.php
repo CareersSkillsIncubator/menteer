@@ -191,6 +191,19 @@ class Dashboard extends CI_Controller {
 
     }
 
+    public function delete()
+    {
+
+        $update['id'] = $this->session->userdata('user_id');
+        $update['data']['enabled'] = 0;
+        $update['data']['active'] = 0;
+        $update['table'] = 'users';
+        $this->Application_model->update($update);
+
+        redirect('/logout','refresh');
+
+    }
+
     public function settings_save()
     {
 
@@ -211,6 +224,7 @@ class Dashboard extends CI_Controller {
 
         $update['id'] = $this->session->userdata('user_id');
         $update['data']['privacy_settings'] = $s1.",".$s2.",".$s3;
+        $update['data']['enabled'] = intval($this->input->post('enabled'));
         $update['table'] = 'users';
         $this->Application_model->update($update);
 

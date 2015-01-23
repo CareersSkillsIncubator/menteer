@@ -50,6 +50,28 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-box">
+                                    <strong class="title">Account Settings</strong>
+                                    <div class="holder">
+                                        <div class="form-row">
+                                            <div class="checkbox">
+                                                <label>
+                                                    Profile: <input name="enabled" id="switch-state" class="switcher" type="checkbox" <?=$user['enabled'] ? 'checked':'';?> data-size="mini" value="1" data-on-text="Enabled" data-off-text="Disabled">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-box">
+                                    <strong class="title" style="background-color: red; color:white; text-align: center;">DANGER ZONE</strong>
+                                    <div class="holder">
+                                        <div class="form-row"><p>&nbsp;</p>
+                                            <div class="delete-account">
+                                                <a class="btn btn-danger" href="/dashboard/delete" onClick="return confirm('Are you sure you want to delete your account?')">delete account</a>
+                                            </div><p>&nbsp;</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -57,6 +79,7 @@
                     <a class="btn-prev icon-arrow hide" href="#"></a>
                     <a class="btn-next icon-arrow2 hide" href="#"></a>
                 </div>
+                <p>&nbsp;</p>
                 <div class="btn-holder">
                     <button class="btn btn-success">save</button> <a href="/dashboard">cancel</a>
                 </div>

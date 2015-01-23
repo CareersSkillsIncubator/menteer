@@ -28,6 +28,9 @@ class Chooser extends CI_Controller {
         if($this->user['menteer_type']==37)
             redirect('/dashboard','refresh');
 
+        if($this->user['match_status']=='active')
+            redirect('/dashboard','refresh');
+
         $matches = $this->session->userdata('matches');
 
         // make sure we have matches
