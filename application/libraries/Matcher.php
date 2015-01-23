@@ -113,13 +113,13 @@ class Matcher
                     $q2_mentee_answer = $item['questionnaire_answer_id']; // id example
                     break;
                 case 3:
-                    $q3_mentee_answer[] = $item['questionnaire_answer_id']; // multi example
+                    $q3_mentee_answer = $item['questionnaire_answer_id'];
                     break;
                 case 4:
                     $q4_mentee_answer = $item['questionnaire_answer_text']; // text example
                     break;
                 case 5:
-                    $q5_mentee_answer[] = $item['questionnaire_answer_id'];
+                    $q5_mentee_answer[] = $item['questionnaire_answer_id']; // array example
                     break;
                 case 6:
                     $q6_mentee_answer[] = $item['questionnaire_answer_id'];
@@ -227,7 +227,7 @@ class Matcher
                     $perc[$item['user_id']] = 0;
 
                 switch($item['questionnaire_id']) {
-                    case 2:
+                    case 2: // radio example
                         $q2_mentor_answers[$item['user_id']] = $item['questionnaire_answer_id'];
 
                         if ($item['questionnaire_answer_id'] == $q2_mentee_answer || $item['questionnaire_answer_id'] == 14 || $q2_mentee_answer == 14)
@@ -238,13 +238,15 @@ class Matcher
 
                         break;
 
-                    case 3: // checkbox example
+                    case 3:
+
+                        $q3_mentor_answers[$item['user_id']] = $item['questionnaire_answer_id'];
+
+                        if ($item['questionnaire_answer_id'] == $q3_mentee_answer)
+                            $score[$item['user_id']] = $score[$item['user_id']] + $q3_weight;
 
                         // Q3 Calculations
-                        if(!isset($q3_mentor_answers[$item['user_id']]))
-                            $total[$item['user_id']] += $q3_weight;
-
-                        $q3_mentor_answers[$item['user_id']][] = $item['questionnaire_answer_id'];
+                        $total[$item['user_id']] += $q3_weight;
 
                         break;
 
@@ -282,12 +284,6 @@ class Matcher
 
             // FINISHING UP NOW
 
-            // Q3
-            $r = array_intersect($q3_mentor_answers[$last_id],$q3_mentee_answer);
-
-            if(count($r) > 0 || in_array(17,$q3_mentor_answers[$last_id]) || in_array(17,$q3_mentee_answer)) {
-                $score[$item['user_id']] = $score[$item['user_id']] + $q3_weight;
-            }
 
             // Q5
             $r = array_intersect($q5_mentor_answers[$last_id],$q5_mentee_answer);
