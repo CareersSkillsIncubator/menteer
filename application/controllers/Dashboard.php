@@ -173,6 +173,47 @@ class Dashboard extends CI_Controller {
 
     }
 
+    public function send_message()
+    {
+
+        // get email of match
+
+        $match_id = $this->user['is_matched'];
+
+        if($match_id > 0) {
+
+            $match = $this->Application_model->get(array('table'=>'users','id'=>$match_id));
+
+            $send_to = $match['email'];
+        }
+
+        $data = array();
+        $data['user'] = $this->user['first_name'] . " " . $this->user['last_name'];
+        $data['message'] = nl2br($this->input->post('message_body'));
+        $message = $this->load->view('/dash/email/message', $data, true);
+        $this->email->clear();
+        $this->email->from($this->config->item('admin_email', 'ion_auth'), $this->config->item('site_title', 'ion_auth'));
+        $this->email->to($send_to);
+        $this->email->subject($this->input->post('message_subject'));
+        $this->email->message($message);
+
+        $result = $this->email->send(); // @todo handle false send result
+
+        // increment number of messages sent
+        $update['id'] = $this->session->userdata('user_id');
+        $update['data']['num_messages_sent'] = $this->user['num_messages_sent'] + 1;
+        $update['table'] = 'users';
+        $this->Application_model->update($update);
+
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success">Message Sent.</div>'
+        );
+
+        redirect('/dashboard/match');
+
+    }
+
     public function settings()
     {
 

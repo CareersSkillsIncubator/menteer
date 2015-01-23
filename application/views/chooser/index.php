@@ -154,7 +154,9 @@
 
                                 </div>
                             </div>
+                            <?php if(ENVIRONMENT=='development') { ?>
                             <small class="fright"><?php echo $mentor['match_score']; ?></small>
+                            <?php } ?>
                         </div>
 
                         <?php } ?>

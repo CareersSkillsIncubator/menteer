@@ -71,7 +71,12 @@
 
                                         <p><?= $match['menteer_type'] == 37 ? 'Mentor' : ''; ?><?= $match['menteer_type'] == 38 ? 'Mentee' : ''; ?><?= $match['menteer_type'] == 41 ? 'Mentee/Mentor' : ''; ?></p>
 
+
+
                                         <p class="<?=$private[0] ? '':'hide';?>"><?= $match['email'] ?></p>
+
+                                        <p style="font-size:.8em;"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="#" data-toggle="modal" data-target="#myModalMessage">Send Message to <?= $match['first_name'] ?></a><br />
+                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <a href="#">Book Meeting with <?= $match['first_name'] ?></a></p>
 
                                         <div style="clear:both;"></div>
 
@@ -126,3 +131,35 @@
             </div>
         </div>
 </main>
+<!-- Not Matched -->
+<div class="modal fade" id="myModalMessage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h2 class="modal-title" id="myModalLabel">Send A Message</h2>
+            </div>
+            <div class="modal-body">
+
+                <?php $attributes = array('class' => 'form', 'id' => 'message_form');?>
+                <?php echo form_open('dashboard/send_message',$attributes); ?>
+                <div class="form-group">
+                    <div class="form-row col-xs-8">
+                        <input type="text" class="form-control col-xs-4" id="message_subject" name="message_subject" placeholder="subject">
+                    </div>
+                </div>
+                <div class="form-group col-xs-8">
+                        <textarea class="form-control" rows="6" name="message_body" id="message_body" placeholder="your message here"></textarea>
+                </div>
+                    <div style="clear:both;"></div>
+                    <button type="submit" class="btn btn-default">Send</button>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default close" data-dismiss="modal" aria-label="Close">Close</a>
+
+            </div>
+        </div>
+    </div>
+</div>
