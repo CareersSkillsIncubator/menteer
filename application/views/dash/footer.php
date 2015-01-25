@@ -9,9 +9,9 @@
                         <li><a class="icon-linkedin" href="https://www.linkedin.com/vsearch/p?company=Career+Skills+Incubator&trk=prof-0-ovw-curr_pos"></a></li>
                     </ul>
                     <nav class="bottom-nav">
-                        <ul class="list-inline">
-                            <li><a href="/#about">ABOUT</a></li>
-                            <li><a href="/#story">STORY</a></li>
+                        <ul class="list-inline hide">
+                            <li><a href="/">ABOUT</a></li>
+                            <li><a href="/">STORY</a></li>
                         </ul>
                     </nav>
                 </div>
