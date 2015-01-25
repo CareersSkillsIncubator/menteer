@@ -1,5 +1,17 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Menteer
+ *
+ * Original Code is Menteer, Released January 2015
+ *
+ * The initial developer of the Original Code is CSCI (CareerSkillsIncubator) with
+ * the generous support from CIRA.ca (Community Investment Program)
+ *
+ *
+ */
+
+// authentication controller
 class Auth extends CI_Controller {
 
 	function __construct()

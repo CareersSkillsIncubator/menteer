@@ -3,6 +3,14 @@
 }
 
 /**
+ * Menteer
+ *
+ * Original Code is Menteer, Released January 2015
+ *
+ * The initial developer of the Original Code is CSCI (CareerSkillsIncubator) with
+ * the generous support from CIRA.ca (Community Investment Program)
+ *
+ *
  * Matcher (Designed for current and specific question set 2015)
  *
  *
@@ -62,7 +70,11 @@ class Matcher
         return get_instance()->$var;
     }
 
-    // return matches
+    /** return matches
+     * @param $user_id
+     * @param int $num_matches
+     * @return array|bool
+     */
     public function get_matches($user_id, $num_matches = MAX_MATCHES)
     {
         if (intval($user_id) <= 0) {
@@ -101,7 +113,12 @@ class Matcher
 
     }
 
-    // specific for CSCI / Menteer.ca
+    /** main logic
+     * @param $mentee_array
+     * @param $mentors_array
+     * @param $num_matches
+     * @return array
+     */
     protected function _matchulator($mentee_array, $mentors_array, $num_matches)
     {
 
@@ -798,10 +815,7 @@ class Matcher
 
                 default : // motivational
 
-
             }
-
-
 
             // FINAL CALC
             if ($total[$last_id] != 0) {

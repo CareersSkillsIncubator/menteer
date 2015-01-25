@@ -1,13 +1,40 @@
 <?php
 
+/**
+ * Menteer
+ *
+ * Original Code is Menteer, Released January 2015
+ *
+ * The initial developer of the Original Code is CSCI (CareerSkillsIncubator) with
+ * the generous support from CIRA.ca (Community Investment Program)
+ *
+ *
+ */
+
+/**
+ * @param $str
+ * @param int $n_words
+ * @return string
+ */
 function brief($str, $n_words = 10) {
     return word_limiter(strip_tags($str), $n_words);
 }
 
+/**
+ * @param $str
+ * @return string
+ */
 function clean($str) {
     return htmlspecialchars($str);
 }
 
+/**
+ * @param $in
+ * @param int $width
+ * @param int $height
+ * @param bool $auto_play
+ * @return bool|string
+ */
 function _embed($in, $width = 350, $height = 350, $auto_play = FALSE){
 
     $dom = new DOMDocument();
@@ -28,6 +55,10 @@ function _embed($in, $width = 350, $height = 350, $auto_play = FALSE){
     return false;
 }
 
+/**
+ * @param $num
+ * @return string
+ */
 function addOrdinalNumberSuffix($num) {
     if (!in_array(($num % 100),array(11,12,13))){
         switch ($num % 10) {
@@ -40,6 +71,10 @@ function addOrdinalNumberSuffix($num) {
     return $num.'th';
 }
 
+/**
+ * @param $date
+ * @return bool|string
+ */
 function to_alt_date($date)
 {
     $timestamp = strtotime($date);
@@ -47,6 +82,10 @@ function to_alt_date($date)
     return date("l, F j, Y",$timestamp);
 }
 
+/**
+ * @param int $seconds
+ * @return string
+ */
 function days_ago($seconds = 1) {
     if (!is_numeric($seconds)) {
         $seconds = strtotime($seconds);
@@ -82,6 +121,10 @@ function days_ago($seconds = 1) {
     }
 }
 
+/**
+ * @param $string
+ * @return string
+ */
 function encrypt_url($string) {
     $key = "MAL_979805"; //key to encrypt and decrypts.
     $result = '';
@@ -98,6 +141,10 @@ function encrypt_url($string) {
     return urlencode(base64_encode($result));
 }
 
+/**
+ * @param $string
+ * @return string
+ */
 function decrypt_url($string) {
     $key = "MAL_979805"; //key to encrypt and decrypts.
     $result = '';
@@ -111,6 +158,9 @@ function decrypt_url($string) {
     return $result;
 }
 
+/**
+ * @param $array
+ */
 function printer($array) {
     echo "<pre>";
     print_r($array);

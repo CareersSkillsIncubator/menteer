@@ -1,5 +1,17 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Menteer
+ *
+ * Original Code is Menteer, Released January 2015
+ *
+ * The initial developer of the Original Code is CSCI (CareerSkillsIncubator) with
+ * the generous support from CIRA.ca (Community Investment Program)
+ *
+ *
+ */
+
+// download calendar.ics file
 class Ical extends CI_Controller {
 
     public function __construct()
@@ -16,6 +28,9 @@ class Ical extends CI_Controller {
 
     }
 
+    /**
+     * @param $id encrypted meeting id sent via email
+     */
     public function q($id)
     {
 

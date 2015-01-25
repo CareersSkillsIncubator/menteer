@@ -1,5 +1,17 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Menteer
+ *
+ * Original Code is Menteer, Released January 2015
+ *
+ * The initial developer of the Original Code is CSCI (CareerSkillsIncubator) with
+ * the generous support from CIRA.ca (Community Investment Program)
+ *
+ *
+ */
+
+// static home page
 class Welcome extends CI_Controller {
 
     public function __construct()
@@ -9,6 +21,7 @@ class Welcome extends CI_Controller {
         $this->data = array();
     }
 
+    // home page
 	public function index()
 	{
         $this->data['page'] = 'home';
@@ -35,6 +48,7 @@ class Welcome extends CI_Controller {
 
     }
 
+    // privacy page
     public function privacy()
     {
         $this->data['page'] = 'privacy';

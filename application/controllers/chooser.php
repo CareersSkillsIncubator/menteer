@@ -1,5 +1,17 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Menteer
+ *
+ * Original Code is Menteer, Released January 2015
+ *
+ * The initial developer of the Original Code is CSCI (CareerSkillsIncubator) with
+ * the generous support from CIRA.ca (Community Investment Program)
+ *
+ *
+ */
+
+// select mentor controller
 class Chooser extends CI_Controller {
 
 	public function __construct()
@@ -13,10 +25,11 @@ class Chooser extends CI_Controller {
         $this->load->model('Matcher_model');
         $this->load->library('email');
 
+        // get authenticated user
         $this->user = $this->Application_model->get(array('table'=>'users','id'=>$this->session->userdata('user_id')));
 
+        // init
         $this->session->set_userdata('skip_matches',false); // reset
-
         $this->data = array();
 
     }
@@ -97,6 +110,7 @@ class Chooser extends CI_Controller {
 
     }
 
+    // accept match (mentor function)
     public function accept()
     {
 
@@ -146,6 +160,7 @@ class Chooser extends CI_Controller {
 
     }
 
+    // decline match (mentor function)
     public function decline()
     {
 
@@ -195,6 +210,7 @@ class Chooser extends CI_Controller {
 
     }
 
+    // select mentor and send email notification
     public function select($mentor_id) {
 
         // mentors cannot choose another mentor
@@ -253,6 +269,7 @@ class Chooser extends CI_Controller {
 
     }
 
+    // get answers
     protected function _extract_data($mentor_answers) {
 
         $question = array();

@@ -1,5 +1,15 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+ * Menteer
+ *
+ * Original Code is Menteer, Released January 2015
+ *
+ * The initial developer of the Original Code is CSCI (CareerSkillsIncubator) with
+ * the generous support from CIRA.ca (Community Investment Program)
+ *
+ *
+ */
 
 class Matcher_model extends CI_Model
 {
@@ -10,6 +20,10 @@ class Matcher_model extends CI_Model
 
     }
 
+    /**
+     * @param array $params
+     * @return array|bool
+     */
     function get($params = array()) {
 
         if(!isset($params['table']))
@@ -41,6 +55,10 @@ class Matcher_model extends CI_Model
         return $id ? $data[0] : $this->_index($data);
     }
 
+    /**
+     * @param array $params
+     * @return bool
+     */
     function save_batch($params = array()) {
 
         if(!isset($params['table']))
@@ -52,6 +70,10 @@ class Matcher_model extends CI_Model
 
     }
 
+    /**
+     * @param array $params
+     * @return bool
+     */
     function update($params = array()) {
 
         if(!isset($params['table']))
@@ -62,6 +84,10 @@ class Matcher_model extends CI_Model
 
     }
 
+    /**
+     * @param $data
+     * @return array
+     */
     function _index($data) {
 
         $ret = array();

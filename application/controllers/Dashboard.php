@@ -2,6 +2,18 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Menteer
+ *
+ * Original Code is Menteer, Released January 2015
+ *
+ * The initial developer of the Original Code is CSCI (CareerSkillsIncubator) with
+ * the generous support from CIRA.ca (Community Investment Program)
+ *
+ *
+ */
+
+// main dashboard for mentor and mentee
 class Dashboard extends CI_Controller {
 
 
@@ -25,6 +37,7 @@ class Dashboard extends CI_Controller {
         // is this user a mentor or menteer or both
         $val = $this->Application_model->get(array('table'=>'users_answers','user_id'=>$this->session->userdata('user_id'),'questionnaire_id'=>TYPE_QUESTION_ID,));
 
+        // figure out which type we are
         switch($val['questionnaire_answer_id']) {
             case MENTOR_ID:
                 $this->session->set_userdata('user_kind','mentor');
@@ -61,6 +74,7 @@ class Dashboard extends CI_Controller {
         $this->data = array();
     }
 
+    // main
 	public function index()
 	{
 
@@ -73,7 +87,7 @@ class Dashboard extends CI_Controller {
 
     }
 
-
+    // see this profile
     public function myprofile()
     {
 
@@ -85,6 +99,7 @@ class Dashboard extends CI_Controller {
         $this->load->view('/dash/footer', $this->data);
     }
 
+    // save profile info
     public function save_profile()
     {
 
@@ -151,10 +166,9 @@ class Dashboard extends CI_Controller {
 
     }
 
+    // see match profile
     public function match()
     {
-
-
 
         $this->data['page'] = 'profile';
         $match_id = $this->user['is_matched'];
@@ -173,6 +187,7 @@ class Dashboard extends CI_Controller {
 
     }
 
+    // send meeting invite with ics to your match
     public function send_meeting()
     {
         // save meeting
@@ -251,6 +266,7 @@ class Dashboard extends CI_Controller {
 
     }
 
+    // send email message to match
     public function send_message()
     {
 
@@ -292,6 +308,7 @@ class Dashboard extends CI_Controller {
 
     }
 
+    // view my settings page
     public function settings()
     {
 
@@ -310,6 +327,7 @@ class Dashboard extends CI_Controller {
 
     }
 
+    // delete - actually disable account for now
     public function delete()
     {
 
@@ -323,6 +341,7 @@ class Dashboard extends CI_Controller {
 
     }
 
+    // save settings
     public function settings_save()
     {
 
@@ -520,8 +539,5 @@ class Dashboard extends CI_Controller {
 
             $result = $this->email->send(); // @todo handle false send result
         }
-
-
     }
-
 }

@@ -1,5 +1,12 @@
 <?php
 /**
+ * Menteer
+ *
+ * Original Code is Menteer, Released January 2015
+ *
+ * The initial developer of the Original Code is CSCI (CareerSkillsIncubator) with
+ * the generous support from CIRA.ca (Community Investment Program)
+ *
  * CodeIgniter
  *
  * An open source application development framework for PHP 5.2.4 or newer
