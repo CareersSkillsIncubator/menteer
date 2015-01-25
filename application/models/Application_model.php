@@ -59,6 +59,17 @@ class Application_model extends CI_Model
 
     }
 
+    function insert($params = array()) {
+
+        if(!isset($params['table']))
+            return false;
+
+        $this->db->insert($params['table'], $params['data']);
+
+        return $this->db->insert_id();
+
+    }
+
     function _index($data) {
 
         $ret = array();

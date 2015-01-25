@@ -173,6 +173,84 @@ class Dashboard extends CI_Controller {
 
     }
 
+    public function send_meeting()
+    {
+        // save meeting
+        if($this->user['is_matched'] > 0) {
+            $update['data']['from'] = $this->session->userdata('user_id');
+            $update['data']['to'] = $this->user['is_matched'];
+            $update['data']['meeting_subject'] = $this->input->post('meeting_subject');
+            $update['data']['meeting_desc'] = $this->input->post('meeting_desc');
+            $update['data']['month'] = $this->input->post('month');
+            $update['data']['day'] = $this->input->post('day');
+            $update['data']['year'] = $this->input->post('year');
+            $update['data']['start_ampm'] = $this->input->post('start_ampm');
+            $update['data']['end_ampm'] = $this->input->post('end_ampm');
+            $update['data']['stamp'] = date("Y-m-d H:i:s");
+            $update['data']['start_time'] = $this->input->post('start_time');
+            $update['data']['end_time'] = $this->input->post('end_time');
+
+            $update['table'] = 'meetings';
+            $update['data']['ical'] = encrypt_url($this->Application_model->insert($update));
+
+            // send emails to each party
+
+            $match = $this->Application_model->get(array('table'=>'users','id'=>$this->user['is_matched']));
+            $update['data']['who'][] = $match['first_name'] . " " . $match['last_name'];
+            $update['data']['who'][] = $this->user['first_name'] . " " . $this->user['last_name'];
+
+            //convert date and time to nice format
+            $nice_date = date('D M d, Y',strtotime($this->input->post('day')."-".$this->input->post('month')."-".$this->input->post('year')));
+            $update['data']['nice_date'] = $nice_date;
+
+            // to requesting user
+            $data = array();
+            $data['user'] = $this->user['first_name'] . " " . $this->user['last_name'];
+            $data['message'] = $update['data'];
+            $message = $this->load->view('/dash/email/meeting', $data, true);
+            $this->email->clear();
+            $this->email->from($this->config->item('admin_email', 'ion_auth'), $this->config->item('site_title', 'ion_auth'));
+            $this->email->to($this->user['email']);
+
+            $full_subject = "Invitation: " . $nice_date . " " . $this->input->post('start_time') . "" . $this->input->post('start_ampm') . " - " . $this->input->post('end_time') . "" . $this->input->post('end_ampm') . " (" . $this->user['first_name'] . " " . $this->user['last_name'] . ")";
+
+            $this->email->subject($full_subject);
+            $this->email->message($message);
+
+            $result = $this->email->send(); // @todo handle false send result
+
+
+            // to invitee
+            $data = array();
+            $data['user'] = $match['first_name'] . " " . $match['last_name'];
+            $data['message'] = $update['data'];
+            $message = $this->load->view('/dash/email/meeting', $data, true);
+            $this->email->clear();
+            $this->email->from($this->config->item('admin_email', 'ion_auth'), $this->config->item('site_title', 'ion_auth'));
+            $this->email->to($match['email']);
+
+            $full_subject = "Invitation: " . $nice_date . " " . $this->input->post('start_time') . "" . $this->input->post('start_ampm') . " - " . $this->input->post('end_time') . "" . $this->input->post('end_ampm') . " (" . $match['first_name'] . " " . $match['last_name'] . ")";
+
+            $this->email->subject($full_subject);
+            $this->email->message($message);
+
+            $result = $this->email->send(); // @todo handle false send result
+
+
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-success">Meeting Request Sent.</div>'
+            );
+
+            redirect('/dashboard/match','refresh');
+        }else{
+
+            redirect('/dashboard','refresh');
+
+        }
+
+    }
+
     public function send_message()
     {
 

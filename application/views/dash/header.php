@@ -20,8 +20,6 @@
     <script src="/assets/js/highlight.js?v=<?=V?>"></script>
     <script src="/assets/js/bootstrap-switch.min.js?v=<?=V?>"></script>
 
-
-
 </head>
 <body>
 <div id="wrapper" class="dashboard">
