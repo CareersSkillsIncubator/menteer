@@ -133,21 +133,21 @@ class Dashboard extends CI_Controller {
 
         $upload_errors = '';
 
-        if ( ! $this->upload->do_upload() && $this->input->post('userfile'))
-        {
+        if(isset($_FILES['userfile']['name']) && $_FILES['userfile']['name'] != '') {
 
-            $upload_errors = $this->upload->display_errors();
+            if (!$this->upload->do_upload()) {
 
-        }
-        else
-        {
-            //$upload_data = array('upload_data' => $this->upload->data());
+                $upload_errors = $this->upload->display_errors();
 
-            $upload['id'] = $this->session->userdata('user_id');
-            $upload['data']['picture'] = $this->upload->data('file_name');
-            $upload['table'] = 'users';
-            $this->Application_model->update($upload);
+            } else {
+                //$upload_data = array('upload_data' => $this->upload->data());
 
+                $upload['id'] = $this->session->userdata('user_id');
+                $upload['data']['picture'] = $this->upload->data('file_name');
+                $upload['table'] = 'users';
+                $this->Application_model->update($upload);
+
+            }
         }
 
 
