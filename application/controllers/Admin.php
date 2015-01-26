@@ -11,7 +11,7 @@
  *
  */
 
-// administer platform
+// administrate platform
 class Admin extends CI_Controller {
 
     public function __construct()
@@ -29,6 +29,18 @@ class Admin extends CI_Controller {
 
     public function index()
     {
+
+        // get all users
+        $this->data['users'] = $this->Application_model->get(array('table'=>'users'));
+
+        // get mentors only
+
+        $this->data['mentors'] = $this->Application_model->get(array('table'=>'users','mentors'=>true));
+        $this->data['mentees'] = $this->Application_model->get(array('table'=>'users','mentees'=>true));
+        $this->data['both'] = $this->Application_model->get(array('table'=>'users','both'=>true));
+        $this->data['matched'] = $this->Application_model->get(array('table'=>'users','matched'=>true));
+
+        $this->data['meetings'] = $this->Application_model->get(array('table'=>'meetings'));
 
         $this->load->view('/admin/header',$this->data);
         $this->load->view('/admin/index',$this->data);

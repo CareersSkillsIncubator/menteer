@@ -35,12 +35,22 @@ class Application_model extends CI_Model
         $id				= isset($params['id']) ? $params['id'] : false;
         $user_id			= isset($params['user_id']) ? $params['user_id'] : false;
         $questionnaire_id	= isset($params['questionnaire_id']) ? $params['questionnaire_id'] : false;
+        $mentors        = isset($params['mentors']) ? true : false;
+        $mentees        = isset($params['mentees']) ? true : false;
+        $both           = isset($params['both']) ? true : false;
+        $matched           = isset($params['matched']) ? true : false;
 
         $sql			= "SELECT * FROM ".$params['table']." WHERE id != '' ";
 
         $sql			.= $id ?  " AND id = '".$id."' " : " ";
         $sql			.= $user_id ?  " AND user_id = '".$user_id."' " : " ";
         $sql			.= $questionnaire_id ?  " AND questionnaire_id = '".$questionnaire_id."' " : " ";
+
+        $sql            .= $mentors ? " AND menteer_type=37 " : " ";
+        $sql            .= $mentees ? " AND menteer_type=38 " : " ";
+        $sql            .= $both ? " AND menteer_type=41 " : " ";
+        $sql            .= $matched ? " AND match_status='active' " : " ";
+
 
         $sql			.= $order ? " ORDER BY ".$order." " : " ";
         $sql			.= $limit ? " LIMIT ".$limit." " : " ";
