@@ -5,6 +5,7 @@
 
         <div align="center"><a href="https://menteer.uservoice.com" target="_blank">User Voice</a> |
             <a href="http://www.google.com/analytics" target="_blank">Google Analytics</a> |
+            <a href="/admin/export">Export Users</a> | 
             <a href="/logout">Logout</a></div>
 
         <p>&nbsp;</p>

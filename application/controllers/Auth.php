@@ -504,7 +504,7 @@ class Auth extends CI_Controller {
 
 		}
 
-		return implode(',',$check_list);
+		return implode(', ',$check_list);
 
 	}
 
