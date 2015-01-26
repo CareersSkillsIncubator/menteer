@@ -22,8 +22,7 @@
                                     <div class="holder" style="min-height:620px;">
 
 
-                                        <a href="/chooser/decline" class="btn btn-danger fright">DECLINE</a>
-                                        <a href="/chooser/accept" class="btn btn-success fright">ACCEPT</a>
+
 
                                         <?php
                                         //determine picture filename
@@ -36,13 +35,20 @@
                                         ?>
 
                                         <div class="img-box">
-                                            <img style="float:left; padding-right:10px;" class="col-xs-3"
+                                            <img style="float:left; padding-right:10px;" class="col-xs-7"
                                                  src="<?=$pic_src?>"
                                                  alt="<?= $mentor['user']['first_name'] ?>">
                                         </div>
 
                                         <h4 style="font-weight: bold;"><?=$mentor['user']['first_name']?></h4>
                                         <p><?= $mentor['user']['menteer_type'] == 37 ? 'Mentor' : ''; ?><?= $mentor['user']['menteer_type'] == 38 ? 'Mentee' : ''; ?><?= $mentor['user']['menteer_type'] == 41 ? 'Mentee/Mentor' : ''; ?></p>
+
+                                        <div style="clear:both;"></div>
+                                        <hr />
+                                        <div align="center" class="well">
+                                        <a href="/chooser/decline" class="btn btn-danger ">DECLINE</a>
+                                        <a href="/chooser/accept" class="btn btn-success ">ACCEPT</a>
+                                        </div>
 
                                         <hr />
                                         <div style="clear:both;"></div>

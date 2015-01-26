@@ -41,7 +41,7 @@
 
                             <div class="form-box">
                                 <strong class="title"> <a href="/dashboard">BACK</a> <span
-                                        style="float:right;"><a href="#">MATCH STATUS: <?= strtoupper(
+                                        style="float:right;"><a href="#">STATUS: <?= strtoupper(
                                                 $status
                                             ) ?></a> </span> </strong>
 
@@ -59,7 +59,7 @@
 
                                     <div class="col-xs-12">
                                         <div class="img-box">
-                                            <img style="float:left; padding-right:10px;" class="col-xs-5"
+                                            <img style="float:left; padding-right:10px;" class="col-xs-7"
                                                  src="<?=$pic_src?>"
                                                  alt="<?= $match['first_name'] ?> <?= $match['last_name'] ?>">
                                         </div>
@@ -71,9 +71,11 @@
 
                                         <p><?= $match['menteer_type'] == 37 ? 'Mentor' : ''; ?><?= $match['menteer_type'] == 38 ? 'Mentee' : ''; ?><?= $match['menteer_type'] == 41 ? 'Mentee/Mentor' : ''; ?></p>
 
+                                        <div style="clear:both;"></div>
 
+                                        <h5 class=" <?=$private[0] ? '':'hide';?> col-xs-12" style="margin-top:15px; margin-bottom:15px; text-align: left;"><?= $match['email'] ?></h5>
 
-                                        <p class="<?=$private[0] ? '':'hide';?>"><?= $match['email'] ?></p>
+                                        <div style="clear:both;"></div>
 
                                         <p style="font-size:.8em;"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="#" data-toggle="modal" data-target="#myModalMessage">Send Message to <?= $match['first_name'] ?></a><br />
                                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <a href="#" data-toggle="modal" data-target="#myModalMeeting">Book Meeting with <?= $match['first_name'] ?></a></p>

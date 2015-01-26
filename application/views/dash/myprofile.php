@@ -35,7 +35,7 @@
 
                             <div class="form-box">
                                 <strong class="title"> <a href="/dashboard">BACK</a> <span
-                                        style="float:right;"><a href="#">MATCH STATUS: <?= strtoupper(
+                                        style="float:right;"><a href="#">STATUS: <?= strtoupper(
                                                 $status
                                             ) ?></a> </span> </strong>
 
@@ -53,7 +53,7 @@
 
                                     <div class="col-xs-12">
                                         <div class="img-box">
-                                            <img style="float:left; padding-right:10px;" class="col-xs-5"
+                                            <img style="float:left; padding-right:10px;" class="col-xs-7"
                                                  src="<?=$pic_src?>"
                                                  alt="<?= $me['first_name'] ?> <?= $me['last_name'] ?>">
                                         </div>
@@ -69,12 +69,12 @@
 
                                         <div style="clear:both;"></div>
 
-                                        <p style="padding-left:15px;padding-top:3px;">Update Picture: <input
-                                                type="file" name="userfile" size="20"/><small><em>(ideal pic size is 250px X 250px)</em></small></p>
+                                        <p style="padding-left:15px;padding-top:3px; font-size:.7em;">Update Picture: <input
+                                                type="file" name="userfile" size="20" /><small><em>(ideal pic size is 250px X 250px)</em></small></p>
 
                                         <hr/>
 
-                                        <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6"><input style="line-height: 18px;" class="col-xs-12"
+                                        <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6"><input style="line-height: 26px; margin-bottom:10px;" class="col-xs-12"
                                                                      type="text"
                                                                      name="location" placeholder="Location"
                                                                      value="<?= $me['location'] ?>"></div>

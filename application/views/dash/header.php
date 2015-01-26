@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <nav class="navbar navbar-default">
-                        <a class="navbar-brand" href="#"><img src="/assets/images/item-logo.png" height="131" width="179" alt="menteer Re:Defining Mentorship"></a>
+                        <a class="navbar-brand" href="/dashboard"><img src="/assets/images/item-logo.png" height="131" width="179" alt="menteer Re:Defining Mentorship"></a>
                     </nav>
                 </div>
             </div>

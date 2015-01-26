@@ -47,7 +47,7 @@
                     <?php }?>
 
                         <span class="icon icon-user1"></span>
-                        <strong class="title">MENTEER <br>DASHBOARD</strong>
+                        <strong class="title" style="font-size:1.1em;">MENTEER&nbsp;<br> DASHBOARD</strong>
                     </a>
                 </div>
             </header>
