@@ -504,10 +504,8 @@ class Auth extends CI_Controller {
 
 		}
 
-		if(empty($check_list))
-			return TRUE;
-		else
-			return FALSE;
+		return implode(',',$check_list);
+
 	}
 
 	//create a new user
@@ -535,9 +533,10 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('password', $this->lang->line('create_user_validation_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
 		$this->form_validation->set_rules('password_confirm', $this->lang->line('create_user_validation_password_confirm_label'), 'required');
 
-		if($this->_setup_check($this->input->post('frm_data')) == FALSE){
+		$return_q = $this->_setup_check($this->input->post('frm_data'));
+		if($return_q != ''){
 			$csrf_hash = $this->security->get_csrf_hash();
-			echo json_encode(array('vresult'=>'error','message'=>'You must answer every question before proceeding.','full_message'=>'','csrf_hash'=>$csrf_hash));
+			echo json_encode(array('vresult'=>'error','message'=>'Please answer question(s) ... ' . $return_q ,'full_message'=>'','csrf_hash'=>$csrf_hash));
 
 		}else {
 

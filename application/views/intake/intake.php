@@ -1,6 +1,8 @@
 <main id="main" role="main" class="intake">
     <div class="container">
         <div class="form-block">
+
+
             <?php echo form_open("#",array('class'=>'form','role'=>'form','id'=>'question_form'));?>
                 <div class="carousel">
                     <div class="mask">
@@ -8,13 +10,18 @@
                                 $count = 1;
                                 foreach($questions as $key=>$data){?>
                                 <div data-cycle-hash="<?=$key?>" class="slide">
+                                    <div class="alert alert-danger intake-err">Question Not Answered</div>
+                                    <script>
+                                        $('.intake-err').hide();
+                                    </script>
                                     <h1>Question <?=$count?> of <?=$num_questions?></h1>
 
                                     <div class="form-box">
                                         <strong class="title"></strong>
                                         <div class="holder" style="min-height:300px;">
                                             <h4 style="font-weight: bold;"><?=$data['question']?></h4>
-                                            <div class="form-group">
+                                            <div class="form-group field<?=$key?>">
+
 
 
                                                 <?php switch($data['type']) {
@@ -115,6 +122,9 @@
                                 <?php $count++; } ?>
 
                                 <div data-cycle-hash="register" class="slide register_slide">
+
+                                    <div class="alert alert-danger intake-err">Question Not Answered</div>
+
                                     <h1>Register</h1>
 
                                     <div class="form-box">
@@ -163,12 +173,13 @@
                 <div class="btn-holder hide">
                     <button class="btn btn-success">save</button>
                 </div>
-            <input type="hidden" id="page" name="page" value="1" />
+            <input type="hidden" id="turnpage" name="turnpage" value="1" />
+
             <?php echo form_close();?>
         </div>
     </div>
     <script>
-        if($("input[name=page]").val() == 1)
+        if($("input[name=turnpage]").val() == 1)
             $(".arrow-prev").hide();
     </script>
 </main>

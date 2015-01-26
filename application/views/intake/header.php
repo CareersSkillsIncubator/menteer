@@ -14,11 +14,12 @@
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript">window.jQuery || document.write('<script src="/assets/js/jquery-1.11.1.min.js"><\/script>')</script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="/assets/js/jquery.main.js?v=<?=V?>"></script>
     <script src="/assets/js/bootstrap.min.js?v=<?=V?>"></script>
+    <script type="text/javascript" src="/assets/js/jquery.main.js?v=<?=V?>"></script>
     <script src="/assets/js/application.js?v=<?=V?>"></script>
     <script src="/assets/js/bootstrap-tokenfield.js?v=<?=V?>"></script>
-
+    <script src="/assets/js/highlight.js?v=<?=V?>"></script>
+    <script src="/assets/js/bootstrap-switch.min.js?v=<?=V?>"></script>
 
 </head>
 <body>

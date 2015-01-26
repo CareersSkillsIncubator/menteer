@@ -5,17 +5,260 @@ $( document ).ready(function() {
 
         e.preventDefault();
 
-        var $page = $("input[name=page]").val();
-
-        $page = parseInt($page) + 1;
+        var $page = $("input[name=turnpage]").val();
 
         $(".arrow-prev").show();
         $(".arrow-next").show();
 
-        $("input[name=page]").val($page);
+        // did user answer the question?
+
+        if ($page == 1){
+
+            if($("input[name=1]").is(':checked')) {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 1 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 2){
+
+            if($("input[name=2]").is(':checked')) {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 2 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 3){
+
+            if($("input[name=3]").is(':checked')) {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 3 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 4){
+
+            if($("input[name=4]").is(':checked')) {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 4 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 5){
+
+            if($("input[name=5]").is(':checked')) {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 5 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 6){
+
+            if($("input[name=6]").is(':checked')) {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 6 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 7){
+
+            if($("input[name=7]").is(':checked')) {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 7 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 8){
+
+            if($("textarea[name=8]").val()!='') {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 8 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 9){
+
+            if($('.field9 .token').length){
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 9 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 10){
+
+            if($('.field10 .token').length){
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 10 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 11){
+
+            if($("textarea[name=11]").val()!='') {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 11 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 12){
+
+            if($('.field12 .token').length){
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 12 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 13){
+
+            if($('.field13 .token').length){
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 13 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 14){
+
+            if($('.field14 .token').length){
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 14 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 15){
+
+            if($('.field15 .token').length){
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 15 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 16){
+
+            if($("input[name=16]").is(':checked')) {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 16 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        $page = parseInt($page) + 1;
+
+        $("input[name=turnpage]").val($page);
 
         if($page == 17)
             $(".arrow-next").hide();
+
 
 
     });
@@ -25,9 +268,252 @@ $( document ).ready(function() {
 
         e.preventDefault();
 
-        var $page = $("input[name=page]").val();
+        var $page = $("input[name=turnpage]").val();
 
         $page = parseInt($page) - 1;
+
+        // did user answer the question?
+
+        if ($page == 1){
+
+            if($("input[name=1]").is(':checked')) {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 1 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 2){
+
+            if($("input[name=2]").is(':checked')) {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 2 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 3){
+
+            if($("input[name=3]").is(':checked')) {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 3 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 4){
+
+            if($("input[name=4]").is(':checked')) {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 4 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 5){
+
+            if($("input[name=5]").is(':checked')) {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 5 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 6){
+
+            if($("input[name=6]").is(':checked')) {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 6 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 7){
+
+            if($("input[name=7]").is(':checked')) {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 7 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 8){
+
+            if($("textarea[name=8]").val()!='') {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 8 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 9){
+
+            if($('.field9 .token').length){
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 9 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 10){
+
+            if($('.field10 .token').length){
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 10 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 11){
+
+            if($("textarea[name=11]").val()!='') {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 11 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 12){
+
+            if($('.field12 .token').length){
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 12 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 13){
+
+            if($('.field13 .token').length){
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 13 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 14){
+
+            if($('.field14 .token').length){
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 14 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 15){
+
+            if($('.field15 .token').length){
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 15 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
+        if ($page == 16){
+
+            if($("input[name=16]").is(':checked')) {
+
+                $(".intake-err").hide();
+
+            }else{
+
+                $(".intake-err").html('Question 16 answer missing.');
+                $(".intake-err").show();
+
+            }
+
+        }
+
 
         $(".arrow-prev").show();
         $(".arrow-next").show();
@@ -35,7 +521,7 @@ $( document ).ready(function() {
         if($page == 1)
             $(".arrow-prev").hide();
 
-        $("input[name=page]").val($page);
+        $("input[name=turnpage]").val($page);
 
 
     });
