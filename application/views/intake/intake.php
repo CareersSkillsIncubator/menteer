@@ -157,13 +157,18 @@
 
                         </div>
                     </div>
-                    <a class=" btn-prev icon-arrow" href="#"></a>
-                    <a class=" btn-next icon-arrow2" href="#"></a>
+                    <a class=" btn-prev icon-arrow arrow-prev" href="#"></a>
+                    <a class=" btn-next icon-arrow2 arrow-next" href="#"></a>
                 </div>
                 <div class="btn-holder hide">
                     <button class="btn btn-success">save</button>
                 </div>
+            <input type="hidden" id="page" name="page" value="1" />
             <?php echo form_close();?>
         </div>
     </div>
+    <script>
+        if($("input[name=page]").val() == 1)
+            $(".arrow-prev").hide();
+    </script>
 </main>

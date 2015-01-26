@@ -1,5 +1,46 @@
 $( document ).ready(function() {
 
+    // intake next arrow usability
+    $('.arrow-next').click(function (e) {
+
+        e.preventDefault();
+
+        var $page = $("input[name=page]").val();
+
+        $page = parseInt($page) + 1;
+
+        $(".arrow-prev").show();
+        $(".arrow-next").show();
+
+        $("input[name=page]").val($page);
+
+        if($page == 17)
+            $(".arrow-next").hide();
+
+
+    });
+
+    // intake previous arrow usability
+    $('.arrow-prev').click(function (e) {
+
+        e.preventDefault();
+
+        var $page = $("input[name=page]").val();
+
+        $page = parseInt($page) - 1;
+
+        $(".arrow-prev").show();
+        $(".arrow-next").show();
+
+        if($page == 1)
+            $(".arrow-prev").hide();
+
+        $("input[name=page]").val($page);
+
+
+    });
+
+
     $('.check-next').click(function (e) {
 
         e.preventDefault();
