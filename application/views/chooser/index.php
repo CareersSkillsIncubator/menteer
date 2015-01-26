@@ -1,7 +1,7 @@
 <main id="main" role="main" class="intake">
     <div class="container">
 
-        <div class="form-block">
+        <div class="form-block" id="top">
 
             <h1>Choose a Mentor</h1>
 
@@ -155,8 +155,11 @@
                                 </div>
                             </div>
                             <?php if(ENVIRONMENT=='development') { ?>
-                            <small class="fright"><?php echo $mentor['match_score']; ?></small>
+                            <small class=""><?php echo $mentor['match_score']; ?></small>
                             <?php } ?>
+
+                            <a href="#top" class="btn btn-default fright">TOP</a>
+                            <a href="/dashboard?skip=1" class="btn btn-primary">SKIP TO DASHBOARD</a>
                         </div>
 
                         <?php } ?>

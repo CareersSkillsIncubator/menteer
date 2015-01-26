@@ -348,7 +348,7 @@ class Matcher
             $r = array_intersect($q5_mentor_answers[$last_id], $q5_mentee_answer);
 
             if (count($r) > 0 || in_array(17, $q5_mentor_answers[$last_id]) || in_array(17, $q5_mentee_answer)) {
-                $score[$item['user_id']] = $score[$item['user_id']] + $q5_weight;
+                $score[$last_id] = $score[$last_id] + $q5_weight;
             }
 
 
@@ -364,19 +364,19 @@ class Matcher
                             $r1 = array_intersect($q10_mentor_answers[$last_id], $q9_mentee_answer);
                             $weight = 10 * count($r1); // q9
                             if(count($r1) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $r2 = array_intersect($q12_mentor_answers[$last_id], $q13_mentee_answer);
                             $weight = 250 * count($r2); // q12
                             if(count($r2) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $r3 = array_intersect($q14_mentor_answers[$last_id], $q15_mentee_answer);
                             $weight = 250 * count($r3); // q14
                             if(count($r3) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $matches = 0;
@@ -404,7 +404,7 @@ class Matcher
 
                             }
                             if($matches > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             break;
@@ -413,19 +413,19 @@ class Matcher
                             $r1 = array_intersect($q10_mentor_answers[$last_id], $q9_mentee_answer);
                             $weight = 250 * count($r1); // q9
                             if(count($r1) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $r2 = array_intersect($q12_mentor_answers[$last_id], $q13_mentee_answer);
                             $weight = 10 * count($r2); // q12
                             if(count($r2) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $r3 = array_intersect($q14_mentor_answers[$last_id], $q15_mentee_answer);
                             $weight = 50 * count($r3); // q14
                             if(count($r3) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $matches = 0;
@@ -453,7 +453,7 @@ class Matcher
 
                             }
                             if($matches > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             break;
@@ -462,19 +462,19 @@ class Matcher
                             $r1 = array_intersect($q10_mentor_answers[$last_id], $q9_mentee_answer);
                             $weight = 50 * count($r1); // q9
                             if(count($r1) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $r2 = array_intersect($q12_mentor_answers[$last_id], $q13_mentee_answer);
                             $weight = 50 * count($r2); // q12
                             if(count($r2) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $r3 = array_intersect($q14_mentor_answers[$last_id], $q15_mentee_answer);
                             $weight = 50 * count($r3); // q14
                             if(count($r3) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $matches = 0;
@@ -502,7 +502,7 @@ class Matcher
 
                             }
                             if($matches > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                     }
@@ -516,19 +516,19 @@ class Matcher
                             $r1 = array_intersect($q10_mentor_answers[$last_id], $q9_mentee_answer);
                             $weight = 10 * count($r1); // q9
                             if(count($r1) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $r2 = array_intersect($q13_mentor_answers[$last_id], $q13_mentee_answer);
                             $weight = 250 * count($r2); // q12
                             if(count($r2) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $r3 = array_intersect($q15_mentor_answers[$last_id], $q15_mentee_answer);
                             $weight = 250 * count($r3); // q14
                             if(count($r3) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $matches = 0;
@@ -555,8 +555,9 @@ class Matcher
                                     $matches++;
 
                             }
+
                             if($matches > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             break;
@@ -565,19 +566,19 @@ class Matcher
                             $r1 = array_intersect($q10_mentor_answers[$last_id], $q9_mentee_answer);
                             $weight = 250 * count($r1); // q9
                             if(count($r1) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $r2 = array_intersect($q13_mentor_answers[$last_id], $q13_mentee_answer);
                             $weight = 250 * count($r2); // q12
                             if(count($r2) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $r3 = array_intersect($q15_mentor_answers[$last_id], $q15_mentee_answer);
                             $weight = 250 * count($r3); // q15
                             if(count($r3) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $matches = 0;
@@ -605,7 +606,7 @@ class Matcher
 
                             }
                             if($matches > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             break;
@@ -614,19 +615,19 @@ class Matcher
                             $r1 = array_intersect($q10_mentor_answers[$last_id], $q9_mentee_answer);
                             $weight = 50 * count($r1); // q9
                             if(count($r1) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $r2 = array_intersect($q13_mentor_answers[$last_id], $q13_mentee_answer);
                             $weight = 250 * count($r2); // q12
                             if(count($r2) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $r3 = array_intersect($q15_mentor_answers[$last_id], $q15_mentee_answer);
                             $weight = 250 * count($r3); // q15
                             if(count($r3) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $matches = 0;
@@ -654,7 +655,7 @@ class Matcher
 
                             }
                             if($matches > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                     }
@@ -669,19 +670,19 @@ class Matcher
                             $r1 = array_intersect($q10_mentor_answers[$last_id], $q9_mentee_answer);
                             $weight = 50 * count($r1); // q9
                             if(count($r1) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $r2 = array_intersect($q12_mentor_answers[$last_id], $q13_mentee_answer);
                             $weight = 250 * count($r2); // q12
                             if(count($r2) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $r3 = array_intersect($q14_mentor_answers[$last_id], $q15_mentee_answer);
                             $weight = 50 * count($r3); // q14
                             if(count($r3) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $matches = 0;
@@ -709,7 +710,7 @@ class Matcher
 
                             }
                             if($matches > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
                             break;
                         case "13": // industry
@@ -717,19 +718,19 @@ class Matcher
                             $r1 = array_intersect($q10_mentor_answers[$last_id], $q9_mentee_answer);
                             $weight = 50 * count($r1); // q9
                             if(count($r1) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $r2 = array_intersect($q12_mentor_answers[$last_id], $q13_mentee_answer);
                             $weight = 50 * count($r2); // q12
                             if(count($r2) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $r3 = array_intersect($q14_mentor_answers[$last_id], $q15_mentee_answer);
                             $weight = 250 * count($r3); // q14
                             if(count($r3) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $matches = 0;
@@ -757,7 +758,7 @@ class Matcher
 
                             }
                             if($matches > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             break;
@@ -766,19 +767,19 @@ class Matcher
                             $r1 = array_intersect($q10_mentor_answers[$last_id], $q9_mentee_answer);
                             $weight = 50 * count($r1); // q9
                             if(count($r1) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $r2 = array_intersect($q12_mentor_answers[$last_id], $q13_mentee_answer);
                             $weight = 50 * count($r2); // q12
                             if(count($r2) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $r3 = array_intersect($q14_mentor_answers[$last_id], $q15_mentee_answer);
                             $weight = 50 * count($r3); // q14
                             if(count($r3) > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                             $matches = 0;
@@ -806,7 +807,7 @@ class Matcher
 
                             }
                             if($matches > 0)
-                                $score[$item['user_id']] = $score[$item['user_id']] + $weight;
+                                $score[$last_id] = $score[$last_id] + $weight;
                             $total[$last_id] += $weight;
 
                     }

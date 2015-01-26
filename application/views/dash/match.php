@@ -1,7 +1,7 @@
 <main id="main" role="main" class="intake">
     <div class="container">
 
-        <div class="form-block">
+        <div id="top" class="form-block">
 
             <h1>Menteer Dashboard</h1>
 
@@ -122,6 +122,11 @@
 
                                 </div>
                             </div>
+
+                            <a href="/dashboard" class="btn btn-primary">BACK</a>
+
+                            <a href="#top" class="btn btn-default fright">TOP</a>
+
                         </div>
                     </div>
 

@@ -70,7 +70,7 @@
                                         <div style="clear:both;"></div>
 
                                         <p style="padding-left:15px;padding-top:3px;">Update Picture: <input
-                                                type="file" name="userfile" size="20"/><small><em>(ideal size is 250x250)</em></small></p>
+                                                type="file" name="userfile" size="20"/><small><em>(ideal pic size is 250px X 250px)</em></small></p>
 
                                         <hr/>
 

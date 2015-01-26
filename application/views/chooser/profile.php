@@ -1,7 +1,7 @@
 <main id="main" role="main" class="intake">
     <div class="container">
 
-        <div class="form-block">
+        <div class="form-block" id="top">
 
             <h1>Mentee Profile</h1>
 
@@ -154,6 +154,9 @@
 
                                     </div>
                                 </div>
+
+                                <a href="#top" class="btn btn-default fright">TOP</a>
+                                <a href="/dashboard" class="btn btn-primary">SKIP TO DASHBOARD</a>
 
                             </div>
 

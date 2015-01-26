@@ -77,7 +77,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="http://www.careerskillsincubator.com/" target="_blank">
+                    <a href="http://www.careerskillsincubator.com/programs/resources/" target="_blank">
                         <span class="icon icon-folder"></span>
                         <span class="text">Resources</span>
                     </a>

@@ -137,7 +137,7 @@
                             <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ca/maps?q=585+Dundas+St+E,+Toronto,+ON+M5A+2B7&amp;ie=UTF8&amp;hq=&amp;hnear=585+Dundas+St+E,+Toronto,+Ontario+M5A+2B7&amp;ll=43.660077,-79.362063&amp;spn=0.00676,0.01074&amp;t=m&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://maps.google.ca/maps?q=585+Dundas+St+E,+Toronto,+ON+M5A+2B7&amp;ie=UTF8&amp;hq=&amp;hnear=585+Dundas+St+E,+Toronto,+Ontario+M5A+2B7&amp;ll=43.660077,-79.362063&amp;spn=0.00676,0.01074&amp;t=m&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left"></a></small>
 
                         </div>
-                        <address>Regent Park 585 Dundas St E<br> Toronto, ON M5A 2B7 Canada <br /><a href="mailto:info@careerskillsincubator.com">info@careerskillsincubator.com</a></address>
+                        <address><a href="mailto:info@careerskillsincubator.com">info@careerskillsincubator.com</a><br />Regent Park 585 Dundas St E<br> Toronto, ON M5A 2B7 Canada </address>
                     </section>
                 </div>
             </div>
