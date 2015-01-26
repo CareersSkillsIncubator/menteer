@@ -7,12 +7,13 @@ installation instructions
 1. download latest copy of Menteer
 2. move to server root (if on localhost specify menteer.dev so the index.php defines this as a development install) see index.php for more info
 3. (linux) chmod 777 /application/cache and /application/logs
-4. modify /application/config/database_clean.php and email_clean.php by removing "_clean" from filename
-5. configure database.php to point to your database after importing the /sql/menteer.sql file into your database
-6. modify /application/config/ion_auth.php file as needed for the authentication library
-7. configure index.php to use your local environment if thats the case
-8. chmod 777 /uploads folder and set "php_value upload_max_filesize 20M" & "php_value post_max_size 21M" in your htaccess
-8. default user - > create account and change in user table -> field active to 1 for new user / to make admin see users_groups and insert user with admin group
+4. rename /application/config/config_clean.php to config.php and set the encryption to something unique
+5. modify /application/config/database_clean.php and email_clean.php by removing "_clean" from filename
+6. configure database.php to point to your database after importing the /sql/menteer.sql file into your database
+7. modify /application/config/ion_auth.php file as needed for the authentication library
+8. configure index.php to use your local environment if thats the case
+9. chmod 777 /uploads folder and set "php_value upload_max_filesize 20M" & "php_value post_max_size 21M" in your htaccess
+10. default user - > create account and change in user table -> field active to 1 for new user / to make admin see users_groups and insert user with admin group
 
 features
 =========
