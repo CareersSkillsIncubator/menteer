@@ -333,7 +333,7 @@ $config['cache_path'] = '';
 | http://codeigniter.com/user_guide/libraries/sessions.html
 |
 */
-$config['encryption_key'] = 'urhTAf94j0jTfhg98404dbbkf94h8sjf';
+$config['encryption_key'] = 'putsomethinghere';
 
 /*
 |--------------------------------------------------------------------------

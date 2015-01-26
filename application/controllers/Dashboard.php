@@ -24,6 +24,8 @@ class Dashboard extends CI_Controller {
         if(!$this->ion_auth->logged_in())
             redirect('/','refresh');
 
+        if($this->ion_auth->is_admin())
+            redirect('/admin','refresh');
 
         $this->load->model('Application_model');
         $this->load->helper('form');
