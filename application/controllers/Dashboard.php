@@ -95,6 +95,7 @@ class Dashboard extends CI_Controller {
 
         $this->data['page'] = 'profile';
         $this->data['me'] = $this->user;
+        $this->data['user'] = $this->user;
 
         $this->load->view('/dash/header', $this->data);
         $this->load->view('/dash/myprofile', $this->data);
@@ -124,10 +125,10 @@ class Dashboard extends CI_Controller {
         $config['upload_path']          = './uploads/';
         $config['allowed_types']        = 'gif|jpg|png|jpeg';
         $config['max_size']             = 50000;
-        $config['max_width']            = 5000;
-        $config['max_height']           = 5000;
+        $config['max_width']            = 8000;
+        $config['max_height']           = 8000;
         $config['file_ext_tolower']     = TRUE;
-        $config['min_width']            = 80;
+        //$config['min_width']            = 25;
         $config['encrypt_name']         = TRUE;
 
         $this->load->library('upload', $config);
@@ -144,6 +145,29 @@ class Dashboard extends CI_Controller {
             } else {
                 //$upload_data = array('upload_data' => $this->upload->data());
 
+
+                // lets resize and crop
+                if($this->upload->data('image_width') > 200) {
+
+                    $config['image_library'] = 'gd2';
+                    $config['source_image'] = './uploads/'.$this->upload->data('file_name');
+                    $config['width']         = 200;
+
+                    if($this->upload->data('file_size') <= 2000) {
+                        $config['quality'] = '95%';
+                    }
+
+                    if($this->upload->data('file_size') > 2000) {
+                        $config['quality'] = '85%';
+                    }
+
+                    $this->load->library('image_lib', $config);
+
+                    $this->image_lib->resize();
+
+
+                }
+
                 $upload['id'] = $this->session->userdata('user_id');
                 $upload['data']['picture'] = $this->upload->data('file_name');
                 $upload['table'] = 'users';
@@ -158,13 +182,15 @@ class Dashboard extends CI_Controller {
                 'message',
                 '<div class="alert alert-danger">'.$upload_errors.'</div>'
             );
+            redirect('/dashboard/myprofile','refresh');
         }else {
             $this->session->set_flashdata(
                 'message',
                 '<div class="alert alert-success">Profile Saved.</div>'
             );
+            redirect('/dashboard','refresh');
         }
-        redirect('/dashboard/myprofile','refresh');
+
 
     }
 
@@ -176,6 +202,8 @@ class Dashboard extends CI_Controller {
         $match_id = $this->user['is_matched'];
 
         $this->data['match'] = $this->Application_model->get(array('table'=>'users','id'=>$match_id));
+
+        $this->data['user'] = $this->user;
 
         if($this->user['is_matched'] > 0) {
 

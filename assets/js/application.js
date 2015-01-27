@@ -1,5 +1,11 @@
 $( document ).ready(function() {
 
+    $('.profile-save').click(function (e) {
+        
+        $(".rotator").removeClass('hide');
+
+    });
+
     // intake next arrow usability
     $('.arrow-next').click(function (e) {
 

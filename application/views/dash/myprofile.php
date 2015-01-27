@@ -130,9 +130,13 @@
 
                 </div>
                 <div class="btn-holder ">
-                    <button class="btn btn-success">save</button>
+
+                    <button class="btn btn-success profile-save">save</button>
                     <a href="/dashboard">cancel</a>
+                    <div style="clear:both;"></div>
+                    <img class="hide rotator" src="/assets/images/rotator.gif" width="50" height="50" alt="uploading..." />
                 </div>
+
                 <?php echo form_close(); ?>
             </div>
         </div>
