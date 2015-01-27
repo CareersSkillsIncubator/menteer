@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
     $('.profile-save').click(function (e) {
-        
+
         $(".rotator").removeClass('hide');
 
     });

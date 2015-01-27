@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-    <div class="section win-height" id="about">
+    <div class="section win-height" id="about" style="min-height:670px;">
         <div class="container">
             <div class="row">
                 <span class="circle color"></span>
@@ -37,7 +37,7 @@
             </div>
         </div>
     </div>
-    <div class="section win-height" id="story">
+    <div class="section win-height" id="story" style="min-height:670px;">
         <div class="container">
             <div class="row">
                 <span class="circle top"></span>
@@ -98,7 +98,7 @@
             </div>
         </div>
     </div>
-    <div class="section win-height item-color last" id="login">
+    <div class="section win-height item-color last" id="login" style="min-height:800px;">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">

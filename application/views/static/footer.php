@@ -59,8 +59,7 @@
 <?php } ?>
 
 <script src="/assets/js/bootstrap.min.js?v=<?=V?>"></script>
-<script src="/assets/js/application.js?v=<?=V?>"></script>
-
+<script src="/assets/js/login.js?v=<?=V?>"></script>
 <?php if(ENVIRONMENT=='production') { ?>
 <script>
     // Include the UserVoice JavaScript SDK (only needed once on a page)
