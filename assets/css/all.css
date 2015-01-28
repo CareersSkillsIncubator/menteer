@@ -5,6 +5,7 @@
 }
 
 .social-networks,
+.media-networks,
 .items-list {
 	margin: 0;
 	padding: 0;
@@ -539,6 +540,22 @@ a:focus {
 	color: #a9adae;
 }
 
+.media-networks {
+	width: 100%;
+}
+
+.media-networks li {
+	float: left;
+	margin: 0 12px 12px 0;
+}
+
+.media-networks li a {
+	width: 150px;
+	height: 60px;
+	display: block;
+	font-size: 24px;
+}
+
 .form-control {
 	box-shadow: none;
 	outline: none;
@@ -865,6 +882,28 @@ a:focus {
 #footer .holder .social-networks li a {
 	width: 30px;
 	height: 30px;
+	font-size: 26px;
+}
+
+#footer .holder .media-networks {
+	overflow: hidden;
+	width: 100%;
+	text-align: center;
+	font-size: 0;
+	line-height: 0;
+	letter-spacing: -4px;
+}
+
+#footer .holder .media-networks li {
+	float: none;
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 9px 9px;
+}
+
+#footer .holder .media-networks li a {
+	width: 150px;
+	height: 60px;
 	font-size: 26px;
 }
 
