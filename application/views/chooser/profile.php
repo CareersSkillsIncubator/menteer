@@ -18,7 +18,7 @@
                             <div data-cycle-hash="register" class="slide register_slide">
 
                                 <div class="form-box">
-                                    <strong class="title"> <a href="/dashboard">SKIP TO DASHBOARD</a></strong>
+                                    <strong class="title"> <a href="/dashboard" style="font-weight: bold;"> &larr; SKIP TO DASHBOARD</a></strong>
                                     <div class="holder" style="min-height:620px;">
 
 

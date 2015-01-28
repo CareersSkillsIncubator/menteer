@@ -29,7 +29,7 @@
                             $status = "pending";
 
                             if ($match['is_matched'] > 0 && $match['match_status'] == 'pending') {
-                                $status = "waiting on confirmation";
+                                $status = "waiting";
                             }
 
                             if ($match['is_matched'] > 0 && $match['match_status'] == 'active') {
@@ -40,7 +40,7 @@
 
 
                             <div class="form-box">
-                                <strong class="title"> <a href="/dashboard">BACK</a> <span
+                                <strong class="title"> <a href="/dashboard" style="font-weight: bold;"> &larr; BACK</a> <span
                                         style="float:right;"><a href="#">STATUS: <?= strtoupper(
                                                 $status
                                             ) ?></a> </span> </strong>
