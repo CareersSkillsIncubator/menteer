@@ -65,7 +65,8 @@ class Dashboard extends CI_Controller {
 
                 if (is_array($matches) && count($matches) > 0) {
                     $this->session->set_userdata('matches', $matches);
-                    redirect('/chooser');
+                    $this->session->set_userdata('skip_matches', true);
+                    //redirect('/chooser');
                 } else {
                     $this->session->set_userdata('matches', $matches);
                     $this->session->set_userdata('skip_matches', true);

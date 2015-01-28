@@ -39,7 +39,7 @@ class Matcher_model extends CI_Model
 
         $sql			= "SELECT ".$select." FROM ".$params['table']." WHERE enabled = 1 ";
 
-        $sql            .= $get_mentors ? " AND menteer_type != " . MENTEE_ID . " AND is_matched = 0" : " ";
+        $sql            .= $get_mentors ? " AND menteer_type != " . MENTEE_ID . " AND is_matched = 0 " : " ";
         $sql			.= $id ?  " AND id = '".$id."' " : " ";
         $sql			.= $user_id ?  " AND user_id = '".$user_id."' " : " ";
         $sql			.= $questionnaire_id ?  " AND questionnaire_id = '".$questionnaire_id."' " : " ";

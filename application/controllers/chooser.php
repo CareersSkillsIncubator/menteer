@@ -217,6 +217,13 @@ class Chooser extends CI_Controller {
         if($this->user['menteer_type']==37)
             redirect('/dashboard','refresh');
 
+        // if already have a selection can't go back
+        if($this->user['is_matched'] > 0) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger">You have made your selection already.</div>');
+
+            redirect('/dashboard','refresh');
+        }
+
         // make sure mentor is not selected, if so return back to chooser
 
         $mentor_id = decrypt_url($mentor_id);
