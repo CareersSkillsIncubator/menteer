@@ -1009,7 +1009,7 @@
         autocomplete: {},
         typeahead: {},
         showAutocompleteOnFocus: false,
-        createTokensOnBlur: false,
+        createTokensOnBlur: true,
         delimiter: ',',
         beautify: true,
         inputType: 'text'

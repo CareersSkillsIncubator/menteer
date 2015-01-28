@@ -17,6 +17,11 @@
                     <div class="alert alert-info">You have been selected as a Mentor. Click <a href="/chooser/profile">here</a> to view the Mentee profile and decide whether to accept or decline.</div>
                 <?php } ?>
 
+                <?php if($user['active']==0){ ?>
+                    <div class="alert alert-info">Your account has not been activated. Please check your email and follow the link to activate.</div>
+                <?php } ?>
+
+
                 <?php
                 //determine picture filename
 
