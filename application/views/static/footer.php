@@ -4,8 +4,9 @@
             <div class="col-sm-12">
                 <div class="holder">
                     <ul class="media-networks">
-                        <li><a href="http://www.betakit.com/career-skills-incubator-helps-canadians-transitioning-careers-with-new-menteer-app/ " target="_blank"><img src="/assets/images/betakit.png" width="150"></a></li>
-                        <li><a href="http://www.bloomberg.com/research/markets/news/article.asp?docKey=600-201501270824CANADANWCANADAPR_C3335-1" target="_blank"><img src="/assets/images/bloomberg.png" width="150"></a></li>
+                        <li><a href="http://www.techvibes.com/blog/app-connects-mentors-and-mentees-online-2015-01-28" target="_blank"><img src="/assets/images/techvibes.png" width="120"></a></li>
+                        <li><a href="http://www.betakit.com/career-skills-incubator-helps-canadians-transitioning-careers-with-new-menteer-app/ " target="_blank"><img src="/assets/images/betakit.png" width="80"></a></li>
+                        <li><a href="http://www.bloomberg.com/research/markets/news/article.asp?docKey=600-201501270824CANADANWCANADAPR_C3335-1" target="_blank"><img src="/assets/images/bloomberg.png" width="120"></a></li>
                     </ul>
                     <ul class="social-networks">
                         <li><a class="icon-facebook" href="https://www.facebook.com/CareerSkillsIncubator"></a></li>
