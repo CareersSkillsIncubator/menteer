@@ -141,25 +141,25 @@
 
                                             <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-8">
                                                 <label for="last_name" style="margin-top:5px; padding-top:5px;">LAST NAME</label>
-                                                <input class="form-control" type="text" name="last_name" id="registration-lname" placeholder="" tabindex="1">
+                                                <input class="form-control" type="text" name="last_name" id="registration-lname" placeholder="" tabindex="-1">
                                             </div>
 
                                             <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-8">
                                                 <label for="email" style="margin-top:5px; padding-top:5px;">EMAIL</label>
-                                                <input class="form-control" type="text" name="email" id="registration-email" placeholder="" tabindex="2">
+                                                <input class="form-control" type="text" name="email" id="registration-email" placeholder="" tabindex="-1">
                                             </div>
                                             <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-8">
                                                 <label style="margin-top:5px; padding-top:5px;" for="password">PASSWORD</label>
-                                                <input class="form-control" type="password" name="password" id="registration-password" placeholder="" tabindex="3">
+                                                <input class="form-control" type="password" name="password" id="registration-password" placeholder="" tabindex="-1">
                                             </div>
                                             <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-8">
                                                 <label style="margin-top:5px; padding-top:5px;" for="password_confirm">PASSWORD CONFIRM</label>
-                                                <input class="form-control" type="password" name="password_confirm" id="registration-password-confirm" placeholder="" tabindex="4">
+                                                <input class="form-control" type="password" name="password_confirm" id="registration-password-confirm" placeholder="" tabindex="-1">
                                             </div>
 
                                             <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-8">
                                                 <label>&nbsp;</label>
-                                                <button class="btn btn-success submit-registration">continue</button>
+                                                <button class="btn btn-success submit-registration" tabindex="-1">continue</button>
                                             </div>
                                         </div>
                                     </div>
