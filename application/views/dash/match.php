@@ -73,12 +73,12 @@
 
                                         <div style="clear:both;"></div>
 
-                                        <h5 class=" <?=$private[0] ? '':'hide';?> col-xs-12" style="margin-top:15px; margin-bottom:15px; text-align: left;"><?= $match['email'] ?></h5>
+                                        <h5 class=" <?=$private[0] ? '':'hide';?> col-xs-12" style="margin-top:15px; margin-bottom:15px; text-align: center;"><a href="mailto:<?= $match['email'] ?>"><?= $match['email'] ?></a></h5>
 
                                         <div style="clear:both;"></div>
 
-                                        <p style="font-size:.8em;"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="#" data-toggle="modal" data-target="#myModalMessage">Send Message to <?= $match['first_name'] ?></a><br />
-                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <a href="#" data-toggle="modal" data-target="#myModalMeeting">Book Meeting with <?= $match['first_name'] ?></a></p>
+                                        <p style="font-size:.8em; text-align: center;" ><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="#" data-toggle="modal" data-target="#myModalMessage">Send Message</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <a href="#" data-toggle="modal" data-target="#myModalMeeting">Book Meeting</a></p>
 
                                         <div style="clear:both;"></div>
 
@@ -123,6 +123,9 @@
                                     </div>
 
                                 </div>
+
+                                <div align="center" style="padding-bottom: 10px;"><a onclick="return confirm('Are you sure you would like to end this match?');" class="btn btn-danger" href="/dashboard/end/<?=encrypt_url($user['is_matched'])?>">End Match</a></div>
+
                             </div>
 
                             <a href="/dashboard" class="btn btn-primary">BACK</a>
@@ -246,7 +249,7 @@
 
                         <select name="year" id="year">
                             <?PHP for($i=date("Y"); $i<=date("Y")+2; $i++)
-                                if($year == $i)
+                                if(isset($year) && $year == $i)
                                     echo "<option value='$i' selected>$i</option>";
                                 else
                                     echo "<option value='$i'>$i</option>";

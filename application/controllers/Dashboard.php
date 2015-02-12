@@ -90,6 +90,40 @@ class Dashboard extends CI_Controller {
 
     }
 
+    //end match
+    public function end($match_id)
+    {
+
+        $update['id'] = $this->session->userdata('user_id');
+        $update['data']['is_matched'] = 0;
+        $update['data']['match_status'] = 'pending';
+        $update['table'] = 'users';
+        $this->Application_model->update($update);
+
+        $update['id'] = decrypt_url($match_id);
+        $update['data']['is_matched'] = 0;
+        $update['data']['match_status'] = 'pending';
+        $update['table'] = 'users';
+        $this->Application_model->update($update);
+
+        $update = array();
+
+        $update['data']['mentee_id'] = decrypt_url($match_id);
+        $update['data']['mentor_id'] = $this->session->userdata('user_id');
+        $update['data']['stamp'] = date("Y-m-d H:i:s");
+        $update['table'] = 'matches_ended';
+        $this->Application_model->insert($update);
+
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success">Match ended</div>'
+        );
+
+        redirect('/dashboard','refresh');
+
+
+    }
+
     // see this profile
     public function myprofile()
     {
