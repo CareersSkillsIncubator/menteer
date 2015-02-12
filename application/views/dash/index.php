@@ -6,7 +6,7 @@
                 <?=$this->session->flashdata('message');?>
 
                 <?php if($user['is_matched']==0 && $user['menteer_type']=='38' && is_array($this->session->userdata('matches'))){ ?>
-                <div class="alert alert-warning">Click <a href="/chooser?enabled=1">here</a> to view possible mentors.</div>
+                <div class="alert alert-warning">Click <a href="/chooser?enabled=1"><u>here</u></a> to view possible mentors.</div>
                 <?php } ?>
 
                 <?php if($user['is_matched']==0 && $user['menteer_type']=='38' && !is_array($this->session->userdata('matches'))){ ?>
@@ -14,8 +14,13 @@
                 <?php } ?>
 
                 <?php if($user['is_matched']!=0 && $user['menteer_type']=='37' && $user['match_status']=='pending'){ ?>
-                    <div class="alert alert-info">You have been selected as a Mentor. Click <a href="/chooser/profile">here</a> to view the Mentee profile and decide whether to accept or decline.</div>
+                    <div class="alert alert-info">You have been selected as a Mentor. Click <a href="/chooser/profile"><u>here</u></a> to view the Mentee profile and decide whether to accept or decline.</div>
                 <?php } ?>
+
+                <?php if($user['is_matched'] > 0 && $user['menteer_type']=='38' && $user['match_status']=='pending'){ ?>
+                    <div class="alert alert-info">You are currently awaiting for your chosen mentor to accept your request. Click <a href="/dashboard/revoke/<?=encrypt_url($user['is_matched'])?>"><u>here</u></a> to revoke this request.</div>
+                <?php } ?>
+
 
                 <?php if($user['active']==0){ ?>
                     <div class="alert alert-info">Your account has not been activated. Please check your email and follow the link to activate.</div>
@@ -127,8 +132,18 @@
                     <h2 class="modal-title" id="myModalLabel">Notice</h2>
                 </div>
                 <div class="modal-body">
+
+                    <?php if($user['menteer_type']==37) { ?>
+
                     You currently do not have a match. You will be notified once a Menteer requests you as their Mentor.<br /><br />
 
+                    <?php } ?>
+
+                    <?php if($user['menteer_type']==38) { ?>
+
+                        You currently do not have a mentor. <br /><br />
+
+                    <?php } ?>
 
                 </div>
                 <div class="modal-footer">
