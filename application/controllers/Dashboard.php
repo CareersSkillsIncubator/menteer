@@ -94,33 +94,35 @@ class Dashboard extends CI_Controller {
     public function end($match_id)
     {
 
-        $update['id'] = $this->session->userdata('user_id');
-        $update['data']['is_matched'] = 0;
-        $update['data']['match_status'] = 'pending';
-        $update['table'] = 'users';
-        $this->Application_model->update($update);
+        if(decrypt_url($match_id) > 0 && $this->user['menteer_type']==37) {
 
-        $update['id'] = decrypt_url($match_id);
-        $update['data']['is_matched'] = 0;
-        $update['data']['match_status'] = 'pending';
-        $update['table'] = 'users';
-        $this->Application_model->update($update);
+            $update['id'] = $this->session->userdata('user_id');
+            $update['data']['is_matched'] = 0;
+            $update['data']['match_status'] = 'pending';
+            $update['table'] = 'users';
+            $this->Application_model->update($update);
 
-        $update = array();
+            $update['id'] = decrypt_url($match_id);
+            $update['data']['is_matched'] = 0;
+            $update['data']['match_status'] = 'pending';
+            $update['table'] = 'users';
+            $this->Application_model->update($update);
 
-        $update['data']['mentee_id'] = decrypt_url($match_id);
-        $update['data']['mentor_id'] = $this->session->userdata('user_id');
-        $update['data']['stamp'] = date("Y-m-d H:i:s");
-        $update['table'] = 'matches_ended';
-        $this->Application_model->insert($update);
+            $update = array();
 
-        $this->session->set_flashdata(
-            'message',
-            '<div class="alert alert-success">Match ended</div>'
-        );
+            $update['data']['mentee_id'] = decrypt_url($match_id);
+            $update['data']['mentor_id'] = $this->session->userdata('user_id');
+            $update['data']['stamp'] = date("Y-m-d H:i:s");
+            $update['table'] = 'matches_ended';
+            $this->Application_model->insert($update);
+
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-success">Match ended</div>'
+            );
+        }
 
         redirect('/dashboard','refresh');
-
 
     }
 
