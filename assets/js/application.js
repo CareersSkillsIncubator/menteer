@@ -1,5 +1,7 @@
 $( document ).ready(function() {
 
+    $('[data-toggle="tooltip"]').tooltip();
+
     $('.profile-save').click(function (e) {
 
         $(".rotator").removeClass('hide');

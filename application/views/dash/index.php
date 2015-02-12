@@ -127,7 +127,7 @@
                     <h2 class="modal-title" id="myModalLabel">Notice</h2>
                 </div>
                 <div class="modal-body">
-                    You currently do not have a match.<br /><br />
+                    You currently do not have a match. You will be notified once a Menteer requests you as their Mentor.<br /><br />
 
 
                 </div>

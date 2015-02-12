@@ -1804,3 +1804,7 @@ a:focus {
 .delete-account {
 	text-align: center;
 }
+
+.tooltip {
+	position:fixed;
+}

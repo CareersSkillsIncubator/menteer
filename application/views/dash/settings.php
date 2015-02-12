@@ -60,6 +60,19 @@
                                                 </label>
                                             </div>
                                         </div>
+
+                                        <?php if($this->session->userdata('user_kind') == 'both'){ ?>
+
+                                            <div class="form-row">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        Menteer Type: <input <?=$user['is_matched'] == 0 ? '':'disabled';?> name="menteer_type" id="switch-state" class="switcher" type="checkbox" <?=$user['menteer_type']==37 ? 'checked':'';?> data-size="mini" value="37" data-on-text="Mentor" data-off-text="Menteer"> <span data-toggle="tooltip" data-placement="bottom" title="This option will be disabled if you are active or waiting on a request"> ? </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                        <?php } ?>
+
                                     </div>
                                 </div>
                                 <div class="form-box">

@@ -394,6 +394,15 @@ class Dashboard extends CI_Controller {
         $update['id'] = $this->session->userdata('user_id');
         $update['data']['privacy_settings'] = $s1.",".$s2.",".$s3;
         $update['data']['enabled'] = intval($this->input->post('enabled'));
+
+        switch($this->input->post('menteer_type')){
+            case "37" :
+                $update['data']['menteer_type'] = 37;
+                break;
+            default :
+                $update['data']['menteer_type'] = 38;
+        }
+
         $update['table'] = 'users';
         $this->Application_model->update($update);
 
