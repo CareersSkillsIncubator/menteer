@@ -13,6 +13,10 @@
                     <div class="alert alert-warning">We currently don't have any Mentor profiles available at this time. Try again tomorrow.</div>
                 <?php } ?>
 
+                <?php if($this->session->userdata('user_kind') == "both" && $user['is_matched']==0 && $user['menteer_type']=='37' && $user['match_status']=='pending'){ ?>
+                    <div class="alert alert-info">You are currently a Mentor. </div>
+                <?php } ?>
+
                 <?php if($user['is_matched']!=0 && $user['menteer_type']=='37' && $user['match_status']=='pending'){ ?>
                     <div class="alert alert-info">You have been selected as a Mentor. Click <a href="/chooser/profile"><u>here</u></a> to view the Mentee profile and decide whether to accept or decline.</div>
                 <?php } ?>
