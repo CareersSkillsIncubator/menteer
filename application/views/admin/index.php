@@ -91,7 +91,7 @@
             foreach($users as $user) { ?>
 
                 <tr>
-                    <td><a href="/dashboard/force/<?=encrypt_url($user['id']);?>"><?=$user['id']?></a></td>
+                    <td><a name="user<?=$user['id']?>" href="/dashboard/force/<?=encrypt_url($user['id']);?>"><?=$user['id']?></a></td>
                     <td><?=$user['last_name']?></td>
                     <td><?=$user['first_name']?></td>
                     <td><?=$user['email']?></td>
@@ -120,10 +120,10 @@
                             echo " - ";
 
                         if($user['is_matched'] > 0 && $user['match_status'] == 'pending')
-                            echo "awaiting";
+                            echo "awaiting (".$user['is_matched'].")";
 
                         if($user['match_status']=='active')
-                            echo "matched";
+                            echo "matched (".$user['is_matched'].")";
 
                         ?>
 
