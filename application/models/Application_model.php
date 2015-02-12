@@ -48,7 +48,7 @@ class Application_model extends CI_Model
 
         $sql            .= $mentors ? " AND menteer_type=37 " : " ";
         $sql            .= $mentees ? " AND menteer_type=38 " : " ";
-        $sql            .= $both ? " AND menteer_type=41 " : " ";
+        $sql            .= $both ? " AND questionnaire_answer_id=41 AND questionnaire_id=16 " : " ";
         $sql            .= $matched ? " AND match_status='active' " : " ";
 
 

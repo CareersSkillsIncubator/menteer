@@ -42,7 +42,7 @@
         <ul class="nav nav-pills nav-stacked" style="width:200px; float:left; margin-left:3px; margin-top: 3px;">
             <li class="active">
                 <a href="#">
-                    <span class="badge pull-right">0</span>
+                    <span class="badge pull-right"><?=count($both);?></span>
                     Both
                 </a>
             </li>

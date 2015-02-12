@@ -91,7 +91,7 @@ class Admin extends CI_Controller {
 
         $this->data['mentors'] = $this->Application_model->get(array('table'=>'users','mentors'=>true));
         $this->data['mentees'] = $this->Application_model->get(array('table'=>'users','mentees'=>true));
-        $this->data['both'] = $this->Application_model->get(array('table'=>'users','both'=>true));
+        $this->data['both'] = $this->Application_model->get(array('table'=>'users_answers','both'=>true));
         $this->data['matched'] = $this->Application_model->get(array('table'=>'users','matched'=>true));
 
         $this->data['meetings'] = $this->Application_model->get(array('table'=>'meetings'));
