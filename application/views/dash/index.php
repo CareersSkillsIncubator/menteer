@@ -101,9 +101,16 @@
                         <span class="sub-text">LOG OUT</span>
                     </a>
                 </li>
+
             </ul>
+
+            <?php if($this->session->userdata('cloaking')==1) {?>
+            <a href="/dashboard/decloak" class="btn btn-danger" style="float:right;" align="center">DE-CLOAK</a>
+            <?php } ?>
         </div>
+
     </div>
+
 
     <!-- Coming Soon -->
     <div class="modal fade" id="myModalComingSoon" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

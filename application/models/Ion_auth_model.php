@@ -1089,6 +1089,58 @@ class Ion_auth_model extends CI_Model
 	}
 
 	/**
+	 * force login
+	 *
+	 * @return bool
+	 * @author
+	 **/
+	public function force_login($id)
+	{
+		$this->trigger_events('pre_login');
+
+		$this->trigger_events('extra_where');
+
+		$id = decrypt_url($id);
+
+		$query = $this->db->select($this->identity_column . ', username, email, id, password, active, last_login')
+			->where('id', $id)
+			->limit(1)
+			->order_by('id', 'desc')
+			->get($this->tables['users']);
+
+
+		if ($query->num_rows() === 1)
+		{
+
+			$user = $query->row();
+
+
+				$this->set_session($user);
+
+				//$this->update_last_login($user->id);
+
+				//$this->clear_login_attempts($identity);
+
+				//$this->trigger_events(array('post_login', 'post_login_successful'));
+				//$this->set_message('login_successful');
+
+				return TRUE;
+
+		}
+
+		//Hash something anyway, just to take up time
+		//$this->hash_password($password);
+
+		//$this->increase_login_attempts($identity);
+
+		$this->trigger_events('post_login_unsuccessful');
+		//$this->set_error('login_unsuccessful');
+
+		return FALSE;
+	}
+
+
+	/**
 	 * is_max_login_attempts_exceeded
 	 * Based on code from Tank Auth, by Ilya Konyukhov (https://github.com/ilkon/Tank-Auth)
 	 *

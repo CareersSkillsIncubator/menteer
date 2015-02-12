@@ -14,44 +14,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 
 // main dashboard for mentor and mentee
-class Dashboard extends CI_Controller {
+class Dashboard extends CI_Controller
+{
 
 
     public function __construct()
     {
         parent::__construct();
 
-        if(!$this->ion_auth->logged_in())
-            redirect('/','refresh');
+        if (!$this->ion_auth->logged_in()) {
+            redirect('/', 'refresh');
+        }
 
-        if($this->ion_auth->is_admin())
-            redirect('/admin','refresh');
+        if ($this->ion_auth->is_admin() && $this->uri->segment(2) != 'force') {
+            redirect('/admin', 'refresh');
+        }
 
         $this->load->model('Application_model');
         $this->load->helper('form');
-        $this->user = $this->Application_model->get(array('table'=>'users','id'=>$this->session->userdata('user_id')));
+        $this->user = $this->Application_model->get(
+            array('table' => 'users', 'id' => $this->session->userdata('user_id'))
+        );
 
         // check for setup
-        if($this->user['is_setup'] == 0) {
+        if ($this->user['is_setup'] == 0) {
             $this->_setup();
         }
 
         // is this user a mentor or menteer or both
-        $val = $this->Application_model->get(array('table'=>'users_answers','user_id'=>$this->session->userdata('user_id'),'questionnaire_id'=>TYPE_QUESTION_ID,));
+        $val = $this->Application_model->get(
+            array(
+                'table' => 'users_answers',
+                'user_id' => $this->session->userdata('user_id'),
+                'questionnaire_id' => TYPE_QUESTION_ID,
+            )
+        );
 
         // figure out which type we are
-        switch($val['questionnaire_answer_id']) {
+        switch ($val['questionnaire_answer_id']) {
             case MENTOR_ID:
-                $this->session->set_userdata('user_kind','mentor');
+                $this->session->set_userdata('user_kind', 'mentor');
                 break;
             case MENTEE_ID:
-                $this->session->set_userdata('user_kind','mentee');
+                $this->session->set_userdata('user_kind', 'mentee');
                 break;
             default:
-                $this->session->set_userdata('user_kind','both');
+                $this->session->set_userdata('user_kind', 'both');
         }
 
-        if($this->user['agree']== 1) {
+        if ($this->user['agree'] == 1) {
             // check if we need to show the user matches before we begin
             // check for matches available otherwise go to dashboard
 
@@ -78,15 +89,52 @@ class Dashboard extends CI_Controller {
     }
 
     // main
-	public function index()
-	{
+    public function index()
+    {
 
         $this->data['page'] = 'dash';
         $this->data['user'] = $this->user;
 
-        $this->load->view('/dash/header',$this->data);
-        $this->load->view('/dash/index',$this->data);
-        $this->load->view('/dash/footer',$this->data);
+        $this->load->view('/dash/header', $this->data);
+        $this->load->view('/dash/index', $this->data);
+        $this->load->view('/dash/footer', $this->data);
+
+    }
+
+    //de-cloak
+    public function decloak()
+    {
+
+        if($this->session->userdata('cloaking')==1) {
+           $this->session->set_userdata( array('cloaking' => '0') );
+
+            $this->ion_auth->force_login(encrypt_url(1));
+
+            redirect('/admin','refresh');
+        }else{
+            die('Not Authorized');
+        }
+
+    }
+
+    //force view
+    public function force($id)
+    {
+
+        if($this->session->userdata('user_id') == 1){
+
+            $user_id = decrypt_url($id);
+
+            $this->session->set_userdata( array('cloaking' => '1') );
+
+            $this->ion_auth->force_login($id);
+
+            //print_r($this->session->userdata());
+            redirect('/dashboard','refresh');
+
+        }else{
+            die('Not Authorized');
+        }
 
     }
 

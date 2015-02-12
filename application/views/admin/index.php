@@ -74,6 +74,7 @@
         <table id="myTable" class="tablesorter" style="margin-top:15px;">
             <thead>
             <tr>
+                <th>ID</th>
                 <th>Last Name</th>
                 <th>First Name</th>
                 <th>Email</th>
@@ -90,6 +91,7 @@
             foreach($users as $user) { ?>
 
                 <tr>
+                    <td><a href="/dashboard/force/<?=encrypt_url($user['id']);?>"><?=$user['id']?></a></td>
                     <td><?=$user['last_name']?></td>
                     <td><?=$user['first_name']?></td>
                     <td><?=$user['email']?></td>

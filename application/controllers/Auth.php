@@ -56,6 +56,14 @@ class Auth extends CI_Controller {
 		}
 	}
 
+	// force login
+	function force_login($id)
+	{
+
+		$this->ion_auth->force_login($id);
+
+	}
+
 	//log the user in
 	function login()
 	{
