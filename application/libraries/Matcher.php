@@ -341,6 +341,8 @@ class Matcher
                 $last_id = $item['user_id'];
             }
 
+
+
             // FINISHING UP NOW
 
 
@@ -350,6 +352,8 @@ class Matcher
             if (count($r) > 0 || in_array(17, $q5_mentor_answers[$last_id]) || in_array(17, $q5_mentee_answer)) {
                 $score[$last_id] = $score[$last_id] + $q5_weight;
             }
+
+
 
 
             // Final Questions
@@ -818,10 +822,12 @@ class Matcher
 
             }
 
+
             // FINAL CALC
             if ($total[$last_id] != 0) {
                 $perc[$last_id] = ($score[$last_id] / $total[$last_id]) * 100;
             }
+
 
 
         }

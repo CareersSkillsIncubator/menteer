@@ -68,20 +68,27 @@ class Dashboard extends CI_Controller
 
             if ($this->input->get('skip') == 1) {
                 $this->session->set_userdata('skip_matches', true);
+            }else{
+                $this->session->set_userdata('skip_matches', false);
             }
 
             if ($this->user['is_matched'] == 0 && $this->session->userdata('skip_matches') == false) {
                 $this->load->library('matcher');
                 $matches = $this->matcher->get_matches($this->session->userdata('user_id'));
 
-                if (is_array($matches) && count($matches) > 0) {
+                //echo "<pre>";
+                //print_r($matches);
+                //echo "</pre>";
+                //exit;
+
+                //if (is_array($matches) && count($matches) > 0) {
                     $this->session->set_userdata('matches', $matches);
                     $this->session->set_userdata('skip_matches', true);
                     //redirect('/chooser');
-                } else {
-                    $this->session->set_userdata('matches', $matches);
-                    $this->session->set_userdata('skip_matches', true);
-                }
+                //} else {
+                //    $this->session->set_userdata('matches', $matches);
+                //    $this->session->set_userdata('skip_matches', true);
+                //}
             }
         }
 

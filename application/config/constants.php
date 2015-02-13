@@ -37,14 +37,14 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-define('V', '14');
+define('V', '15');
 
 // setup for this questionnaire
 define('TYPE_QUESTION_ID',16);
 define('MENTOR_ID',37);
 define('MENTEE_ID',38);
 define('EITHER',41);
-define('MAX_MATCHES',20);
+define('MAX_MATCHES',60);
 
 
 /*
