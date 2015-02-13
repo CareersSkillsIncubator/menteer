@@ -1,7 +1,7 @@
 <main id="main" role="main">
     <div class="container">
 
-
+        <?=$this->session->flashdata('message');?>
 
         <div align="center"><a href="https://menteer.uservoice.com" target="_blank">User Voice</a> |
             <a href="http://www.google.com/analytics" target="_blank">Google Analytics</a> |
@@ -129,7 +129,12 @@
 
                     </td>
                     <td><?=date("M d Y",$user['last_login'])?></td>
-                    <td><?=$user['active']==1 ? 'Yes' : 'No';?></td>
+
+                    <?php
+                        $act = "<a href=\"/admin/activate/".encrypt_url($user['id'])."\" onclick=\"return confirm('Are you sure you would like to activate this user?');\">activate</a>";
+                    ?>
+
+                    <td><?=$user['active']==1 ? 'Yes' : $act?></td>
                     <td><?=$user['enabled']==0 ? 'Yes' : 'No';?></td>
                 </tr>
 

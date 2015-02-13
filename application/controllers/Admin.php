@@ -102,4 +102,22 @@ class Admin extends CI_Controller {
 
     }
 
+    // activate a user from admin
+
+    public function activate($user_id)
+    {
+
+        $update['id'] = decrypt_url($user_id);
+        $update['data']['active'] = 1;
+        $update['table'] = 'users';
+        $this->Application_model->update($update);
+
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success">User Activated</div>'
+        );
+
+        redirect('/admin','refresh');
+    }
+
 }
