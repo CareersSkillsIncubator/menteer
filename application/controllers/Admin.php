@@ -87,13 +87,11 @@ class Admin extends CI_Controller {
         // get all users
         $this->data['users'] = $this->Application_model->get(array('table'=>'users'));
 
-        // get mentors only
-
+        // get data
         $this->data['mentors'] = $this->Application_model->get(array('table'=>'users','mentors'=>true));
         $this->data['mentees'] = $this->Application_model->get(array('table'=>'users','mentees'=>true));
         $this->data['both'] = $this->Application_model->get(array('table'=>'users_answers','both'=>true));
         $this->data['matched'] = $this->Application_model->get(array('table'=>'users','matched'=>true));
-
         $this->data['meetings'] = $this->Application_model->get(array('table'=>'meetings'));
 
         $this->load->view('/admin/header',$this->data);
@@ -103,7 +101,6 @@ class Admin extends CI_Controller {
     }
 
     // activate a user from admin
-
     public function activate($user_id)
     {
 
@@ -115,6 +112,112 @@ class Admin extends CI_Controller {
         $this->session->set_flashdata(
             'message',
             '<div class="alert alert-success">User Activated</div>'
+        );
+
+        redirect('/admin','refresh');
+    }
+
+    //survey page
+    public function survey()
+    {
+
+        $this->data['content'] = $this->Application_model->get(array('table'=>'survey'));
+
+        // get answer counts
+
+        $this->data['counts'] = $this->Application_model->get(array('table'=>'survey_answers','group_by'=>'answer'));
+
+        $this->load->view('/admin/header',$this->data);
+        $this->load->view('/admin/survey',$this->data);
+        $this->load->view('/admin/footer',$this->data);
+
+    }
+
+    // survey save
+    public function survey_save()
+    {
+        $update['id'] = 1;
+        $update['data']['question'] = $this->input->post('question');
+
+        if($this->input->post('publish'))
+            $update['data']['is_active'] = 1;
+        else
+            $update['data']['is_active'] = 0;
+
+        $update['table'] = 'survey';
+        $this->Application_model->update($update);
+
+        $update['id'] = 2;
+        $update['data']['answer'] = $this->input->post('answer1');
+        $update['table'] = 'survey';
+        $this->Application_model->update($update);
+
+        $update['id'] = 3;
+        $update['data']['answer'] = $this->input->post('answer2');
+        $update['table'] = 'survey';
+        $this->Application_model->update($update);
+
+        $update['id'] = 4;
+        $update['data']['answer'] = $this->input->post('answer3');
+        $update['table'] = 'survey';
+        $this->Application_model->update($update);
+
+        $update['id'] = 6;
+        $update['data']['answer'] = $this->input->post('answer4');
+        $update['table'] = 'survey';
+        $this->Application_model->update($update);
+
+
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success">Saved</div>'
+        );
+
+        redirect('/admin','refresh');
+
+    }
+
+    public function survey_reset()
+    {
+        $this->Application_model->reset('survey_answers');
+
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success">Survey Reset</div>'
+        );
+
+        redirect('/admin/survey','refresh');
+    }
+
+    //cms page
+    public function cms()
+    {
+
+        $this->data['content'] = $this->Application_model->get(array('table'=>'content'));
+
+        $this->load->view('/admin/header',$this->data);
+        $this->load->view('/admin/cms',$this->data);
+        $this->load->view('/admin/footer',$this->data);
+
+    }
+
+    // cms save
+    public function cms_save()
+    {
+
+        $update['id'] = 1;
+        $update['data']['description'] = $this->input->post('about');
+        $update['table'] = 'content';
+        $this->Application_model->update($update);
+
+        $update['id'] = 2;
+        $update['data']['description'] = $this->input->post('story');
+        $update['table'] = 'content';
+        $this->Application_model->update($update);
+
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success">Saved</div>'
         );
 
         redirect('/admin','refresh');

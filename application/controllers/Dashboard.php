@@ -101,10 +101,40 @@ class Dashboard extends CI_Controller
 
         $this->data['page'] = 'dash';
         $this->data['user'] = $this->user;
+        $this->data['survey'] = $this->Application_model->get(array('table'=>'survey'));
+
+        // check if user has completed the survey
+        $check = $this->Application_model->get(array('table'=>'survey_answers','users_id'=>$this->session->userdata('user_id')));
+
+        $this->data['no_survey'] = 0;
+
+        if(is_array($check) && count($check) > 0) {
+            $this->data['no_survey'] = 1;
+        }
 
         $this->load->view('/dash/header', $this->data);
         $this->load->view('/dash/index', $this->data);
         $this->load->view('/dash/footer', $this->data);
+
+    }
+
+    // save survey
+    public function save_survey()
+    {
+        $insert['data']['users_id'] = $this->session->userdata('user_id');
+        $insert['data']['question'] = $this->input->post('question');
+        $insert['data']['answer'] = $this->input->post('answer');
+        $insert['table'] = 'survey_answers';
+        $insert['data']['stamp'] = date("Y-m-d H:i:s");
+
+        $this->Application_model->insert($insert);
+
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success">Thanks for completing our survey!</div>'
+        );
+
+        redirect('/dashboard','refresh');
 
     }
 

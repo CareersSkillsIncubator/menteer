@@ -5,6 +5,38 @@
 
                 <?=$this->session->flashdata('message');?>
 
+                <?php
+                if($survey[1]['is_active'] && $no_survey == 0) {
+                ?>
+
+                    <div class="well well-lg">
+
+                        <h2>Survey</h2>
+
+                        <p><?=$survey[1]['question']?></p>
+
+                        <?php $attributes = array('class' => 'form', 'id' => 'survey_form');?>
+                        <?php echo form_open('dashboard/save_survey',$attributes); ?>
+                        <input type="hidden" name="question" value="<?=$survey[1]['question']?>" />
+                        <div class="col-xs-6">
+                            <p><input type="radio" name="answer" value="<?=$survey[2]['answer']?>" checked="checked"> <?=$survey[2]['answer']?></p>
+                            <p><input type="radio" name="answer" value="<?=$survey[3]['answer']?>"> <?=$survey[3]['answer']?></p>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <p><input type="radio" name="answer" value="<?=$survey[4]['answer']?>"> <?=$survey[4]['answer']?></p>
+                            <p><input type="radio" name="answer" value="<?=$survey[6]['answer']?>"> <?=$survey[6]['answer']?></p>
+                        </div>
+
+                        <div class="col-xs-12">
+                            <p style="float:right;"><input type="submit" class="btn btn-default" name="submit" value="Submit"></p>
+                        </div>
+                        <?php form_close(); ?>
+
+                    </div>
+
+                <?php } ?>
+
                 <?php if($user['is_matched']==0 && $user['menteer_type']=='38' && is_array($this->session->userdata('matches'))){ ?>
                 <div class="alert alert-warning">Click <a href="/chooser?enabled=1"><u>here</u></a> to view possible mentors.</div>
                 <?php } ?>

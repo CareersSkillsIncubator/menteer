@@ -3,11 +3,16 @@
 
         <?=$this->session->flashdata('message');?>
 
-        <div align="center"><a href="https://menteer.uservoice.com" target="_blank">User Voice</a> |
+        <div align="center">
+            <a href="/admin/cms">CMS</a> | <a href="/admin/survey">Survey</a>
+        </div>
+        <div align="center">
+            <a href="https://menteer.uservoice.com" target="_blank">User Voice</a> |
             <a href="http://www.google.com/analytics" target="_blank">Google Analytics</a> |
             <a href="https://www.google.com/webmasters/tools/home?hl=en" target="_blank">Google Tools</a> |
             <a href="/admin/export">Export Users</a> |
-            <a href="/logout">Logout</a></div>
+            <a href="/logout">Logout</a>
+        </div>
 
         <p>&nbsp;</p>
 

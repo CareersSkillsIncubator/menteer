@@ -32,18 +32,26 @@ class Application_model extends CI_Model
 
         $limit			= isset($params['limit']) ? $params['limit'] : false;
         $order			= isset($params['order']) ? $params['order'] : false;
+        $group_by		= isset($params['group_by']) ? $params['group_by'] : false;
+
         $id				= isset($params['id']) ? $params['id'] : false;
-        $user_id			= isset($params['user_id']) ? $params['user_id'] : false;
+        $user_id		= isset($params['user_id']) ? $params['user_id'] : false;
+        $users_id		= isset($params['users_id']) ? $params['users_id'] : false;
+
         $questionnaire_id	= isset($params['questionnaire_id']) ? $params['questionnaire_id'] : false;
         $mentors        = isset($params['mentors']) ? true : false;
         $mentees        = isset($params['mentees']) ? true : false;
         $both           = isset($params['both']) ? true : false;
         $matched           = isset($params['matched']) ? true : false;
 
-        $sql			= "SELECT * FROM ".$params['table']." WHERE id != '' ";
+        if($group_by)
+            $sql        = "SELECT answer, COUNT(*) FROM ".$params['table']." WHERE id !='' ";
+        else
+           $sql			= "SELECT * FROM ".$params['table']." WHERE id != '' ";
 
         $sql			.= $id ?  " AND id = '".$id."' " : " ";
         $sql			.= $user_id ?  " AND user_id = '".$user_id."' " : " ";
+        $sql			.= $users_id ?  " AND users_id = '".$users_id."' " : " ";
         $sql			.= $questionnaire_id ?  " AND questionnaire_id = '".$questionnaire_id."' " : " ";
 
         $sql            .= $mentors ? " AND menteer_type=37 " : " ";
@@ -51,7 +59,7 @@ class Application_model extends CI_Model
         $sql            .= $both ? " AND questionnaire_answer_id=41 AND questionnaire_id=16 " : " ";
         $sql            .= $matched ? " AND match_status='active' " : " ";
 
-
+        $sql            .= $group_by ? " GROUP BY ".$group_by." " : " ";
         $sql			.= $order ? " ORDER BY ".$order." " : " ";
         $sql			.= $limit ? " LIMIT ".$limit." " : " ";
 
@@ -60,7 +68,10 @@ class Application_model extends CI_Model
         if ($this->db->affected_rows() == 0)
             return false;
 
-        return $id || $user_id ? $data[0] : $this->_index($data);
+        if($group_by)
+            return $data;
+
+        return $id || $user_id || $users_id ? $data[0] : $this->_index($data);
     }
 
     function save_batch($params = array()) {
@@ -101,6 +112,16 @@ class Application_model extends CI_Model
 
         return $this->db->insert_id();
 
+    }
+
+    /*
+     * @param varchar table name
+     */
+    function reset($table) {
+
+        $this->db->empty_table($table);
+
+        return true;
     }
 
     /**

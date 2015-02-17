@@ -31,6 +31,10 @@ class Welcome extends CI_Controller {
         if($this->input->cookie('rememberuseremail', TRUE))
             $this->data['remember_email'] = $this->input->cookie('rememberuseremail', TRUE);
 
+        $this->load->model('Application_model');
+        $this->data['content'] = $this->Application_model->get(array('table'=>'content'));
+
+
         $this->load->view('/static/header',$this->data);
 		$this->load->view('/static/home',$this->data);
         $this->load->view('/static/footer',$this->data);
