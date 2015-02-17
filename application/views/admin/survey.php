@@ -83,6 +83,8 @@
                 <button type="submit" class="btn btn-default">Submit</button> <a href="/admin">cancel</a>
         <?php form_close(); ?>
             </center>
+            <br />
+            <p class="well"><strong>Note:</strong> Don't change questions or answers during a survey otherwise the totals won't calculate properly.</p>
 
 </div>
     </div>
