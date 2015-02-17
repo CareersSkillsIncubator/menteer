@@ -84,7 +84,7 @@
         <?php form_close(); ?>
             </center>
             <br />
-            <p class="well"><strong>Note:</strong> Don't change questions or answers during a survey otherwise the totals won't calculate properly.</p>
+            <p class="well"><strong>Note:</strong> Don't change questions or answers during an active survey otherwise the totals won't calculate properly.</p>
 
 </div>
     </div>
