@@ -67,7 +67,7 @@ class Dashboard extends CI_Controller
                 $this->session->set_userdata('user_kind', 'both');
         }
 
-        if ($this->user['agree'] == 1) {
+        if ($this->user['agree'] == 1 && $this->uri->segment(2)!= 'force') {
             // check if we need to show the user matches before we begin
             // check for matches available otherwise go to dashboard
 
