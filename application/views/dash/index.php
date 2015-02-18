@@ -119,7 +119,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" data-toggle="modal" data-target="#myModalComingSoon">
+                    <a href="/dashboard/mytasks" >
                         <span class="icon icon-note"></span>
                         <span class="text">Tasks</span>
                     </a>

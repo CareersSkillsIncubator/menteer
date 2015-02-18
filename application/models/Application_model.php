@@ -38,6 +38,9 @@ class Application_model extends CI_Model
         $user_id		= isset($params['user_id']) ? $params['user_id'] : false;
         $users_id		= isset($params['users_id']) ? $params['users_id'] : false;
 
+        $my_tasks		= isset($params['user_task_id']) ? $params['user_task_id'] : false;
+
+
         $questionnaire_id	= isset($params['questionnaire_id']) ? $params['questionnaire_id'] : false;
         $mentors        = isset($params['mentors']) ? true : false;
         $mentees        = isset($params['mentees']) ? true : false;
@@ -54,6 +57,7 @@ class Application_model extends CI_Model
         $sql			.= $users_id ?  " AND users_id = '".$users_id."' " : " ";
         $sql			.= $questionnaire_id ?  " AND questionnaire_id = '".$questionnaire_id."' " : " ";
 
+        $sql            .= $my_tasks ? " AND user_id = '" . $my_tasks . "' " : "";
         $sql            .= $mentors ? " AND menteer_type=37 " : " ";
         $sql            .= $mentees ? " AND menteer_type=38 " : " ";
         $sql            .= $both ? " AND questionnaire_answer_id=41 AND questionnaire_id=16 " : " ";

@@ -265,8 +265,61 @@ class Dashboard extends CI_Controller
         $this->load->view('/dash/footer', $this->data);
     }
 
-    // edit questionnaire
+    // my tasks
+    public function mytasks()
+    {
 
+        $this->data['page'] = 'tasks';
+        $this->data['user'] = $this->user;
+
+        $this->data['mytasks'] = $this->Application_model->get(array('table'=>'tasks','user_task_id'=>$this->session->userdata('user_id')));
+
+        $this->load->view('/dash/header', $this->data);
+        $this->load->view('/dash/mytasks', $this->data);
+        $this->load->view('/dash/footer', $this->data);
+    }
+
+    // save task
+    public function save_task()
+    {
+
+        $update = array();
+        $update['data']['match_id'] = $this->user['is_matched'];
+        $update['data']['user_id'] = $this->session->userdata('user_id');
+        $update['data']['stamp'] = date("Y-m-d H:i:s");
+        $update['data']['task'] = $this->input->post('newtask');
+        $update['table'] = 'tasks';
+        $this->Application_model->insert($update);
+
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success">Task Added</div>'
+        );
+
+        redirect('/dashboard/mytasks','refresh');
+
+    }
+
+    //delete task
+    public function delete_task($task_id)
+    {
+        $task_id = decrypt_url($task_id);
+
+        $update = array();
+        $update['table'] = 'tasks';
+        $update['key'] = 'id';
+        $update['value'] = $task_id;
+        $this->Application_model->delete($update);
+
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success">Task Removed</div>'
+        );
+
+        redirect('/dashboard/mytasks','refresh');
+    }
+
+    // edit questionnaire
     public function myintake()
     {
 
