@@ -265,6 +265,60 @@ class Dashboard extends CI_Controller
         $this->load->view('/dash/footer', $this->data);
     }
 
+    // my events
+    public function myevents()
+    {
+
+        $this->data['page'] = 'events';
+        $this->data['user'] = $this->user;
+
+        $this->data['myevents'] = $this->Application_model->get(array('table'=>'events','user_event_id'=>$this->session->userdata('user_id')));
+
+        $this->load->view('/dash/header', $this->data);
+        $this->load->view('/dash/myevents', $this->data);
+        $this->load->view('/dash/footer', $this->data);
+    }
+
+    // save event
+    public function save_event()
+    {
+
+        $update = array();
+        $update['data']['match_id'] = $this->user['is_matched'];
+        $update['data']['user_id'] = $this->session->userdata('user_id');
+        $update['data']['stamp'] = date("Y-m-d H:i:s");
+        $update['data']['event'] = $this->input->post('newevent');
+        $update['table'] = 'events';
+        $this->Application_model->insert($update);
+
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success">Event Added</div>'
+        );
+
+        redirect('/dashboard/myevents','refresh');
+
+    }
+
+    //delete event
+    public function delete_event($event_id)
+    {
+        $event_id = decrypt_url($event_id);
+
+        $update = array();
+        $update['table'] = 'events';
+        $update['key'] = 'id';
+        $update['value'] = $event_id;
+        $this->Application_model->delete($update);
+
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success">Event Removed</div>'
+        );
+
+        redirect('/dashboard/myevents','refresh');
+    }
+
     // my tasks
     public function mytasks()
     {

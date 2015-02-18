@@ -71,6 +71,24 @@
             </li>
         </ul>
 
+        <ul class="nav nav-pills nav-stacked" style="width:200px; float:left; margin-left:3px; margin-top: 3px;">
+            <li class="active">
+                <a href="#">
+                    <span class="badge pull-right"><?=count($tasks);?></span>
+                    # Tasks
+                </a>
+            </li>
+        </ul>
+
+        <ul class="nav nav-pills nav-stacked" style="width:200px; float:left; margin-left:3px; margin-top: 3px;">
+            <li class="active">
+                <a href="#">
+                    <span class="badge pull-right"><?=count($events);?></span>
+                    # Events
+                </a>
+            </li>
+        </ul>
+
 
         <link href="/assets/css/blue/style.css" rel="stylesheet">
         <script type="text/javascript" src="/assets/js/jquery.tablesorter.min.js"></script>

@@ -94,6 +94,9 @@ class Admin extends CI_Controller {
         $this->data['matched'] = $this->Application_model->get(array('table'=>'users','matched'=>true));
         $this->data['meetings'] = $this->Application_model->get(array('table'=>'meetings'));
 
+        $this->data['tasks'] = $this->Application_model->get(array('table'=>'tasks'));
+        $this->data['events'] = $this->Application_model->get(array('table'=>'events'));
+
         $this->load->view('/admin/header',$this->data);
         $this->load->view('/admin/index',$this->data);
         $this->load->view('/admin/footer',$this->data);

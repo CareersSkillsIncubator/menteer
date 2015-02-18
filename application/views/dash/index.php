@@ -107,7 +107,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" data-toggle="modal" data-target="#myModalComingSoon">
+                    <a href="/dashboard/myevents">
                         <span class="icon icon-calendar"></span>
                         <span class="text">Events</span>
                     </a>
