@@ -89,6 +89,25 @@ class Application_model extends CI_Model
      * @param array $params
      * @return bool
      */
+    function delete($params = array()) {
+
+        if(!isset($params['table']))
+            return false;
+
+        if(!isset($params['key']))
+            return false;
+
+        if(!isset($params['value']))
+            return false;
+
+        $this->db->delete($params['table'], array($params['key'] => $params['value']));
+
+    }
+
+    /**
+     * @param array $params
+     * @return bool
+     */
     function update($params = array()) {
 
         if(!isset($params['table']))

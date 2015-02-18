@@ -598,6 +598,41 @@ class Auth extends CI_Controller {
 		}
 	}
 
+    //update user questionnaire
+    function update_user()
+    {
+        $this->load->model('Application_model');
+
+        // ajax only
+        if (!$this->input->is_ajax_request())
+            redirect('/');
+
+        $this->data['title'] = "Update User";
+
+        $return_q = $this->_setup_check($this->input->post('frm_data'));
+        if($return_q != ''){
+            $csrf_hash = $this->security->get_csrf_hash();
+            echo json_encode(array('vresult'=>'error','message'=>'Please answer question(s) ... ' . $return_q ,'full_message'=>'','csrf_hash'=>$csrf_hash));
+
+        }else {
+
+            if($this->session->userdata('user_id') > 0) { // make sure session is not lost
+                $update_user = array(
+                    'id' => $this->session->userdata('user_id'),
+                    'data' => array('frm_data' => $this->input->post('frm_data')),
+                    'table' => 'users'
+                );
+                $this->Application_model->update($update_user);
+
+                $csrf_hash = $this->security->get_csrf_hash();
+                echo json_encode(
+                    array('vresult' => 'success', 'message' => $this->ion_auth->messages(), 'csrf_hash' => $csrf_hash)
+                );
+            }
+
+        }
+    }
+
 	//edit a user
 	function edit_user($id)
 	{

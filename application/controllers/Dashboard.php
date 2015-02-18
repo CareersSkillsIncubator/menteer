@@ -41,6 +41,11 @@ class Dashboard extends CI_Controller
             $this->_setup();
         }
 
+        // check if user updating questionnaire
+        if ($this->user['is_setup'] == 1 && $this->user['frm_data']!='') {
+            $this->_setupUpdate();
+        }
+
         // is this user a mentor or menteer or both
         $val = $this->Application_model->get(
             array(
@@ -258,6 +263,44 @@ class Dashboard extends CI_Controller
         $this->load->view('/dash/header', $this->data);
         $this->load->view('/dash/myprofile', $this->data);
         $this->load->view('/dash/footer', $this->data);
+    }
+
+    // edit questionnaire
+
+    public function myintake()
+    {
+
+        $this->load->model('Questionnaire_model');
+        $this->load->model('Matcher_model');
+
+        $this->data['questions'] = $this->Questionnaire_model->get();
+        $this->data['num_questions'] = count($this->data['questions']);
+
+        $this->data['answers'] = $this->_extract_data($this->Matcher_model->get(array('table'=>'users_answers','user_id'=>$this->session->userdata('user_id'))));
+
+        $this->load->view('/dash/header',$this->data);
+        $this->load->view('/dash/intake',$this->data);
+        $this->load->view('/dash/footer',$this->data);
+
+    }
+
+    // get answers
+    protected function _extract_data($m_answers) {
+
+        $question = array();
+
+        foreach($m_answers as $item){
+
+            if($item['questionnaire_answer_id'] == 0)
+                $answer = $item['questionnaire_answer_text'];
+            else
+                $answer = $this->Application_model->get(array('table'=>'questionnaire_answers','id'=>$item['questionnaire_answer_id']));
+
+            $question[$item['questionnaire_id']][] = $answer;
+
+        }
+
+        return $question;
     }
 
     // save profile info
@@ -711,7 +754,7 @@ class Dashboard extends CI_Controller
         // is this user a mentor or menteer or both
         $val = $this->Application_model->get(array('table'=>'users_answers','user_id'=>$this->session->userdata('user_id'),'questionnaire_id'=>TYPE_QUESTION_ID,));
 
-        // temporarily @todo make changes to allow users to be both
+        // mentor is default if both types selected
         if ($val['questionnaire_answer_id']== 41)
             $val['questionnaire_answer_id'] = 37;
 
@@ -735,6 +778,97 @@ class Dashboard extends CI_Controller
             $this->email->message($message);
 
             $result = $this->email->send(); // @todo handle false send result
+        }
+    }
+
+    // update questionnaire
+    protected function _setupUpdate() {
+
+        if($this->session->userdata('user_id') > 0 ) {
+            // we must have data
+            if ($this->user['frm_data'] == '') {
+                return false;
+            }
+
+            $frm_data_arr = json_decode($this->user['frm_data']);
+
+            $batch = array();
+
+            foreach ($frm_data_arr as $data) {
+
+                // only use questionnaire fields
+                if (intval($data->name) > 0) {
+
+                    // get questionnaire info
+                    $question_arr = $this->Application_model->get(
+                        array('table' => 'questionnaire', 'id' => $data->name)
+                    );
+
+                    switch ($question_arr['type']) {
+                        case 'list':
+                        case 'yesno':
+
+                            // break up list and prep
+                            $list_arr = explode(',', $data->value);
+
+                            foreach ($list_arr as $item) {
+
+                                $list = array(
+                                    'user_id' => $this->session->userdata('user_id'),
+                                    'questionnaire_id' => $data->name,
+                                    'questionnaire_answer_text' => strtolower(trim($item)),
+                                    'questionnaire_answer_id' => 0
+                                );
+                                $batch[] = $list;
+
+                            }
+
+                            break;
+
+                        case 'open':
+
+                            $list = array(
+                                'user_id' => $this->session->userdata('user_id'),
+                                'questionnaire_id' => $data->name,
+                                'questionnaire_answer_text' => strtolower(trim($data->value)),
+                                'questionnaire_answer_id' => 0
+                            );
+                            $batch[] = $list;
+
+                            break;
+                        default:
+
+                            $list = array(
+                                'user_id' => $this->session->userdata('user_id'),
+                                'questionnaire_id' => $data->name,
+                                'questionnaire_answer_text' => '',
+                                'questionnaire_answer_id' => $data->value
+                            );
+                            $batch[] = $list;
+                    }
+                }
+            }
+
+            // delete existing data for user
+            $this->Application_model->delete(
+                array('table' => 'users_answers', 'key' => 'user_id', 'value' => $this->session->userdata('user_id'))
+            );
+
+            $save_data = array(
+                'data' => $batch,
+                'table' => 'users_answers'
+            );
+
+            $this->Application_model->save_batch($save_data);
+
+            //clean the user table of this information for security
+            $update_user = array(
+                'id' => $this->session->userdata('user_id'),
+                'data' => array('frm_data' => ''),
+                'table' => 'users'
+            );
+            $this->Application_model->update($update_user);
+
         }
     }
 }

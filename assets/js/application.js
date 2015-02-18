@@ -14,6 +14,7 @@ $( document ).ready(function() {
         e.preventDefault();
 
         var $page = $("input[name=turnpage]").val();
+        var $pageupdate = $("input[name=turnpageupdate]").val();
 
         $(".arrow-prev").show();
         $(".arrow-next").show();
@@ -32,7 +33,6 @@ $( document ).ready(function() {
                 $(".intake-err").show();
 
             }
-
         }
 
         if ($page == 2){
@@ -47,7 +47,6 @@ $( document ).ready(function() {
                 $(".intake-err").show();
 
             }
-
         }
 
         if ($page == 3){
@@ -268,6 +267,8 @@ $( document ).ready(function() {
             $(".arrow-next").hide();
 
 
+        if($page == 16 && $pageupdate == 1)
+            $(".arrow-next").hide();
 
     });
 
@@ -567,7 +568,7 @@ $( document ).ready(function() {
         var $frm = $('#question_form');
         var $frm_data = JSON.stringify($frm.serializeArray());
 
-        console.log($frm_data);
+        //console.log($frm_data);
 
         var form_data = {
             frm_data: $frm_data,
@@ -606,7 +607,7 @@ $( document ).ready(function() {
                         default:
                             $("input[name=csrf_tl_token]").val($obj.csrf_hash);
 
-                            console.log($obj.full_message);
+                            //console.log($obj.full_message);
 
                             // highlight fields that are incorrect
 
@@ -658,6 +659,59 @@ $( document ).ready(function() {
 
     });
 
+
+    /* ==== update questionnaire ====*/
+
+    $('.update-registration').click(function(e) {
+
+        e.preventDefault();
+
+        var $frm = $('#question_form');
+        var $frm_data = JSON.stringify($frm.serializeArray());
+
+        //console.log($frm_data);
+
+        var form_data = {
+            frm_data: $frm_data,
+            csrf_tl_token: $("input[name=csrf_tl_token]").val(),
+            is_ajax: '1'
+        };
+
+        $.ajax( {
+            url: "/auth/update_user",
+            type: 'POST',
+            data: form_data,
+            success: function(msg) {
+
+                if(msg != undefined) {
+                    var $obj = jQuery.parseJSON(msg);
+
+
+                    switch($obj.vresult){
+
+                        case "success":
+
+                            window.location.replace("/dashboard?update=1");
+                            break;
+
+                        default:
+                            $("input[name=csrf_tl_token]").val($obj.csrf_hash);
+
+                            //console.log($obj.full_message);
+
+
+                            $("#register-error-message").html($obj.message);
+                            $("#register-error-message").removeClass('hide');
+
+                    }
+
+                }
+
+            }
+
+        });
+
+    });
 
     /* ==== login ====*/
 

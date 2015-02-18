@@ -57,11 +57,13 @@
                     <div class="alert alert-info">You are currently awaiting for your chosen mentor to accept your request. Click <a href="/dashboard/revoke/<?=encrypt_url($user['is_matched'])?>"><u>here</u></a> to revoke this request.</div>
                 <?php } ?>
 
-
                 <?php if($user['active']==0){ ?>
                     <div class="alert alert-info">Your account has not been activated. Please check your email and follow the link to activate.</div>
                 <?php } ?>
 
+                <?php if($this->input->get('update') == 1){ ?>
+                    <div class="alert alert-success">Your Profile Questionnaire has been Updated.</div>
+                <?php } ?>
 
                 <?php
                 //determine picture filename

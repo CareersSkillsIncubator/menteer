@@ -174,6 +174,7 @@
                     <button class="btn btn-success">save</button>
                 </div>
             <input type="hidden" id="turnpage" name="turnpage" value="1" />
+            <input type="hidden" id="turnpageupdate" name="turnpageupdate" value="0" />
 
             <?php echo form_close();?>
         </div>

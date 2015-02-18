@@ -129,6 +129,8 @@
                     </div>
 
                 </div>
+                <div class="btn-holder "><a href="/dashboard/myintake">Edit Full Questionnaire</a>
+                </div>
                 <div class="btn-holder ">
 
                     <button class="btn btn-success profile-save">save</button>
