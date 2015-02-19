@@ -80,7 +80,7 @@
 
 
                                             ?>
-                                                <div class="col-md-offset-1 col-lg-offset-1 col-sm-offset-1 col-xs-offset-1 <?=$count==16 && !in_array($item['id'],$radio_arr) ? 'hide':'';?>">
+                                                <div class="col-md-offset-1 col-lg-offset-1 col-sm-offset-1 col-xs-offset-1 <?=$item['answer']!='either, I can be a mentor or mentee, depending on availability' && $count==16 && !in_array($item['id'],$radio_arr) ? 'hide':'';?>">
                                                     <label class="radio-inline">
                                                         <input type="radio" name="<?=$key?>" value="<?=$item['id']?>" tabindex="-1" <?=in_array($item['id'],$radio_arr) ? 'checked="checked"' : '';?>> <?=$item['answer']?>
                                                     </label>
