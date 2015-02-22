@@ -120,6 +120,17 @@ class Admin extends CI_Controller {
         redirect('/admin','refresh');
     }
 
+    //matches ended stats
+    public function matches()
+    {
+        $this->data['revokes'] = $this->Application_model->get(array('table'=>'matches_revoked'));
+        $this->data['ends'] = $this->Application_model->get(array('table'=>'matches_ended'));
+
+        $this->load->view('/admin/header',$this->data);
+        $this->load->view('/admin/matches',$this->data);
+        $this->load->view('/admin/footer',$this->data);
+    }
+
     //survey page
     public function survey()
     {

@@ -4,7 +4,7 @@
         <?=$this->session->flashdata('message');?>
 
         <div align="center">
-            <a href="/admin/cms">CMS</a> | <a href="/admin/survey">Survey</a>
+            <a href="/admin/cms">CMS</a> | <a href="/admin/survey">Survey</a> | <a href="/admin/matches">End Signals</a>
         </div>
         <div align="center">
             <a href="https://menteer.uservoice.com" target="_blank">User Voice</a> |
