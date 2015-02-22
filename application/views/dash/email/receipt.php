@@ -188,7 +188,7 @@
                                         <!-- Title -->
                                         <tr>
                                             <td style="font-family: Helvetica, arial, sans-serif; font-size: 30px; color: #333333; text-align:center; line-height: 30px;" st-title="fulltext-heading">
-                                                Mentor Match Requested
+                                                Receipt
                                             </td>
                                         </tr>
                                         <!-- End of Title -->
@@ -199,16 +199,24 @@
                                         <!-- End of spacing -->
                                         <!-- content -->
                                         <tr>
-                                            <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; color: #666666; text-align:center; line-height: 30px;" st-content="fulltext-content">
-                                                <p><?=$first_name?> has requested to have you as their mentor.</p>
+                                            <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; color: #666666; text-align:left; line-height: 30px;" st-content="fulltext-content">
 
-                                                <p>Click <a href="<?=base_url()?>dashboard">here</a> to accept or decline their request.</p>
 
-                                                <p><small>Note: The Mentee can cancel this request at anytime.</small></p>
+                                                <p>Dear <?=$name?>,</p>
+
+                                                <p>Thank you for your donation of $<?=$amount?>. We (CSCI) rely on the financial support from people like you to keep our cause alive. Below is your donation receipt to keep for your records.</p>
+
+                                                <br />
+
+                                                <p><strong>Name:</strong> <?=$name?></p>
+                                                <p><strong>Amount:</strong> $<?=$amount?></p>
+                                                <p><strong>Transaction ID:</strong> <?=$transaction_id?></p>
+                                                <p><strong>Phone:</strong> <?=$phone?></p>
+                                                <p><strong>Email:</strong> <?=$email?></p>
+                                                <p><strong>Date of Transaction:</strong> <?=$date?></p>
+
                                             </td>
                                         </tr>
-
-
 
 
                                         <!-- End of content -->
@@ -298,7 +306,6 @@
                                 <td align="center" valign="middle" style="line-height:15px; font-family: Helvetica, arial, sans-serif; font-size: 14px;color: #666666" st-content="postfooter">
                                     &copy; <?=date('Y')?> <a href="<?=base_url()?>">Menteer.ca</a> | Regent park 585 Dundas St E, Toronto ON M5A 2B7 Canada <br /> <a href="<?=base_url()?>dashboard" style="text-decoration: none; color: #b92c28">Manage Notifications</a> | <a href="<?=base_url()?>privacy" style="text-decoration: none; color: #b92c28">Privacy</a>
                                 </td>
-
                             </tr>
                             <!-- Spacing -->
                             <tr>

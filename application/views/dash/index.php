@@ -143,6 +143,27 @@
             <?php } ?>
         </div>
 
+
+        <?php
+        $skip = 1;
+        $timeago= explode('~',get_timeago($user['created_on']));
+
+        if($timeago[1]=='year')
+            $skip = 0;
+
+        if($timeago[1]=='month'){
+
+            if($timeago[0] >= DONATION_TIME)
+                $skip = 0;
+        }
+
+        if($skip == 0){
+        ?>
+        <div align="center">
+            <a href="/dashboard/donate" class="btn btn-default">Donate now</a> to help support our cause.
+        </div>
+        <?php } ?>
+
     </div>
 
 

@@ -229,6 +229,17 @@ class Admin extends CI_Controller {
         $update['table'] = 'content';
         $this->Application_model->update($update);
 
+        $update['id'] = 3;
+        $update['data']['description'] = $this->input->post('donate');
+        $update['table'] = 'content';
+        $this->Application_model->update($update);
+
+        $update['id'] = 4;
+        $update['data']['description'] = $this->input->post('thanks');
+        $update['table'] = 'content';
+        $this->Application_model->update($update);
+
+
         $this->session->set_flashdata(
             'message',
             '<div class="alert alert-success">Saved</div>'

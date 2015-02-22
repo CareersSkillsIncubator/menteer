@@ -252,6 +252,97 @@ class Dashboard extends CI_Controller
 
     }
 
+    // donation page
+    public function donate()
+    {
+
+        $this->config->load('stripe');
+
+        $config = $this->config->item('stripe');
+
+        $this->data['content'] = $this->Application_model->get(array('table'=>'content'));
+
+        // Load Stripe
+        require($_SERVER['DOCUMENT_ROOT'].'/assets/stripe/Stripe.php');
+
+        if ($_POST) {
+            Stripe::setApiKey($config['secret-key']);
+
+            // POSTed Variables
+            $token      = $this->input->post('stripeToken');
+            $first_name = $this->input->post('first-name');
+            $last_name  = $this->input->post('last-name');
+            $name       = $first_name . ' ' . $last_name;
+            $address    = $this->input->post('address') . "\n" . $this->input->post('city') . ', ' . $this->input->post('state') . ' ' . $this->input->post('zip');
+            $email      = $this->input->post('email');
+            $phone      = $this->input->post('phone');
+            $amount     = (float) $this->input->post('amount');
+
+            try {
+                if ( ! isset($_POST['stripeToken']) ) {
+                    throw new Exception("The Stripe Token was not generated correctly");
+                }
+
+                // Charge the card
+                $donation = Stripe_Charge::create(array(
+                    'card'        => $token,
+                    'description' => 'Donation by ' . $name . ' (' . $email . ')',
+                    'amount'      => $amount * 100,
+                    'currency'    => 'cad'
+                ));
+
+                $message_arr['name'] = $name;
+                $message_arr['amount'] = $amount;
+                $message_arr['address'] = $address;
+                $message_arr['phone'] = $phone;
+                $message_arr['email'] = $email;
+                $message_arr['date'] = date('M j, Y, g:ia', $donation['created']);
+                $message_arr['transaction_id'] = $donation['id'];
+
+                $subject = $config['email-subject'];
+
+                $message = $this->load->view('/dash/email/receipt', $message_arr, true);
+                $this->email->clear();
+                $this->email->from($config['email-from']);
+                $this->email->bcc($config['email-bcc']);
+                $this->email->to($email);
+                $this->email->subject($subject);
+                $this->email->message($message);
+
+                $result = $this->email->send();
+
+                // Forward to "Thank You" page
+                redirect($config['thank-you'],'refresh');
+
+            } catch (Exception $e) {
+                $error = $e->getMessage();
+            }
+        }
+
+
+        $this->data['page'] = 'donate';
+        $this->data['user'] = $this->user;
+        $this->data['config'] = $config;
+
+        $this->load->view('/dash/header', $this->data);
+        $this->load->view('/dash/donate', $this->data);
+        $this->load->view('/dash/footer', $this->data);
+    }
+
+    // donation page thanks page
+    public function thankyou()
+    {
+
+        $this->data['content'] = $this->Application_model->get(array('table'=>'content'));
+
+        $this->data['page'] = 'donate';
+        $this->data['user'] = $this->user;
+
+        $this->load->view('/dash/header', $this->data);
+        $this->load->view('/dash/thanks', $this->data);
+        $this->load->view('/dash/footer', $this->data);
+    }
+
     // see this profile
     public function myprofile()
     {
