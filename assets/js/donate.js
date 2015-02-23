@@ -58,11 +58,11 @@ $(function() {
 			$('.email').focus();
 			return false;
 		}
-		if ( $('.phone').val() === '' ) {
-			outputError('Phone is required');
-			$('.phone').focus();
-			return false;
-		}
+		//if ( $('.phone').val() === '' ) {
+		//	outputError('Phone is required');
+		//	$('.phone').focus();
+		//	return false;
+		//}
 		if ( $('.address').val() === '' ) {
 			outputError('Address is required');
 			$('.address').focus();

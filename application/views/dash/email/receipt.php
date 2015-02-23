@@ -211,7 +211,6 @@
                                                 <p><strong>Name:</strong> <?=$name?></p>
                                                 <p><strong>Amount:</strong> $<?=$amount?></p>
                                                 <p><strong>Transaction ID:</strong> <?=$transaction_id?></p>
-                                                <p><strong>Phone:</strong> <?=$phone?></p>
                                                 <p><strong>Email:</strong> <?=$email?></p>
                                                 <p><strong>Date of Transaction:</strong> <?=$date?></p>
 

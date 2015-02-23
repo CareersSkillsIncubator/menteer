@@ -275,7 +275,7 @@ class Dashboard extends CI_Controller
             $name       = $first_name . ' ' . $last_name;
             $address    = $this->input->post('address') . "\n" . $this->input->post('city') . ', ' . $this->input->post('state') . ' ' . $this->input->post('zip');
             $email      = $this->input->post('email');
-            $phone      = $this->input->post('phone');
+            //$phone      = $this->input->post('phone');
             $amount     = (float) $this->input->post('amount');
 
             try {
@@ -296,7 +296,7 @@ class Dashboard extends CI_Controller
                 $message_arr['name'] = $name;
                 $message_arr['amount'] = $amount;
                 $message_arr['address'] = $address;
-                $message_arr['phone'] = $phone;
+                //$message_arr['phone'] = $phone;
                 $message_arr['email'] = $email;
                 $message_arr['date'] = date('M j, Y, g:ia', $donation['created']);
                 $message_arr['transaction_id'] = $donation['id'];

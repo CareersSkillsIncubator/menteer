@@ -50,10 +50,6 @@
                         <label>Email</label>
                         <input type="text" name="email" class="email text" value="<?=$this->input->post('email');?>">
                     </div>
-                    <div class="form-row form-phone">
-                        <label>Phone</label>
-                        <input type="text" name="phone" class="phone text" value="<?=$this->input->post('phone');?>">
-                    </div>
                     <div class="form-row form-address">
                         <label>Address</label>
                         <textarea name="address" cols="30" rows="2" class="address text"><?=$this->input->post('address');?></textarea>
