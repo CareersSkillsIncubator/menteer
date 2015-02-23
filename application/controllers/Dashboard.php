@@ -291,6 +291,8 @@ class Dashboard extends CI_Controller
                     'currency'    => 'cad'
                 ));
 
+                //log_message('error', $donation);
+
                 $message_arr['name'] = $name;
                 $message_arr['amount'] = $amount;
                 $message_arr['address'] = $address;
@@ -316,6 +318,10 @@ class Dashboard extends CI_Controller
 
             } catch (Exception $e) {
                 $error = $e->getMessage();
+                //log_message('error', $error);
+
+                $this->data['error'] = $error;
+
             }
         }
 

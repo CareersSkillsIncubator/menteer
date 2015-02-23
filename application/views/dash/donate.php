@@ -7,6 +7,12 @@
 
             <?= $this->session->flashdata('message'); ?>
 
+            <?php
+            if(isset($error)){
+                echo "<div class=\"alert alert-danger\">".$error."</div>";
+            }
+            ?>
+
             <link rel="stylesheet" type="text/css" href="/assets/css/donate.css" media="all">
             <script type="text/javascript" src="https://js.stripe.com/v2"></script>
             <script type="text/javascript">
@@ -34,38 +40,42 @@
 
                     <div class="form-row form-first-name">
                         <label>First Name</label>
-                        <input type="text" name="first-name" class="first-name text">
+                        <input type="text" name="first-name" class="first-name text" value="<?=$this->input->post('first-name');?>">
                     </div>
                     <div class="form-row form-last-name">
                         <label>Last Name</label>
-                        <input type="text" name="last-name" class="last-name text">
+                        <input type="text" name="last-name" class="last-name text" value="<?=$this->input->post('last-name');?>">
                     </div>
                     <div class="form-row form-email">
                         <label>Email</label>
-                        <input type="text" name="email" class="email text">
+                        <input type="text" name="email" class="email text" value="<?=$this->input->post('email');?>">
                     </div>
                     <div class="form-row form-phone">
                         <label>Phone</label>
-                        <input type="text" name="phone" class="phone text">
+                        <input type="text" name="phone" class="phone text" value="<?=$this->input->post('phone');?>">
                     </div>
                     <div class="form-row form-address">
                         <label>Address</label>
-                        <textarea name="address" cols="30" rows="2" class="address text"></textarea>
+                        <textarea name="address" cols="30" rows="2" class="address text"><?=$this->input->post('address');?></textarea>
                     </div>
                     <div class="form-row form-city">
                         <label>City</label>
-                        <input type="text" name="city" class="city text">
+                        <input type="text" name="city" class="city text" value="<?=$this->input->post('city');?>">
                     </div>
                     <div class="form-row form-state">
                         <label>Prov/State</label>
                         <select name="state" class="state text">
+                            <?php
+                            if($this->input->post('state'))
+                            echo "<option value=\"".$this->input->post('state')."\" selected=\"selected\">".$this->input->post('state')."</option>";
+                            ?>
+                            <option value="ON">Ontario</option>
                             <option value="AB">Alberta</option>
                             <option value="BC">British Columbia</option>
                             <option value="MB">Manitoba</option>
                             <option value="NB">New Brunswick</option>
                             <option value="NL">Newfoundland and Labrador</option>
                             <option value="NS">Nova Scotia</option>
-                            <option value="ON" selected="selected">Ontario</option>
                             <option value="PE">Prince Edward Island</option>
                             <option value="QC">Quebec</option>
                             <option value="SK">Saskatchewan</option>
@@ -127,7 +137,7 @@
                     </div>
                     <div class="form-row form-zip">
                         <label>Postal/Zip</label>
-                        <input type="text" name="zip" class="zip text">
+                        <input type="text" name="zip" class="zip text" value="<?=$this->input->post('zip');?>">
                     </div>
                 </fieldset>
 
