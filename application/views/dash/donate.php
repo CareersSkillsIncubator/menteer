@@ -3,7 +3,7 @@
 
         <div class="form-block">
 
-            <h1>Donation Form</h1>
+            <h1>Support Menteer</h1>
 
             <?= $this->session->flashdata('message'); ?>
 

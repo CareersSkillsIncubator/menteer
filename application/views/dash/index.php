@@ -160,7 +160,7 @@
         if($skip == 0){
         ?>
         <div align="center">
-            <a href="/dashboard/donate" class="btn btn-default">Donate now</a> to help support our cause.
+            <a href="/dashboard/donate" class="btn btn-default" style="background-color: green;">Support Menteer</a> to empower through mentorship.
         </div>
         <?php } ?>
 
