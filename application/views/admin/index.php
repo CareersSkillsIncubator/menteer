@@ -103,6 +103,7 @@
                 <th>Email</th>
                 <th>Type</th>
                 <th>Match Status</th>
+                <th>Since</th>
                 <th>Last Login</th>
                 <th>Active</th>
                 <th>Disabled</th>
@@ -150,6 +151,14 @@
 
                         ?>
 
+                    </td>
+                    <td><?php
+
+                        if($user['match_status_stamp']!='' && $user['is_matched']!=0)
+                            echo days_ago(date('U',strtotime($user['match_status_stamp'])));
+                        else
+                            echo "-";
+                        ?>
                     </td>
                     <td><?=date("M d Y",$user['last_login'])?></td>
 
