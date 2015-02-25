@@ -228,7 +228,7 @@ class Dashboard extends CI_Controller
             $update['table'] = 'users';
             $this->Application_model->update($update);
 
-            $update['id'] = decrypt_url($match_id);
+            $update['id'] = $mentor_id = decrypt_url($match_id);
             $update['data']['is_matched'] = 0;
             $update['data']['match_status'] = 'pending';
             $update['table'] = 'users';
@@ -241,6 +241,20 @@ class Dashboard extends CI_Controller
             $update['data']['stamp'] = date("Y-m-d H:i:s");
             $update['table'] = 'matches_revoked';
             $this->Application_model->insert($update);
+
+            // inform mentor
+            $mentor = $this->Application_model->get(array('table'=>'users','id'=>$mentor_id));
+
+            $data = array();
+
+            $message = $this->load->view('/chooser/email/match_revoke', $data, true);
+            $this->email->clear();
+            $this->email->from($this->config->item('admin_email', 'ion_auth'), $this->config->item('site_title', 'ion_auth'));
+            $this->email->to($mentor['email']);
+            $this->email->subject('Mentee has Cancelled Their Match Request');
+            $this->email->message($message);
+
+            $result = $this->email->send(); // @todo handle false send result
 
             $this->session->set_flashdata(
                 'message',

@@ -119,7 +119,7 @@ class Chooser extends CI_Controller {
             // mentor update
             $update_user = array(
                 'id' => $this->session->userdata('user_id'),
-                'data' => array('match_status' => 'active'),
+                'data' => array('match_status' => 'active','match_status_stamp' => date('y-m-d H:i:s')),
                 'table' => 'users'
             );
             $this->Application_model->update($update_user);
@@ -127,7 +127,7 @@ class Chooser extends CI_Controller {
             // mentee update
             $update_user = array(
                 'id' => $this->user['is_matched'],
-                'data' => array('match_status' => 'active'),
+                'data' => array('match_status' => 'active','match_status_stamp' => date('y-m-d H:i:s')),
                 'table' => 'users'
             );
             $this->Application_model->update($update_user);
@@ -184,7 +184,7 @@ class Chooser extends CI_Controller {
 
             $mentee = $this->Application_model->get(array('table'=>'users','id'=>$this->user['is_matched']));
 
-            // notify mentee about the accept
+            // notify mentee
 
             $data = array();
             $data['first_name'] = $this->user['first_name'];
@@ -235,7 +235,7 @@ class Chooser extends CI_Controller {
             // update mentee
             $update_user = array(
                 'id' => $this->session->userdata('user_id'),
-                'data' => array('is_matched' => $mentor_id,'match_status' => 'pending'),
+                'data' => array('is_matched' => $mentor_id,'match_status' => 'pending','match_status_stamp' => date('Y-m-d H:i:s')),
                 'table' => 'users'
             );
             $this->Application_model->update($update_user);
@@ -243,7 +243,7 @@ class Chooser extends CI_Controller {
             // update mentor
             $update_user = array(
                 'id' => $mentor_id,
-                'data' => array('is_matched' => $this->session->userdata('user_id'),'match_status' => 'pending'),
+                'data' => array('is_matched' => $this->session->userdata('user_id'),'match_status' => 'pending','match_status_stamp' => date('Y-m-d H:i:s')),
                 'table' => 'users'
             );
             $this->Application_model->update($update_user);
