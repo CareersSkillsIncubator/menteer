@@ -919,4 +919,6 @@ $(function() {
         $createDestroy.bootstrapSwitch(isSwitch ? 'destroy' : null);
         $(this).button(isSwitch ? 'reset' : 'destroy');
     });
+
+
 });
