@@ -105,7 +105,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <section class="contact-box">
-                        <h1>LOG IN</h1>
+                        <h1>LOG IN <?=$this->session->userdata('demo')==1? '(DEMO)': ''; ?></h1>
 
                         <?php echo form_open("#",array('class'=>'sign-form','role'=>'form'));?>
                             <div id="login-error-message" class="alert alert-danger hide">Username or Password Incorrect</div>

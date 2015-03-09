@@ -91,6 +91,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['logout'] = 'auth/logout';
 $route['accept'] = "dashboard/accept";
 $route['privacy'] = "welcome/privacy";
+$route['demo'] = "welcome/demo";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

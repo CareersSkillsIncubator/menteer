@@ -73,7 +73,9 @@
 
                                         <div style="clear:both;"></div>
 
-                                        <h5 class=" <?=$private[0] ? '':'hide';?> col-xs-12" style="margin-top:15px; margin-bottom:15px; text-align: center;"><a href="mailto:<?= $match['email'] ?>"><?= $match['email'] ?></a></h5>
+                                        <h5 class=" <?=$private[0] ? '':'hide';?> col-xs-12" style="margin-top:15px; margin-bottom:15px; text-align: center;"><a href="mailto:<?= $match['email'] ?>">
+                                                <?=$this->session->userdata('demo') == 1 ? '**********'.substr($match['email'],strpos($match['email'],'@'),28) : $match['email'];?>
+                                            </a></h5>
 
                                         <div style="clear:both;"></div>
 
@@ -86,7 +88,7 @@
                                         <hr/>
 
                                         <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 <?=$private[2] ? '':'hide';?>"><?= $match['location'] ?></div>
-                                        <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 <?=$private[1] ? '':'hide';?>"><?= $match['phone'] ?></div>
+                                        <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 <?=$private[1] ? '':'hide';?>"><?=$this->session->userdata('demo') == 1 ? '*** - *** - ****' : $match['phone'];?></div>
 
 
                                         <div class="col-xs-12">

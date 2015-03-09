@@ -62,6 +62,13 @@ class Welcome extends CI_Controller {
         $this->load->view('/static/footer',$this->data);
     }
 
+    // activate demo mode
+    public function demo()
+    {
+        $this->session->set_userdata('demo',1);
+        $this->index();
+    }
+
 }
 
 /* End of file welcome.php */

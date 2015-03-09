@@ -65,7 +65,7 @@
 
                                         <p><?= $me['menteer_type'] == 37 ? 'Mentor' : ''; ?><?= $me['menteer_type'] == 38 ? 'Mentee' : ''; ?><?= $me['menteer_type'] == 41 ? 'Mentee/Mentor' : ''; ?></p>
 
-                                        <p><?= $me['email'] ?></p>
+                                        <p><?=$this->session->userdata('demo') == 1 ? '**********'.substr($me['email'],strpos($me['email'],'@'),28) : $me['email'];?></p>
 
                                         <div style="clear:both;"></div>
 
@@ -81,7 +81,7 @@
                                         <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6"><input style="line-height: 18px;" class="col-xs-12"
                                                                      type="text"
                                                                      name="phone" placeholder="Phone"
-                                                                     value="<?= $me['phone'] ?>"></div>
+                                                                     value="<?=$this->session->userdata('demo') == 1 ? '*** - *** - ****' : $me['phone'];?>"></div>
 
 
                                         <div class="col-xs-12">

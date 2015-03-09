@@ -116,6 +116,8 @@ class Auth extends CI_Controller {
 	{
 		$this->data['title'] = "Logout";
 
+        $this->session->set_userdata('demo',0);
+
 		//log the user out
 		$logout = $this->ion_auth->logout();
 

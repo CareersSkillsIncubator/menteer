@@ -118,7 +118,7 @@
                     <td><a name="user<?=$user['id']?>" href="/dashboard/force/<?=encrypt_url($user['id']);?>"><?=$user['id']?></a></td>
                     <td><?=$user['last_name']?></td>
                     <td><?=$user['first_name']?></td>
-                    <td><?=$user['email']?></td>
+                    <td><?=$this->session->userdata('demo') == 1 ? '**********'.substr($user['email'],strpos($user['email'],'@'),28) : $user['email'];?></td>
                     <td>
 
                         <?php
