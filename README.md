@@ -47,6 +47,28 @@ technology stack / open source
 * Hammerjs v2.0.4
 
 
+security
+=========
+
+* XSS (Cross-Site Scripting) Filtering - This filter looks for commonly used techniques to embed malicious JavaScript into your data, or other types of code that attempt to hijack cookies or do other malicious things.
+
+* SQL Injection Protection
+
+* CSRF (Cross-Site Request Forgery) Protection - which is the process of an attacker tricking their victim into unknowingly submitting a request.  Automatically triggered for every non-GET HTTP request.
+
+* Input Validation (All GET AND POST data Cleaned and Validated)
+
+* MySQLi Driver used
+
+* Encrypted URL used when doing sensitive tasks
+
+* Forced SSL/HTTPS
+
+* SMTP (Sendgrid) email ready (out-of-the-box)
+
+* Cloudflare tested and ready
+
+
 optional services used
 ======================
 
