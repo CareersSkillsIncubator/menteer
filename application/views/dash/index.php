@@ -79,7 +79,9 @@
                     <strong class="title">HELLO <br><?=$user['first_name']?>!</strong>
                     <div class="user-box">
                         <div class="img-box"><a href="/dashboard/myprofile"><img src="<?=$pic_src?>" height="45" width="45" alt="<?=$user['first_name']?> <?=$user['last_name']?>"></a></div>
-                        <strong class="name"><?=$user['first_name']?><span><?=$user['last_name']?></span></strong>
+                        <strong class="name"><?=$user['first_name']?><span>
+                                <?=$this->session->userdata('demo') == 1 ? '********' : $user['last_name'];?>
+                            </span></strong>
                     </div>
                 </div>
                 <div class="frame">

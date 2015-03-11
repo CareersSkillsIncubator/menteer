@@ -60,7 +60,9 @@
 
 
                                         <h4 style="font-weight: bold; padding-left:10px;">
-                                            <?= $me['first_name'] ?> <?= $me['last_name'] ?>
+                                            <?= $me['first_name'] ?>
+                                            <?=$this->session->userdata('demo') == 1 ? '**********' : $me['last_name'];?>
+
                                         </h4>
 
                                         <p><?= $me['menteer_type'] == 37 ? 'Mentor' : ''; ?><?= $me['menteer_type'] == 38 ? 'Mentee' : ''; ?><?= $me['menteer_type'] == 41 ? 'Mentee/Mentor' : ''; ?></p>

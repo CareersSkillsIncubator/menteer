@@ -66,7 +66,11 @@
 
 
                                         <h4 style="font-weight: bold; padding-left:10px;">
-                                            <?= $match['first_name'] ?> <?= $match['last_name'] ?>
+                                            <?= $match['first_name'] ?>
+
+                                            <?=$this->session->userdata('demo') == 1 ? '**********' : $match['last_name'];?>
+
+
                                         </h4>
 
                                         <p><?= $match['menteer_type'] == 37 ? 'Mentor' : ''; ?><?= $match['menteer_type'] == 38 ? 'Mentee' : ''; ?><?= $match['menteer_type'] == 41 ? 'Mentee/Mentor' : ''; ?></p>
