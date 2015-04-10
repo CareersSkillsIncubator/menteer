@@ -14,7 +14,7 @@
 // select mentor controller
 class Chooser extends CI_Controller {
 
-	public function __construct()
+    public function __construct()
     {
         parent::__construct();
 
@@ -34,8 +34,8 @@ class Chooser extends CI_Controller {
 
     }
 
-	public function index()
-	{
+    public function index()
+    {
 
         // mentors cannot choose another mentor
         if($this->user['menteer_type']==37)
