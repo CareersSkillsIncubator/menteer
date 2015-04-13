@@ -381,7 +381,7 @@ class Auth extends CI_Controller {
 					{
 						//if the password was successfully changed
 		                $csrf_hash = $this->security->get_csrf_hash();
-                        echo json_encode(array('vresult'=>'success','message'=>'Great. Your password has been changed. Click <a data-toggle="modal" data-target="#login-modal" href="/#login">here</a> to login.','csrf_hash'=>$csrf_hash));
+                        echo json_encode(array('vresult'=>'success','message'=>'Great. Your password has been changed. Click <a data-toggle="modal" data-target="#login-modal" href="/">here</a> to login.','csrf_hash'=>$csrf_hash));
 
                     }
 					else
@@ -427,13 +427,13 @@ class Auth extends CI_Controller {
 		{
 			//redirect them to the auth page
 			//$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect("/?activated=1#login", 'refresh');
+			redirect("/?activated=1", 'refresh');
 		}
 		else
 		{
 			//redirect them to the forgot password page
 			//$this->session->set_flashdata('message', $this->ion_auth->errors());
-			redirect("/?activated=1#login", 'refresh');
+			redirect("/?activated=1", 'refresh');
 		}
 	}
 
