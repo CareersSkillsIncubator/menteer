@@ -18,6 +18,11 @@ $(function() {
 	var stripeResponseHandler = function(status, response) {
 		if (response.error) {
 			outputError(response.error.message);
+
+            $('html, body').animate({
+                scrollTop: $(".messages").offset().top
+            }, 2000);
+
 		} else {
 			var token = response['id'];
 			$form.append('<input type="hidden" name="stripeToken" value="' + token + '">');
