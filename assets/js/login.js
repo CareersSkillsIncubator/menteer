@@ -22,7 +22,7 @@ $( document ).ready(function() {
         var $frm = $('#question_form');
         var $frm_data = JSON.stringify($frm.serializeArray());
 
-        console.log($frm_data);
+        //console.log($frm_data);
 
         var form_data = {
             frm_data: $frm_data,
@@ -61,7 +61,7 @@ $( document ).ready(function() {
                         default:
                             $("input[name=csrf_tl_token]").val($obj.csrf_hash);
 
-                            console.log($obj.full_message);
+                           // console.log($obj.full_message);
 
                             // highlight fields that are incorrect
 
