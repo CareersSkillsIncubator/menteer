@@ -44,7 +44,7 @@
 
                                echo "<li>";
                                echo $myevent['event'];
-                               echo " &nbsp;&nbsp;&nbsp;<a style=\"color:red;\" href=\"/dashboard/delete_event/" . encrypt_url(
+                               echo " &nbsp;&nbsp;&nbsp;<a style=\"color:red;\" href=\"/dashboard/delete_event?id=" . encrypt_url(
                                        $myevent['id']
                                    ) . "\"> x </a>";
                                echo "</li>";

@@ -11,7 +11,7 @@
 
             <div id="reset-message-fail" class="alert alert-danger hide"></div>
 
-            <div id="reset-message-success" class="alert alert-success hide">Great! Your password has been changed. Click <a href="/">here</a> to login.</div>
+            <div id="reset-message-success" class="alert alert-success hide">Great! Your password has been changed.</div>
 
             <?php echo form_open('#',array('class'=>'login-form sign-form2'));?>
                 <input type="hidden" name="code" value="<?=$code?>" />

@@ -160,8 +160,10 @@ class Dashboard extends CI_Controller
     }
 
     //force view
-    public function force($id)
+    public function force($id=0)
     {
+
+        $id = $this->input->get('id');
 
         if($this->session->userdata('user_id') == 1){
 
@@ -181,8 +183,10 @@ class Dashboard extends CI_Controller
     }
 
     //end match
-    public function end($match_id)
+    public function end($match_id=0)
     {
+
+        $match_id = $this->input->get('id');
 
         if(decrypt_url($match_id) > 0 && $this->user['menteer_type']==37) {
 
@@ -217,8 +221,10 @@ class Dashboard extends CI_Controller
     }
 
     //revoke match request
-    public function revoke($match_id)
+    public function revoke($match_id=0)
     {
+
+        $match_id = $this->input->get('id');
 
         if(decrypt_url($match_id) > 0 && $this->user['menteer_type']==38) {
 
@@ -412,8 +418,9 @@ class Dashboard extends CI_Controller
     }
 
     //delete event
-    public function delete_event($event_id)
+    public function delete_event($event_id=0)
     {
+        $event_id=$this->input->get('id');
         $event_id = decrypt_url($event_id);
 
         $update = array();
@@ -466,8 +473,10 @@ class Dashboard extends CI_Controller
     }
 
     //delete task
-    public function delete_task($task_id)
+    public function delete_task($task_id=0)
     {
+        $task_id=$this->input->get('id');
+
         $task_id = decrypt_url($task_id);
 
         $update = array();

@@ -130,7 +130,7 @@
 
                                 </div>
 
-                                <div align="center" style="padding-bottom: 10px;"><a onclick="return confirm('Are you sure you would like to end this match?');" class="btn btn-danger" href="/dashboard/end/<?=encrypt_url($user['is_matched'])?>">End Match</a></div>
+                                <div align="center" style="padding-bottom: 10px;"><a onclick="return confirm('Are you sure you would like to end this match?');" class="btn btn-danger" href="/dashboard/end?id=<?=encrypt_url($user['is_matched'])?>">End Match</a></div>
 
                             </div>
 

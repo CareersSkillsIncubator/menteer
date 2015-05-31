@@ -1,6 +1,6 @@
 <main id="main" role="main">
     <div class="section win-height non-bg">
-        <div class="img"><img src="/assets/images/img1.jpg" height="612" width="658" alt="image description"></div>
+        <div class="img"><img src="/assets/images/img1.jpg" height="612" width="658" alt="Menteer"></div>
         <div class="footer-box">
             <div class="container">
                 <div class="row">
@@ -48,53 +48,7 @@
 
                         <?=nl2br($content[2]['description'])?>
 
-                         Learn more about <a href="http://www.careerskillsincubator.com/">CSCI</a>.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="section win-height item item-color hide" id="menteers">
-        <div class="container">
-            <div class="row">
-                <span class="circle item"></span>
-                <span class="circle right item"></span>
-                <div class="col-sm-12">
-                    <h1 class="text-center">MENTEERS</h1>
-                    <div class="col-wrapp">
-                        <div class="col">
-                            <div class="img-box">
-                                <a href="#"><img src="/assets/images/img2.jpg" height="171" width="184" alt="image description"></a>
-                            </div>
-                            <h2><a href="#">Firstname Lastname</a></h2>
-                            <p>Lorem ipsum dolor sit amet, in verear conceptam adversarium duo. Fuisset interesset pri ea, in reque principes disputando vim. His veri soluta eu.</p>
-                            <ul class="social-networks">
-                                <li><a class="icon-linkedin" href="#"></a></li>
-                                <li><a class="icon-twitter" href="#"></a></li>
-                            </ul>
-                        </div>
-                        <div class="col">
-                            <div class="img-box">
-                                <a href="#"><img src="/assets/images/img3.jpg" height="171" width="184" alt="image description"></a>
-                            </div>
-                            <h2><a href="#">Firstname Lastname</a></h2>
-                            <p>Has quis erant tibique ea, eu harum percipit vituperatoribus sea, eu nam quis eros delectus. Mei eu fugit perpetua theophrastus, vis consul inimicus deseruisse ex, pri summo iriure postulant cu.</p>
-                            <ul class="social-networks">
-                                <li><a class="icon-linkedin" href="#"></a></li>
-                                <li><a class="icon-twitter" href="#"></a></li>
-                            </ul>
-                        </div>
-                        <div class="col">
-                            <div class="img-box">
-                                <a href="#"><img src="/assets/images/img4.jpg" height="171" width="184" alt="image description"></a>
-                            </div>
-                            <h2><a href="#">Firstname Lastname</a></h2>
-                            <p>Pro in affert putant latine, case saperet et nec. Quaeque numquam duo eu, sea erant omnes labitur at. Mei ex ludus primis, decore sententiae ad qui. In eum error epicurei.</p>
-                            <ul class="social-networks">
-                                <li><a class="icon-linkedin" href="#"></a></li>
-                                <li><a class="icon-twitter" href="#"></a></li>
-                            </ul>
-                        </div>
+                         Learn more about <a href="http://www.careerskillsincubator.com/">CSCI</a>.
                     </div>
                 </div>
             </div>

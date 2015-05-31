@@ -211,7 +211,9 @@ class Chooser extends CI_Controller {
     }
 
     // select mentor and send email notification
-    public function select($mentor_id) {
+    public function select($mentor_id=0) {
+
+        $mentor_id = $this->input->get('id');
 
         // mentors cannot choose another mentor
         if($this->user['menteer_type']==37)

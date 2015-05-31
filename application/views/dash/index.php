@@ -54,7 +54,7 @@
                 <?php } ?>
 
                 <?php if($user['is_matched'] > 0 && $user['menteer_type']=='38' && $user['match_status']=='pending'){ ?>
-                    <div class="alert alert-info">You are currently awaiting for your chosen mentor to accept your request. Click <a href="/dashboard/revoke/<?=encrypt_url($user['is_matched'])?>"><u>here</u></a> to revoke this request.</div>
+                    <div class="alert alert-info">You are currently awaiting for your chosen mentor to accept your request. Click <a href="/dashboard/revoke?id=<?=encrypt_url($user['is_matched'])?>"><u>here</u></a> to revoke this request.</div>
                 <?php } ?>
 
                 <?php if($user['active']==0){ ?>

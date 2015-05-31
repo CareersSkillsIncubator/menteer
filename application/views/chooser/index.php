@@ -46,7 +46,7 @@
 
                                     <div style="clear:both;"></div>
                                     <hr />
-                                    <div align="center" class="well"><a href="/chooser/select/<?=encrypt_url($mentor['user']['id'])?>" class="btn btn-primary">SELECT</a></div>
+                                    <div align="center" class="well"><a href="/chooser/select?id=<?=encrypt_url($mentor['user']['id'])?>" class="btn btn-primary">SELECT</a></div>
                                     <hr />
                                     <div style="clear:both;"></div>
                                     <h2 style="text-align:center;">Questionnaire Answers</h2>

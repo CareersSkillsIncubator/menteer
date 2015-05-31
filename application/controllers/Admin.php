@@ -104,9 +104,9 @@ class Admin extends CI_Controller {
     }
 
     // activate a user from admin
-    public function activate($user_id)
+    public function activate($user_id=0)
     {
-
+        $user_id=$this->input->get('id');
         $update['id'] = decrypt_url($user_id);
         $update['data']['active'] = 1;
         $update['table'] = 'users';

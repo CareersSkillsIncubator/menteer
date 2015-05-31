@@ -44,7 +44,7 @@
 
                                echo "<li>";
                                echo $mytask['task'];
-                               echo " &nbsp;&nbsp;&nbsp;<a style=\"color:red;\" href=\"/dashboard/delete_task/" . encrypt_url(
+                               echo " &nbsp;&nbsp;&nbsp;<a style=\"color:red;\" href=\"/dashboard/delete_task?id=" . encrypt_url(
                                        $mytask['id']
                                    ) . "\"> x </a>";
                                echo "</li>";

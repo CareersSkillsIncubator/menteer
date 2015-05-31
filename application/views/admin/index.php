@@ -115,7 +115,7 @@
             foreach($users as $user) { ?>
 
                 <tr>
-                    <td><a name="user<?=$user['id']?>" href="/dashboard/force/<?=encrypt_url($user['id']);?>"><?=$user['id']?></a></td>
+                    <td><a name="user<?=$user['id']?>" href="/dashboard/force?id=<?=encrypt_url($user['id']);?>"><?=$user['id']?></a></td>
                     <td>
 
                         <?=$this->session->userdata('demo') == 1 ? '**********' : $user['last_name'];?>
@@ -167,7 +167,7 @@
                     <td><?=date("M d Y",$user['last_login'])?></td>
 
                     <?php
-                        $act = "<a href=\"/admin/activate/".encrypt_url($user['id'])."\" onclick=\"return confirm('Are you sure you would like to activate this user?');\">activate</a>";
+                        $act = "<a href=\"/admin/activate?id=".encrypt_url($user['id'])."\" onclick=\"return confirm('Are you sure you would like to activate this user?');\">activate</a>";
                     ?>
 
                     <td><?=$user['active']==1 ? 'Yes' : $act?></td>
