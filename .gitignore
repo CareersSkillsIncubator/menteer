@@ -4,3 +4,4 @@ application/config/database.php
 application/config/email.php
 .idea
 application/config/stripe.php
+.DS_Store
