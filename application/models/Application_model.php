@@ -164,4 +164,26 @@ class Application_model extends CI_Model
         }
         return $ret;
     }
+
+    /**
+     * @param $user_id
+     * @return array
+     */
+    function getUserToExport($user_id) {
+        $sql = "Call User_GetUserInfoToExport($user_id)";
+        $data = $this->db->query($sql)->result_array();
+        $result = array();
+        for($i=0, $ctdad = count($data); $i<$ctdad; $i++){
+            $to_proccess = $data[$i];
+            if($i){
+                 $to_proccess = array_slice($to_proccess, 14,2);
+                }
+            
+            foreach ($to_proccess as $key => $value) {
+                    $result[] = array($key,$value);
+                }
+
+        }
+        return $result;        
+    }
 }

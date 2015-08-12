@@ -17,7 +17,7 @@
         <p>&nbsp;</p>
 
         <div style="clear:both;"></div>
-        <ul class="nav nav-pills nav-stacked" style="width:200px; float:left; margin-left:3px; margin-top: 3px;">
+        <ul class="nav nav-pills nav-stacked" style="width:214px; float:left; margin-left:3px; margin-top: 3px;">
             <li class="active">
                 <a href="#">
                     <span class="badge pull-right"><?=count($users);?></span>
@@ -26,7 +26,7 @@
             </li>
         </ul>
 
-        <ul class="nav nav-pills nav-stacked" style="width:200px; float:left; margin-left:3px; margin-top: 3px;">
+        <ul class="nav nav-pills nav-stacked" style="width:214px; float:left; margin-left:3px; margin-top: 3px;">
             <li class="active">
                 <a href="#">
                     <span class="badge pull-right"><?=count($mentors);?></span>
@@ -35,7 +35,7 @@
             </li>
         </ul>
 
-        <ul class="nav nav-pills nav-stacked" style="width:200px; float:left; margin-left:3px; margin-top: 3px;">
+        <ul class="nav nav-pills nav-stacked" style="width:214px; float:left; margin-left:3px; margin-top: 3px;">
             <li class="active">
                 <a href="#">
                     <span class="badge pull-right"><?=count($mentees);?></span>
@@ -44,7 +44,7 @@
             </li>
         </ul>
 
-        <ul class="nav nav-pills nav-stacked" style="width:200px; float:left; margin-left:3px; margin-top: 3px;">
+        <ul class="nav nav-pills nav-stacked" style="width:214px; float:left; margin-left:3px; margin-top: 3px;">
             <li class="active">
                 <a href="#">
                     <span class="badge pull-right"><?=count($both);?></span>
@@ -53,7 +53,7 @@
             </li>
         </ul>
 
-        <ul class="nav nav-pills nav-stacked" style="width:200px; float:left; margin-left:3px; margin-top: 3px;">
+        <ul class="nav nav-pills nav-stacked" style="width:214px; float:left; margin-left:3px; margin-top: 3px;">
             <li class="active">
                 <a href="#">
                     <span class="badge pull-right"><?=count($matched);?></span>
@@ -62,7 +62,7 @@
             </li>
         </ul>
 
-        <ul class="nav nav-pills nav-stacked" style="width:200px; float:left; margin-left:3px; margin-top: 3px;">
+        <ul class="nav nav-pills nav-stacked" style="width:214px; float:left; margin-left:3px; margin-top: 3px;">
             <li class="active">
                 <a href="#">
                     <span class="badge pull-right"><?=count($meetings);?></span>
@@ -71,7 +71,7 @@
             </li>
         </ul>
 
-        <ul class="nav nav-pills nav-stacked" style="width:200px; float:left; margin-left:3px; margin-top: 3px;">
+        <ul class="nav nav-pills nav-stacked" style="width:214px; float:left; margin-left:3px; margin-top: 3px;">
             <li class="active">
                 <a href="#">
                     <span class="badge pull-right"><?=count($tasks);?></span>
@@ -80,7 +80,7 @@
             </li>
         </ul>
 
-        <ul class="nav nav-pills nav-stacked" style="width:200px; float:left; margin-left:3px; margin-top: 3px;">
+        <ul class="nav nav-pills nav-stacked" style="width:214px; float:left; margin-left:3px; margin-top: 3px;">
             <li class="active">
                 <a href="#">
                     <span class="badge pull-right"><?=count($events);?></span>
@@ -107,6 +107,7 @@
                 <th>Last Login</th>
                 <th>Active</th>
                 <th>Disabled</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -172,6 +173,7 @@
 
                     <td><?=$user['active']==1 ? 'Yes' : $act?></td>
                     <td><?=$user['enabled']==0 ? 'Yes' : 'No';?></td>
+                    <td><a name="user<?=$user['id']?>" href="admin/exportuser/<?=encrypt_url($user['id']);?>">Export</a></td>                    
                 </tr>
 
             <?php }
@@ -184,9 +186,16 @@
         <script>
             $(document).ready(function()
                 {
-                    $("#myTable").tablesorter();
-                }
-            );
+                    $("#myTable").tablesorter({         
+                        headers: { 
+                                  // assign the last column
+                            10: { 
+                                // disable it by setting the property sorter to false 
+                                sorter: false 
+                                 }                             
+                        } 
+                    }); 
+                });
         </script>
 
 
