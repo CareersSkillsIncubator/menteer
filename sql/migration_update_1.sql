@@ -325,3 +325,33 @@ CREATE TABLE `users_groups` (
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+# Stored procedures
+# ------------------------------------------------------------
+DROP PROCEDURE IF EXISTS `User_GetUserInfoToExport`;
+
+CREATE PROCEDURE `User_GetUserInfoToExport`(pUser_id int)
+BEGIN
+  SELECT  u.id,
+    first_name,
+    last_name,
+    active,
+    email,
+    CASE menteer_type WHEN 38 THEN "Mentee" WHEN 37 THEN "Mentor" END as menteer_type ,
+    is_matched ,
+    match_status,
+    career_status,
+    education,
+    experience,
+    skills,
+    passion,
+    u.enabled,    
+    q.question,
+    if( qa.id is null, ua.questionnaire_answer_text, qa.answer) as answer
+FROM users u
+inner join users_answers ua on u.id = ua.user_id
+left JOIN questionnaire q on ua.questionnaire_id = q.id
+left JOIN questionnaire_answers qa on qa.id = ua.questionnaire_answer_id
+WHERE u.id = pUser_id ;
+
+END;

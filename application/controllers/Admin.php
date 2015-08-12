@@ -14,6 +14,46 @@
 // administrate platform
 class Admin extends CI_Controller {
 
+    private function exportCSV($data,$filename = 'export.csv')
+    {
+        $fp = fopen("exports/$filename", 'w+');
+
+        foreach ($data as $fields) {
+            fputcsv($fp, $fields);
+        }
+
+        fclose($fp);
+
+        $path = "exports/$filename";
+        // make sure it's a file before doing anything!
+        if (is_file($path)) {   
+            // required for IE
+            if (ini_get('zlib.output_compression')) {
+                ini_set('zlib.output_compression', 'Off');
+            }
+
+            // get the file mime type using the file extension
+            $this->load->helper('file');
+
+            $mime = get_mime_by_extension($path);
+
+            // Build the headers to push out the file properly.
+            header('Pragma: public');     // required
+            header('Expires: 0');         // no cache
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Last-Modified: ' . gmdate('D, d M Y H:i:s', filemtime($path)) . ' GMT');
+            header('Cache-Control: private', false);
+            header('Content-Type: ' . $mime);  // Add the mime type from Code igniter.
+            header('Content-Disposition: attachment; filename="' . basename($filename) . '"');  // Add the file name
+            header('Content-Transfer-Encoding: binary');
+            header('Content-Length: ' . filesize($path)); // provide file size
+            header('Connection: close');
+            readfile($path); // push it out
+            unlink($path);
+            exit();
+        }
+    }
+
     public function __construct()
     {
         parent::__construct();
@@ -39,45 +79,20 @@ class Admin extends CI_Controller {
             $list[] = array("{$user['first_name']}", "{$user['last_name']}", "{$user['email']}");
 
         }
+        $this->exportCSV($list);            
 
-        $fp = fopen('exports/export.csv', 'w+');
+    }
 
-        foreach ($list as $fields) {
-            fputcsv($fp, $fields);
-        }
-
-        fclose($fp);
-
-        $path = "exports/export.csv";
-        $name = "export.csv";
-        // make sure it's a file before doing anything!
-        if (is_file($path)) {
-            // required for IE
-            if (ini_get('zlib.output_compression')) {
-                ini_set('zlib.output_compression', 'Off');
-            }
-
-            // get the file mime type using the file extension
-            $this->load->helper('file');
-
-            $mime = get_mime_by_extension($path);
-
-            // Build the headers to push out the file properly.
-            header('Pragma: public');     // required
-            header('Expires: 0');         // no cache
-            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-            header('Last-Modified: ' . gmdate('D, d M Y H:i:s', filemtime($path)) . ' GMT');
-            header('Cache-Control: private', false);
-            header('Content-Type: ' . $mime);  // Add the mime type from Code igniter.
-            header('Content-Disposition: attachment; filename="' . basename($name) . '"');  // Add the file name
-            header('Content-Transfer-Encoding: binary');
-            header('Content-Length: ' . filesize($path)); // provide file size
-            header('Connection: close');
-            readfile($path); // push it out
-            unlink($path);
-            exit();
-
-        }
+    // export one single user 
+    public function exportuser($user_id)
+    {
+        // get all users
+        $user_id = decrypt_url($user_id);
+        $info = $this->Application_model->getUserToExport($user_id);  
+        $filename = "export_$user_id.csv";
+        $this->exportCSV($info,$filename);     
+        
+       
     }
 
     // show admin console
@@ -104,9 +119,9 @@ class Admin extends CI_Controller {
     }
 
     // activate a user from admin
-    public function activate($user_id=0)
+    public function activate($user_id)
     {
-        $user_id=$this->input->get('id');
+
         $update['id'] = decrypt_url($user_id);
         $update['data']['active'] = 1;
         $update['table'] = 'users';
